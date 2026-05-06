@@ -453,6 +453,14 @@
     return String(code).startsWith("GRP_");
   }
 
+  // Detecta cualquier "agregado" del universo: tanto los grupos custom (GRP_*)
+  // como los códigos sintéticos del BCRA (AA*: TOTAL SISTEMA FINANCIERO,
+  // BANCOS PUBLICOS, BANCOS PRIVADOS, 10 PRIMEROS BANCOS PRIVADOS, etc.).
+  function isAnyGroupCode(code) {
+    const s = String(code || "");
+    return s.startsWith("GRP_") || /^AA\d+$/i.test(s);
+  }
+
   // -------------------------------------------------------------------------
   // IPC
   // -------------------------------------------------------------------------
@@ -1083,6 +1091,7 @@
     // helpers
     getMonthBounds,
     isGroupCode,
+    isAnyGroupCode,
     isHomogeneizable,
     ipcBaseMonth,
     pad5,

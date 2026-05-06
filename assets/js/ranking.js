@@ -17,14 +17,13 @@
     includeGroups: true,
     sortKey: "value",    // 'value' | 'yoy' | 'mom' | 'alias'
     sortDir: "desc",     // 'asc' | 'desc'
-    query: "",           // búsqueda por nombre
   };
   const state = Object.assign({}, DEFAULTS, loadState() || {});
   // Migración suave de versiones viejas del estado
   if (!["value", "yoy", "mom", "alias"].includes(state.sortKey)) state.sortKey = "value";
   if (!["asc", "desc"].includes(state.sortDir)) state.sortDir = "desc";
   if (typeof state.includeGroups === "undefined") state.includeGroups = true;
-  if (typeof state.query !== "string") state.query = "";
+  delete state.query;
 
   function loadState() {
     try { return JSON.parse(localStorage.getItem(STATE_KEY)); } catch { return null; }
@@ -36,15 +35,18 @@
   const indHost = document.getElementById("indicator-picker");
   const monthHost = document.getElementById("month-picker");
   const topnInput = document.getElementById("topn-input");
-  const incGroupsToggle = document.getElementById("include-groups-toggle");
-  const searchInput = document.getElementById("search-input");
+  const universeHost = document.getElementById("universe-seg");
   const statusEl = document.getElementById("ranking-status");
   const metaEl = document.getElementById("ranking-meta");
   const countEl = document.getElementById("result-count");
   const tableEl = document.getElementById("rank-table");
   const dlBtn = document.getElementById("download-csv");
+  const detailCard = document.getElementById("ind-detail-card");
+  const detailTitle = detailCard.querySelector(".ind-detail-title");
+  const detailMeta = detailCard.querySelector(".ind-detail-meta");
+  const detailBody = detailCard.querySelector(".ind-detail-body");
 
-  let indCombo, monthCombo;
+  let indCombo, monthSlider, universeSeg;
   let lastResults = null; // { meta, records:[] }
 
   function setStatus(msg, type = "info") {
@@ -71,15 +73,12 @@
         return;
       }
       const months = BCRA.monthsRange(bounds.minYM, bounds.maxYM);
-      const monthOptsDesc = months.slice().reverse().map((ym) => ({
-        value: String(ym),
-        label: labelMonth(ym),
-      }));
       if (!state.refYM || !months.includes(state.refYM)) state.refYM = bounds.maxYM;
 
-      monthCombo = UI.combobox(monthHost, monthOptsDesc, {
-        selected: String(state.refYM),
-        onChange: (v) => { state.refYM = parseInt(v, 10); saveState(); render(); },
+      monthSlider = UI.dateMonthSlider(monthHost, months, {
+        value: state.refYM,
+        onChange: (v) => { state.refYM = v; saveState(); render(); },
+        onInput: (v) => { state.refYM = v; },
       });
 
       const indOpts = indicators.map((i) => ({
@@ -110,22 +109,16 @@
         if (lastResults) renderTable();
       });
 
-      incGroupsToggle.checked = !!state.includeGroups;
-      incGroupsToggle.addEventListener("change", () => {
-        state.includeGroups = !!incGroupsToggle.checked;
-        saveState();
-        render();
-      });
-
-      searchInput.value = state.query || "";
-      let searchDebounce;
-      searchInput.addEventListener("input", () => {
-        clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(() => {
-          state.query = searchInput.value || "";
+      universeSeg = UI.segmented(universeHost, [
+        { value: "all", label: "Todas + grupos" },
+        { value: "entities", label: "Solo entidades" },
+      ], {
+        selected: state.includeGroups ? "all" : "entities",
+        onChange: (v) => {
+          state.includeGroups = (v === "all");
           saveState();
-          if (lastResults) renderTable();
-        }, 120);
+          render();
+        },
       });
 
       UI.hideLoading();
@@ -138,6 +131,27 @@
   })();
 
   document.addEventListener("bcra:moneda_homog", () => render());
+
+  async function renderIndicatorDetail(meta, origen, code) {
+    if (!detailCard) return;
+    const txt = await UI.getDetalleText(code);
+    const title = meta ? meta.descripcion_dato : `Código ${code}`;
+    const formatoLbl = meta && String(meta.formato).toUpperCase() === "P" ? "porcentaje (%)" : "valor numérico";
+    detailMeta.innerHTML = `
+      <span class="pill">${UI.escapeHtml(origen)}</span>
+      <span class="pill">cód. ${code}</span>
+      <span>${formatoLbl}</span>
+    `;
+    detailTitle.textContent = title;
+    if (txt && txt.trim()) {
+      detailBody.textContent = txt;
+      detailBody.classList.remove("muted");
+    } else {
+      detailBody.textContent = "Sin detalle disponible para este indicador.";
+      detailBody.classList.add("muted");
+    }
+    detailCard.classList.remove("hidden");
+  }
 
   // -------- core: fetch and rank ----------
   let renderToken = 0;
@@ -162,11 +176,16 @@
       const meta = indicators.find((i) => i.origen === origen && i.codigo_dato === code);
       const formato = (meta && meta.formato) ? String(meta.formato).toUpperCase() : "N";
 
+      // Detalle desplegado automáticamente para el indicador activo.
+      await renderIndicatorDetail(meta, origen, code);
+
       let entList;
       if (state.includeGroups) {
         entList = nomina.slice();
       } else {
-        entList = nomina.filter((n) => !BCRA.isGroupCode(n.codigo_entidad));
+        // Excluye tanto los grupos custom (GRP_*) como los agregados nativos
+        // del BCRA (AA*: TOTAL SISTEMA FINANCIERO, BANCOS PUBLICOS, etc.).
+        entList = nomina.filter((n) => !BCRA.isAnyGroupCode(n.codigo_entidad));
       }
       const codeToAlias = new Map(entList.map((n) => [n.codigo_entidad, n.alias]));
       const codeToIsGroup = new Map(entList.map((n) => [n.codigo_entidad, n.grupo_homogeneo === "GRUPO"]));
@@ -259,15 +278,7 @@
 
   function getSortedFiltered() {
     if (!lastResults) return [];
-    let list = lastResults.records.slice();
-
-    const q = (state.query || "").trim().toLowerCase();
-    if (q) {
-      list = list.filter((r) =>
-        (r.alias || "").toLowerCase().includes(q) ||
-        (r.codigo_entidad || "").toLowerCase().includes(q)
-      );
-    }
+    const list = lastResults.records.slice();
 
     const k = state.sortKey;
     const dir = state.sortDir;
@@ -337,13 +348,8 @@
     const slice = list.slice(0, n);
 
     const totalRec = lastResults.records.length;
-    const filteredCount = list.length;
     const shownCount = slice.length;
-    if (state.query && state.query.trim()) {
-      countEl.textContent = `${shownCount} de ${filteredCount} (filtrado de ${totalRec})`;
-    } else {
-      countEl.textContent = `Mostrando ${shownCount} de ${totalRec}`;
-    }
+    countEl.textContent = `Mostrando ${shownCount} de ${totalRec}`;
 
     const head = `<thead><tr>
       <th class="rank-pos">#</th>
@@ -355,9 +361,7 @@
 
     if (!slice.length) {
       tableEl.innerHTML = head +
-        `<tbody><tr><td colspan="5" class="rank-empty">${
-          state.query ? "Sin resultados para la búsqueda actual." : "Sin datos suficientes para esta selección."
-        }</td></tr></tbody>`;
+        `<tbody><tr><td colspan="5" class="rank-empty">Sin datos suficientes para esta selección.</td></tr></tbody>`;
       attachHeaderHandlers();
       return;
     }

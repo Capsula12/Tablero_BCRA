@@ -73,18 +73,14 @@
         return;
       }
 
-      // Months descending
-      const months = BCRA.monthsRange(bounds.minYM, bounds.maxYM).reverse();
-      const monthOpts = months.map((ym) => ({
-        value: String(ym),
-        label: `${Math.floor(ym / 100)}-${String(ym % 100).padStart(2, "0")}`,
-      }));
-      if (!state.endYM || !monthOpts.find((o) => o.value === String(state.endYM))) {
+      const months = BCRA.monthsRange(bounds.minYM, bounds.maxYM);
+      if (!state.endYM || !months.includes(state.endYM)) {
         state.endYM = bounds.maxYM;
       }
-      monthCombo = UI.combobox(monthHost, monthOpts, {
-        selected: String(state.endYM),
-        onChange: (v) => { state.endYM = parseInt(v, 10); saveState(); render(); },
+      monthCombo = UI.dateMonthSlider(monthHost, months, {
+        value: state.endYM,
+        onChange: (v) => { state.endYM = v; saveState(); render(); },
+        onInput: (v) => { state.endYM = v; },
       });
 
       // Entity options (incl. groups)

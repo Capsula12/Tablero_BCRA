@@ -479,6 +479,367 @@
       </details>`;
   }
 
+  async function getDetalleText(codigo_dato) {
+    const detalles = await BCRA.loadDetalles();
+    return detalles.get(parseInt(codigo_dato, 10)) || "";
+  }
+
+  // -------------------------------------------------------------------------
+  // Date range slider (dual-thumb) — replaces "Desde / Hasta" comboboxes.
+  // Estilo Streamlit: una sola barra con dos handles que se arrastran sobre
+  // el rango disponible de meses (yyyymm).
+  //
+  //   months: [yyyymm, yyyymm, ...] sorted asc
+  //   opts.from / opts.to: yyyymm iniciales (caen al borde si no están)
+  //   opts.onChange({from, to}) — disparado al soltar / al teclado
+  //   opts.onInput({from, to})  — disparado en vivo durante el drag
+  // -------------------------------------------------------------------------
+  function dateRangeSlider(host, months, opts = {}) {
+    if (!Array.isArray(months) || months.length === 0) {
+      host.innerHTML = `<div class="muted small">Sin períodos disponibles.</div>`;
+      return { setRange() {}, getRange() { return { from: null, to: null }; }, destroy() {} };
+    }
+    const minIdx = 0;
+    const maxIdx = months.length - 1;
+    let leftIdx = months.indexOf(opts.from);
+    let rightIdx = months.indexOf(opts.to);
+    if (leftIdx < 0) leftIdx = minIdx;
+    if (rightIdx < 0) rightIdx = maxIdx;
+    if (leftIdx > rightIdx) [leftIdx, rightIdx] = [rightIdx, leftIdx];
+
+    function lbl(ym) { return `${Math.floor(ym / 100)}-${String(ym % 100).padStart(2, "0")}`; }
+
+    host.classList.add("range-slider");
+    host.innerHTML = `
+      <div class="rs-labels">
+        <span class="rs-label rs-label-from">${lbl(months[leftIdx])}</span>
+        <span class="rs-arrow">→</span>
+        <span class="rs-label rs-label-to">${lbl(months[rightIdx])}</span>
+        <span class="rs-spacer"></span>
+        <span class="rs-bounds">Disponible ${lbl(months[minIdx])} – ${lbl(months[maxIdx])}</span>
+      </div>
+      <div class="rs-track" role="group" aria-label="Rango de meses">
+        <div class="rs-rail"></div>
+        <div class="rs-range"></div>
+        <div class="rs-thumb rs-thumb-left" tabindex="0" role="slider"
+             aria-label="Mes inicial"
+             aria-valuemin="${months[minIdx]}" aria-valuemax="${months[maxIdx]}" aria-valuenow="${months[leftIdx]}"></div>
+        <div class="rs-thumb rs-thumb-right" tabindex="0" role="slider"
+             aria-label="Mes final"
+             aria-valuemin="${months[minIdx]}" aria-valuemax="${months[maxIdx]}" aria-valuenow="${months[rightIdx]}"></div>
+      </div>
+      <div class="rs-shortcuts">
+        <button type="button" class="rs-shortcut" data-months="12">Último año</button>
+        <button type="button" class="rs-shortcut" data-months="36">3 años</button>
+        <button type="button" class="rs-shortcut" data-months="60">5 años</button>
+        <button type="button" class="rs-shortcut" data-months="all">Todo</button>
+      </div>
+    `;
+
+    const track = host.querySelector(".rs-track");
+    const range = host.querySelector(".rs-range");
+    const thumbLeft = host.querySelector(".rs-thumb-left");
+    const thumbRight = host.querySelector(".rs-thumb-right");
+    const labelFrom = host.querySelector(".rs-label-from");
+    const labelTo = host.querySelector(".rs-label-to");
+
+    function pctFor(idx) {
+      if (maxIdx === minIdx) return 0;
+      return ((idx - minIdx) / (maxIdx - minIdx)) * 100;
+    }
+    function idxAtX(clientX) {
+      const rect = track.getBoundingClientRect();
+      if (rect.width <= 0) return minIdx;
+      const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      return Math.round(minIdx + ratio * (maxIdx - minIdx));
+    }
+
+    function render() {
+      const lp = pctFor(leftIdx);
+      const rp = pctFor(rightIdx);
+      thumbLeft.style.left = lp + "%";
+      thumbRight.style.left = rp + "%";
+      range.style.left = lp + "%";
+      range.style.right = (100 - rp) + "%";
+      labelFrom.textContent = lbl(months[leftIdx]);
+      labelTo.textContent = lbl(months[rightIdx]);
+      thumbLeft.setAttribute("aria-valuenow", String(months[leftIdx]));
+      thumbRight.setAttribute("aria-valuenow", String(months[rightIdx]));
+    }
+
+    function fireInput() {
+      if (typeof opts.onInput === "function") {
+        opts.onInput({ from: months[leftIdx], to: months[rightIdx] });
+      }
+    }
+    function fireChange() {
+      if (typeof opts.onChange === "function") {
+        opts.onChange({ from: months[leftIdx], to: months[rightIdx] });
+      }
+    }
+
+    let dragging = null;
+    function onPointerMove(e) {
+      if (!dragging) return;
+      let idx = idxAtX(e.clientX);
+      if (dragging === "left") {
+        idx = Math.max(minIdx, Math.min(rightIdx, idx));
+        if (idx !== leftIdx) { leftIdx = idx; render(); fireInput(); }
+      } else {
+        idx = Math.min(maxIdx, Math.max(leftIdx, idx));
+        if (idx !== rightIdx) { rightIdx = idx; render(); fireInput(); }
+      }
+    }
+    function onPointerUp() {
+      if (!dragging) return;
+      dragging = null;
+      document.body.classList.remove("rs-dragging");
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      fireChange();
+    }
+    function startDrag(side, e) {
+      e.preventDefault();
+      try { (e.target.setPointerCapture && e.pointerId != null) && e.target.setPointerCapture(e.pointerId); } catch {}
+      dragging = side;
+      document.body.classList.add("rs-dragging");
+      document.addEventListener("pointermove", onPointerMove);
+      document.addEventListener("pointerup", onPointerUp);
+    }
+    thumbLeft.addEventListener("pointerdown", (e) => startDrag("left", e));
+    thumbRight.addEventListener("pointerdown", (e) => startDrag("right", e));
+
+    track.addEventListener("pointerdown", (e) => {
+      if (e.target === thumbLeft || e.target === thumbRight) return;
+      const idx = idxAtX(e.clientX);
+      const dl = Math.abs(idx - leftIdx);
+      const dr = Math.abs(idx - rightIdx);
+      const side = dl <= dr ? "left" : "right";
+      // Move the closest thumb to the click point and start dragging it.
+      if (side === "left") {
+        leftIdx = Math.min(rightIdx, Math.max(minIdx, idx));
+      } else {
+        rightIdx = Math.max(leftIdx, Math.min(maxIdx, idx));
+      }
+      render();
+      fireInput();
+      startDrag(side, e);
+    });
+
+    function onKey(side, e) {
+      let delta = 0;
+      if (e.key === "ArrowLeft" || e.key === "ArrowDown") delta = -1;
+      else if (e.key === "ArrowRight" || e.key === "ArrowUp") delta = 1;
+      else if (e.key === "PageDown") delta = -12;
+      else if (e.key === "PageUp") delta = 12;
+      else if (e.key === "Home") {
+        e.preventDefault();
+        if (side === "left") leftIdx = minIdx; else rightIdx = leftIdx;
+        render(); fireChange(); return;
+      } else if (e.key === "End") {
+        e.preventDefault();
+        if (side === "right") rightIdx = maxIdx; else leftIdx = rightIdx;
+        render(); fireChange(); return;
+      } else return;
+      e.preventDefault();
+      if (side === "left") {
+        leftIdx = Math.max(minIdx, Math.min(rightIdx, leftIdx + delta));
+      } else {
+        rightIdx = Math.min(maxIdx, Math.max(leftIdx, rightIdx + delta));
+      }
+      render();
+      fireChange();
+    }
+    thumbLeft.addEventListener("keydown", (e) => onKey("left", e));
+    thumbRight.addEventListener("keydown", (e) => onKey("right", e));
+
+    host.querySelectorAll(".rs-shortcut").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const v = btn.getAttribute("data-months");
+        if (v === "all") {
+          leftIdx = minIdx;
+          rightIdx = maxIdx;
+        } else {
+          const n = parseInt(v, 10);
+          rightIdx = maxIdx;
+          leftIdx = Math.max(minIdx, maxIdx - (n - 1));
+        }
+        render();
+        fireChange();
+      });
+    });
+
+    render();
+
+    return {
+      setRange(from, to) {
+        const lf = months.indexOf(from);
+        const rt = months.indexOf(to);
+        if (lf >= 0) leftIdx = lf;
+        if (rt >= 0) rightIdx = rt;
+        if (leftIdx > rightIdx) [leftIdx, rightIdx] = [rightIdx, leftIdx];
+        render();
+      },
+      getRange() {
+        return { from: months[leftIdx], to: months[rightIdx] };
+      },
+      destroy() {
+        host.innerHTML = "";
+        host.classList.remove("range-slider");
+      },
+    };
+  }
+
+  // -------------------------------------------------------------------------
+  // Single-month slider (one thumb) — para Panel y Ranking.
+  // -------------------------------------------------------------------------
+  function dateMonthSlider(host, months, opts = {}) {
+    if (!Array.isArray(months) || months.length === 0) {
+      host.innerHTML = `<div class="muted small">Sin períodos disponibles.</div>`;
+      return { setValue() {}, getValue() { return null; }, destroy() {} };
+    }
+    const minIdx = 0;
+    const maxIdx = months.length - 1;
+    let idx = months.indexOf(opts.value);
+    if (idx < 0) idx = maxIdx;
+
+    function lbl(ym) { return `${Math.floor(ym / 100)}-${String(ym % 100).padStart(2, "0")}`; }
+
+    host.classList.add("range-slider", "single");
+    host.innerHTML = `
+      <div class="rs-labels">
+        <span class="rs-label rs-label-cur">${lbl(months[idx])}</span>
+        <span class="rs-spacer"></span>
+        <span class="rs-bounds">Disponible ${lbl(months[minIdx])} – ${lbl(months[maxIdx])}</span>
+      </div>
+      <div class="rs-track" role="group" aria-label="Mes">
+        <div class="rs-rail"></div>
+        <div class="rs-range"></div>
+        <div class="rs-thumb rs-thumb-single" tabindex="0" role="slider"
+             aria-label="Mes"
+             aria-valuemin="${months[minIdx]}" aria-valuemax="${months[maxIdx]}" aria-valuenow="${months[idx]}"></div>
+      </div>
+    `;
+    const track = host.querySelector(".rs-track");
+    const range = host.querySelector(".rs-range");
+    const thumb = host.querySelector(".rs-thumb-single");
+    const labelCur = host.querySelector(".rs-label-cur");
+
+    function pctFor(i) {
+      if (maxIdx === minIdx) return 0;
+      return ((i - minIdx) / (maxIdx - minIdx)) * 100;
+    }
+    function idxAtX(clientX) {
+      const rect = track.getBoundingClientRect();
+      if (rect.width <= 0) return minIdx;
+      const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      return Math.round(minIdx + ratio * (maxIdx - minIdx));
+    }
+
+    function render() {
+      const p = pctFor(idx);
+      thumb.style.left = p + "%";
+      range.style.left = "0%";
+      range.style.right = (100 - p) + "%";
+      labelCur.textContent = lbl(months[idx]);
+      thumb.setAttribute("aria-valuenow", String(months[idx]));
+    }
+
+    function fireInput() {
+      if (typeof opts.onInput === "function") opts.onInput(months[idx]);
+    }
+    function fireChange() {
+      if (typeof opts.onChange === "function") opts.onChange(months[idx]);
+    }
+
+    let dragging = false;
+    function onMove(e) {
+      if (!dragging) return;
+      const ni = Math.max(minIdx, Math.min(maxIdx, idxAtX(e.clientX)));
+      if (ni !== idx) { idx = ni; render(); fireInput(); }
+    }
+    function onUp() {
+      if (!dragging) return;
+      dragging = false;
+      document.body.classList.remove("rs-dragging");
+      document.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerup", onUp);
+      fireChange();
+    }
+    function startDrag(e) {
+      e.preventDefault();
+      try { (e.target.setPointerCapture && e.pointerId != null) && e.target.setPointerCapture(e.pointerId); } catch {}
+      dragging = true;
+      document.body.classList.add("rs-dragging");
+      document.addEventListener("pointermove", onMove);
+      document.addEventListener("pointerup", onUp);
+    }
+    thumb.addEventListener("pointerdown", startDrag);
+    track.addEventListener("pointerdown", (e) => {
+      if (e.target === thumb) return;
+      idx = Math.max(minIdx, Math.min(maxIdx, idxAtX(e.clientX)));
+      render();
+      fireInput();
+      startDrag(e);
+    });
+    thumb.addEventListener("keydown", (e) => {
+      let delta = 0;
+      if (e.key === "ArrowLeft" || e.key === "ArrowDown") delta = -1;
+      else if (e.key === "ArrowRight" || e.key === "ArrowUp") delta = 1;
+      else if (e.key === "PageDown") delta = -12;
+      else if (e.key === "PageUp") delta = 12;
+      else if (e.key === "Home") { e.preventDefault(); idx = minIdx; render(); fireChange(); return; }
+      else if (e.key === "End") { e.preventDefault(); idx = maxIdx; render(); fireChange(); return; }
+      else return;
+      e.preventDefault();
+      idx = Math.max(minIdx, Math.min(maxIdx, idx + delta));
+      render();
+      fireChange();
+    });
+
+    render();
+
+    return {
+      setValue(v) {
+        const i = months.indexOf(v);
+        if (i >= 0) { idx = i; render(); }
+      },
+      getValue() { return months[idx]; },
+      destroy() {
+        host.innerHTML = "";
+        host.classList.remove("range-slider", "single");
+      },
+    };
+  }
+
+  // -------------------------------------------------------------------------
+  // Segmented control (radio-like buttons inline)
+  // -------------------------------------------------------------------------
+  function segmented(host, options, opts = {}) {
+    let selected = opts.selected || (options[0] && options[0].value);
+    host.classList.add("seg-control");
+    host.innerHTML = options.map((o) => `
+      <button type="button" class="seg-btn ${selected === o.value ? "active" : ""}" data-value="${escapeHtml(o.value)}">${escapeHtml(o.label)}</button>
+    `).join("");
+    host.querySelectorAll(".seg-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const v = btn.getAttribute("data-value");
+        if (v === selected) return;
+        selected = v;
+        host.querySelectorAll(".seg-btn").forEach((b) => b.classList.toggle("active", b.getAttribute("data-value") === selected));
+        if (typeof opts.onChange === "function") opts.onChange(selected);
+      });
+    });
+    return {
+      getValue() { return selected; },
+      setValue(v) {
+        if (v === selected) return;
+        selected = v;
+        host.querySelectorAll(".seg-btn").forEach((b) => b.classList.toggle("active", b.getAttribute("data-value") === selected));
+      },
+    };
+  }
+
   // -------------------------------------------------------------------------
   // Expose
   // -------------------------------------------------------------------------
@@ -489,12 +850,16 @@
     hideLoading,
     multiselect,
     combobox,
+    dateRangeSlider,
+    dateMonthSlider,
+    segmented,
     debounce,
     escapeHtml,
     PLOTLY_LAYOUT,
     PLOTLY_CONFIG,
     colorFor,
     attachHelp,
+    getDetalleText,
     getMonedaHomog,
   };
 })();

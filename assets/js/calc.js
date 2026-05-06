@@ -20,8 +20,7 @@
     try { localStorage.setItem(STATE_KEY, JSON.stringify(state)); } catch {}
   }
 
-  const fromHost = document.getElementById("from-picker");
-  const toHost = document.getElementById("to-picker");
+  const rangeHost = document.getElementById("range-picker");
   const entHost = document.getElementById("entities-picker");
   const rowsHost = document.getElementById("rows");
   const formulaEl = document.getElementById("formula-display");
@@ -33,7 +32,7 @@
   const dlBtn = document.getElementById("download-csv");
   const metaEl = document.getElementById("calc-meta");
 
-  let fromCombo, toCombo, entMulti;
+  let rangeSlider, entMulti;
   let varOptions = [];
   let lastTableData = null;
   // Track combobox instances per row so we can destroy them on re-render
@@ -61,22 +60,20 @@
         return;
       }
       const months = BCRA.monthsRange(bounds.minYM, bounds.maxYM);
-      const monthOpts = months.map((ym) => ({
-        value: String(ym),
-        label: `${Math.floor(ym / 100)}-${String(ym % 100).padStart(2, "0")}`,
-      }));
-      const monthOptsDesc = monthOpts.slice().reverse();
 
-      if (!state.fromYM) state.fromYM = bounds.minYM;
-      if (!state.toYM) state.toYM = bounds.maxYM;
+      if (!state.fromYM || !months.includes(state.fromYM)) state.fromYM = bounds.minYM;
+      if (!state.toYM || !months.includes(state.toYM)) state.toYM = bounds.maxYM;
 
-      fromCombo = UI.combobox(fromHost, monthOpts, {
-        selected: String(state.fromYM),
-        onChange: (v) => { state.fromYM = parseInt(v, 10); saveState(); render(); },
-      });
-      toCombo = UI.combobox(toHost, monthOptsDesc, {
-        selected: String(state.toYM),
-        onChange: (v) => { state.toYM = parseInt(v, 10); saveState(); render(); },
+      rangeSlider = UI.dateRangeSlider(rangeHost, months, {
+        from: state.fromYM,
+        to: state.toYM,
+        onChange: ({ from, to }) => {
+          state.fromYM = from; state.toYM = to;
+          saveState(); render();
+        },
+        onInput: ({ from, to }) => {
+          state.fromYM = from; state.toYM = to;
+        },
       });
 
       const entOpts = nomina
