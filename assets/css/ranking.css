@@ -83,3 +83,28 @@
   padding: 24px 12px;
   font-style: italic;
 }
+
+/* Columna por la que ordena la tabla */
+.ranking-table th.sort-col {
+  color: var(--text);
+  background: rgba(192,132,252,0.10);
+}
+.ranking-table td.sort-col {
+  background: rgba(192,132,252,0.05);
+  font-weight: 700;
+}
+.ranking-table .sort-arrow {
+  font-size: 9px;
+  opacity: 0.85;
+  margin-left: 2px;
+}
+
+/* Encabezados "Mejores" / "Peores" entre las grids */
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 18px 2px 8px;
+}

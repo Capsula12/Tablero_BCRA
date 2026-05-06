@@ -13,8 +13,10 @@
     indKey: null,    // 'origen|codigo_dato'
     refYM: null,     // mes de referencia (yyyymm int)
     topN: 10,
-    includeGroups: false,
+    includeGroups: true,
   };
+  // Si el estado guardado no traía la flag (versión vieja), default a true
+  if (state && typeof state.includeGroups === "undefined") state.includeGroups = true;
   function loadState() {
     try { return JSON.parse(localStorage.getItem(STATE_KEY)); } catch { return null; }
   }
@@ -32,9 +34,15 @@
   const valTable = document.getElementById("rank-value-table");
   const yoyTable = document.getElementById("rank-yoy-table");
   const momTable = document.getElementById("rank-mom-table");
+  const valBotTable = document.getElementById("rank-value-bot-table");
+  const yoyBotTable = document.getElementById("rank-yoy-bot-table");
+  const momBotTable = document.getElementById("rank-mom-bot-table");
   const valMeta = document.getElementById("rank-value-meta");
   const yoyMeta = document.getElementById("rank-yoy-meta");
   const momMeta = document.getElementById("rank-mom-meta");
+  const valBotMeta = document.getElementById("rank-value-bot-meta");
+  const yoyBotMeta = document.getElementById("rank-yoy-bot-meta");
+  const momBotMeta = document.getElementById("rank-mom-bot-meta");
   const dlBtn = document.getElementById("download-csv");
 
   let indCombo, monthCombo;
@@ -209,14 +217,23 @@
       const top_value = records
         .slice()
         .sort((a, b) => b.value - a.value);
+      const bot_value = records
+        .slice()
+        .sort((a, b) => a.value - b.value);
 
       const top_yoy = records
         .filter((r) => r.yoy !== null)
         .sort((a, b) => b.yoy - a.yoy);
+      const bot_yoy = records
+        .filter((r) => r.yoy !== null)
+        .sort((a, b) => a.yoy - b.yoy);
 
       const top_mom = records
         .filter((r) => r.mom !== null)
         .sort((a, b) => b.mom - a.mom);
+      const bot_mom = records
+        .filter((r) => r.mom !== null)
+        .sort((a, b) => a.mom - b.mom);
 
       lastResults = {
         meta: {
@@ -230,12 +247,19 @@
           totalEntidades: records.length,
         },
         top_value, top_yoy, top_mom,
+        bot_value, bot_yoy, bot_mom,
       };
 
       // metas por card
-      valMeta.textContent = `Mes ${labelMonth(state.refYM)}`;
-      yoyMeta.textContent = `vs. ${labelMonth(tPrevYr)}`;
-      momMeta.textContent = `vs. ${labelMonth(tPrevMo)}`;
+      const lblRef = labelMonth(state.refYM);
+      const lblYr  = labelMonth(tPrevYr);
+      const lblMo  = labelMonth(tPrevMo);
+      valMeta.textContent    = `Mes ${lblRef}`;
+      yoyMeta.textContent    = `vs. ${lblYr}`;
+      momMeta.textContent    = `vs. ${lblMo}`;
+      valBotMeta.textContent = `Mes ${lblRef} (orden ascendente)`;
+      yoyBotMeta.textContent = `vs. ${lblYr} (orden ascendente)`;
+      momBotMeta.textContent = `vs. ${lblMo} (orden ascendente)`;
 
       metaEl.textContent =
         `${(meta ? meta.descripcion_dato : `Código ${code}`)} · ${origen} · ` +
@@ -279,53 +303,35 @@
     return "";
   }
 
-  function renderTableValue(host, list, formato, n) {
+  // Render unificado: cada fila trae las tres métricas (valor, var. anual, var. mensual).
+  // sortKey ∈ {"value","yoy","mom"} resalta la columna que ordena la tabla.
+  function renderUnifiedTable(host, list, formato, n, sortKey, ascending) {
+    const cls = (k) => sortKey === k ? "sort-col" : "";
+    const arrow = ascending ? "▲" : "▼";
     const head = `<thead><tr>
       <th class="rank-pos">#</th>
       <th>Entidad</th>
-      <th class="rank-num">Valor</th>
+      <th class="rank-num ${cls("value")}">Valor${sortKey === "value" ? ` <span class="sort-arrow">${arrow}</span>` : ""}</th>
+      <th class="rank-num ${cls("yoy")}">Var. anual${sortKey === "yoy" ? ` <span class="sort-arrow">${arrow}</span>` : ""}</th>
+      <th class="rank-num ${cls("mom")}">Var. mensual${sortKey === "mom" ? ` <span class="sort-arrow">${arrow}</span>` : ""}</th>
     </tr></thead>`;
     if (!list.length) {
-      host.innerHTML = head + `<tbody><tr><td colspan="3" class="rank-empty">Sin datos para esta selección.</td></tr></tbody>`;
-      return;
-    }
-    const body = `<tbody>${
-      list.slice(0, n).map((r, i) => `
-        <tr>
-          <td class="rank-pos ${rowMedalClass(i)}">${i + 1}</td>
-          <td class="rank-name" title="${UI.escapeHtml(r.alias)}">
-            ${UI.escapeHtml(r.alias)}${r.isGroup ? `<span class="group-tag">grupo</span>` : ""}
-          </td>
-          <td class="rank-num">${fmtValue(r.value, formato)}</td>
-        </tr>
-      `).join("")
-    }</tbody>`;
-    host.innerHTML = head + body;
-  }
-
-  function renderTableDelta(host, list, formato, n, deltaKey, prevKey, prevLabel) {
-    const head = `<thead><tr>
-      <th class="rank-pos">#</th>
-      <th>Entidad</th>
-      <th class="rank-num">Variación</th>
-      <th class="rank-prev">${prevLabel}</th>
-    </tr></thead>`;
-    if (!list.length) {
-      host.innerHTML = head + `<tbody><tr><td colspan="4" class="rank-empty">Sin datos suficientes para la variación.</td></tr></tbody>`;
+      host.innerHTML = head + `<tbody><tr><td colspan="5" class="rank-empty">Sin datos suficientes para esta selección.</td></tr></tbody>`;
       return;
     }
     const body = `<tbody>${
       list.slice(0, n).map((r, i) => {
-        const d = fmtDelta(r[deltaKey], formato);
-        const prev = fmtValue(r[prevKey], formato);
+        const dYoy = fmtDelta(r.yoy, formato);
+        const dMom = fmtDelta(r.mom, formato);
         return `
           <tr>
             <td class="rank-pos ${rowMedalClass(i)}">${i + 1}</td>
             <td class="rank-name" title="${UI.escapeHtml(r.alias)}">
               ${UI.escapeHtml(r.alias)}${r.isGroup ? `<span class="group-tag">grupo</span>` : ""}
             </td>
-            <td class="rank-num ${d.cls}">${d.text}</td>
-            <td class="rank-prev">${prev}</td>
+            <td class="rank-num ${cls("value")}">${fmtValue(r.value, formato)}</td>
+            <td class="rank-num ${cls("yoy")} ${dYoy.cls}">${dYoy.text}</td>
+            <td class="rank-num ${cls("mom")} ${dMom.cls}">${dMom.text}</td>
           </tr>
         `;
       }).join("")
@@ -336,9 +342,12 @@
   function renderRankings(res) {
     const n = state.topN || 10;
     const fmt = res.meta.formato;
-    renderTableValue(valTable, res.top_value, fmt, n);
-    renderTableDelta(yoyTable, res.top_yoy, fmt, n, "yoy", "prevYr", labelMonth(res.meta.tPrevYr));
-    renderTableDelta(momTable, res.top_mom, fmt, n, "mom", "prevMo", labelMonth(res.meta.tPrevMo));
+    renderUnifiedTable(valTable,    res.top_value, fmt, n, "value", false);
+    renderUnifiedTable(yoyTable,    res.top_yoy,   fmt, n, "yoy",   false);
+    renderUnifiedTable(momTable,    res.top_mom,   fmt, n, "mom",   false);
+    renderUnifiedTable(valBotTable, res.bot_value, fmt, n, "value", true);
+    renderUnifiedTable(yoyBotTable, res.bot_yoy,   fmt, n, "yoy",   true);
+    renderUnifiedTable(momBotTable, res.bot_mom,   fmt, n, "mom",   true);
   }
 
   // -------- CSV download ----------
@@ -351,7 +360,8 @@
     const n = state.topN || 10;
 
     const rows = [];
-    const pushBlock = (titulo, list, deltaKey, prevKey) => {
+    const unidadVar = fmt === "P" ? "pp" : "%";
+    const pushBlock = (titulo, list) => {
       list.slice(0, n).forEach((r, i) => {
         rows.push({
           ranking: titulo,
@@ -362,14 +372,18 @@
           valor_actual: r.value,
           valor_mes_anterior: r.prevMo,
           valor_anio_anterior: r.prevYr,
-          variacion: deltaKey ? r[deltaKey] : null,
-          unidad_variacion: deltaKey ? (fmt === "P" ? "pp" : "%") : "",
+          variacion_interanual: r.yoy,
+          variacion_mensual: r.mom,
+          unidad_variacion: unidadVar,
         });
       });
     };
-    pushBlock(`valor_${refLbl}`, lastResults.top_value, null, null);
-    pushBlock(`yoy_${refLbl}_vs_${yoyLbl}`, lastResults.top_yoy, "yoy", "prevYr");
-    pushBlock(`mom_${refLbl}_vs_${momLbl}`, lastResults.top_mom, "mom", "prevMo");
+    pushBlock(`top_valor_${refLbl}`,            lastResults.top_value);
+    pushBlock(`top_yoy_${refLbl}_vs_${yoyLbl}`, lastResults.top_yoy);
+    pushBlock(`top_mom_${refLbl}_vs_${momLbl}`, lastResults.top_mom);
+    pushBlock(`bot_valor_${refLbl}`,            lastResults.bot_value);
+    pushBlock(`bot_yoy_${refLbl}_vs_${yoyLbl}`, lastResults.bot_yoy);
+    pushBlock(`bot_mom_${refLbl}_vs_${momLbl}`, lastResults.bot_mom);
 
     const csv = Papa.unparse(rows);
     const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });

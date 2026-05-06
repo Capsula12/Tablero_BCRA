@@ -16,7 +16,7 @@
       <header class="page-header">
         <div>
           <h1 class="page-title">Ranking de entidades</h1>
-          <p class="page-subtitle">Top N por valor absoluto, variación interanual y variación mensual.</p>
+          <p class="page-subtitle">Mejores y peores por valor, variación interanual y variación mensual. Cada tabla muestra las tres métricas.</p>
         </div>
         <div id="ranking-meta" class="muted small"></div>
       </header>
@@ -39,7 +39,7 @@
             <label class="field-label">Universo</label>
             <label class="checkbox" style="margin-top:6px">
               <input type="checkbox" id="include-groups-toggle">
-              <span class="small">Incluir grupos</span>
+              <span class="small">Incluir grupos (ABA, ABE, ADEBA…)</span>
             </label>
           </div>
         </div>
@@ -55,10 +55,12 @@
           la <em>variación mensual</em> compara contra el mes inmediato anterior.
           Para indicadores en porcentaje (formato <code>P</code>) las variaciones se muestran en puntos porcentuales (pp);
           para indicadores numéricos (<code>N</code>), en porcentaje (%) sobre el valor previo.
+          Cada tabla muestra las tres métricas; la columna que ordena la tabla aparece resaltada.
           Se ignoran filas con dato faltante en alguno de los meses comparados.
         </div>
       </div>
 
+      <h2 class="section-title">Mejores</h2>
       <div class="ranking-grid">
         <div class="card mb-12">
           <div class="card-header">
@@ -97,8 +99,47 @@
         </div>
       </div>
 
+      <h2 class="section-title">Peores</h2>
+      <div class="ranking-grid">
+        <div class="card mb-12">
+          <div class="card-header">
+            <h3 class="card-title">Bottom por valor</h3>
+            <span class="muted small" id="rank-value-bot-meta"></span>
+          </div>
+          <div class="card-body" style="padding:0">
+            <div class="table-wrap">
+              <table class="data ranking-table" id="rank-value-bot-table"></table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-12">
+          <div class="card-header">
+            <h3 class="card-title">Caídas interanuales más pronunciadas</h3>
+            <span class="muted small" id="rank-yoy-bot-meta"></span>
+          </div>
+          <div class="card-body" style="padding:0">
+            <div class="table-wrap">
+              <table class="data ranking-table" id="rank-yoy-bot-table"></table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-12">
+          <div class="card-header">
+            <h3 class="card-title">Caídas mensuales más pronunciadas</h3>
+            <span class="muted small" id="rank-mom-bot-meta"></span>
+          </div>
+          <div class="card-body" style="padding:0">
+            <div class="table-wrap">
+              <table class="data ranking-table" id="rank-mom-bot-table"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="flex justify-end mt-12">
-        <button class="btn ghost" id="download-csv">Descargar CSV (los 3 rankings)</button>
+        <button class="btn ghost" id="download-csv">Descargar CSV (los 6 rankings)</button>
       </div>
     </div>
 
