@@ -95,8 +95,25 @@
 }
 .ranking-table .sort-arrow {
   font-size: 9px;
-  opacity: 0.85;
-  margin-left: 2px;
+  opacity: 0.35;
+  margin-left: 4px;
+  user-select: none;
+}
+.ranking-table .sort-arrow.active { opacity: 0.95; }
+
+/* Encabezados clickeables (estilo "primera fila de Excel") */
+.ranking-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.ranking-table th.sortable:hover {
+  background: rgba(192,132,252,0.16);
+  color: var(--text);
+}
+.ranking-table th.sortable:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: -2px;
 }
 
 /* Encabezados "Mejores" / "Peores" entre las grids */

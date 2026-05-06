@@ -98,28 +98,56 @@ Abrir `index.html` directamente con `file://` no funciona porque PapaParse usa `
 
 ## Pantalla Ranking
 
-Para un indicador y un mes de referencia, calcula tres rankings:
+Tabla **única sortable** (estilo planilla) con todas las entidades del indicador y mes elegidos. Cada fila trae:
 
-- **Top por valor**: las N entidades con el valor más alto en el mes seleccionado.
-- **Top por variación interanual**: comparado contra el mismo mes del año anterior.
-- **Top por variación mensual**: comparado contra el mes inmediato anterior.
+| `#` | `Entidad` | `Valor` | `Var. anual` | `Var. mensual` |
 
-Detalles:
-- Para indicadores en porcentaje (formato `P`) las variaciones se muestran en **puntos porcentuales (pp)**.
-- Para indicadores numéricos (`N`) se muestran en **% sobre el valor previo**.
-- El campo "Top N" admite valores entre 3 y 50.
-- El checkbox **Incluir grupos** suma las entidades-grupo (ABA, ADEBA, etc.) al universo. Por defecto está apagado para que no dominen los rankings.
-- Si el toggle **Moneda homogénea** está activo, el ranking corre sobre valores deflactados.
-- Botón **Descargar CSV** baja los tres rankings en un solo CSV largo con columnas `ranking, posicion, alias, valor_actual, valor_mes_anterior, valor_anio_anterior, variacion, unidad_variacion`.
+Tocando un encabezado se ordena por esa columna; volverlo a tocar invierte la dirección. La columna activa queda resaltada con flecha `▲` / `▼`. Las entidades con dato faltante en la métrica de orden quedan al final (no contaminan el top).
+
+Controles:
+- **Indicador / Mes**: combos. El default es ROE (`indicad/800010400010`) en el último mes disponible.
+- **Mostrar top**: límite de filas visibles (3–200, default 20). El orden se aplica a *toda* la población antes de cortar.
+- **Buscar entidad**: filtro por nombre o código de entidad (debounced 120 ms).
+- **Incluir grupos**: suma las entidades-grupo (ABA, ABE, ADEBA, ABAPPRA, MACRO E ITAU, ABAPPRA CON NACION) al universo. Default: `true`.
+- **Moneda homogénea** (toggle global de la topbar): si está activo, el ranking corre sobre valores deflactados con IPC.
+- **Descargar CSV (vista actual)**: exporta exactamente lo que se ve (orden, filtro y top aplicados) con columnas `posicion, codigo_entidad, alias, es_grupo, mes_referencia, valor_actual, mes_anterior, valor_mes_anterior, anio_anterior, valor_anio_anterior, variacion_interanual, variacion_mensual, unidad_variacion, ordenado_por, direccion`.
+
+Detalles de cálculo:
+- Variaciones en `pp` para indicadores `P` (porcentaje) y en `%` sobre el valor previo para indicadores `N`.
+- Var. interanual = `valor_T` vs `valor_T-12`. Var. mensual = `valor_T` vs `valor_T-1`.
+- Estado persiste en `localStorage` con clave `bcra.ranking.state` (incluye `sortKey`, `sortDir`, `query`, `topN`, `includeGroups`).
 
 ---
 
 ## Deploy
 
-GitHub Pages servido desde `main` mediante el workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml). En cada push a `main` que toque HTML/JS/CSS/data se reconstruye el artefacto de Pages y se despliega.
+> ⚠️ **El sitio público se sirve desde la branch `HTML`, NO desde `main`.** Cualquier cambio (HTML/CSS/JS/data) tiene que terminar en `HTML` para que GitHub Pages lo publique. Si pusheás sólo a `main`, el sitio en `https://capsula12.github.io/Tablero_BCRA/` queda desactualizado.
+
+Flujo recomendado:
+
+```bash
+# Trabajar siempre sobre la branch HTML
+git checkout HTML
+git pull --ff-only
+
+# ...editar archivos...
+
+git add -A
+git commit -m "feat: ..."
+git push origin HTML
+
+# (opcional) mantener main alineado con HTML para que el repo se vea ordenado
+git checkout main
+git merge --ff-only HTML
+git push origin main
+```
+
+El workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) está configurado para disparar en pushes tanto a `HTML` como a `main`, así que cualquiera de las dos rutas reconstruye Pages — pero **la branch canónica es `HTML`**.
 
 Para configurar Pages la primera vez:
-- Settings → Pages → "Build and deployment: Source = GitHub Actions".
+- Settings → Pages → "Build and deployment: Source = GitHub Actions" (default branch: `HTML`).
+
+Importante: el script [`scripts/sync_tablero.py`](https://github.com/Capsula12/DATASETBCRA/blob/main/scripts/sync_tablero.py) del repo de datos hace `git commit` / `git push` **sobre la branch que esté checkouted** en `Tablero_BCRA/`. Antes de correrlo con `--push`, asegurate de tener `HTML` activa en el clon local.
 
 ---
 

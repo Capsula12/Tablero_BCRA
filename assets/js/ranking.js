@@ -1,6 +1,7 @@
 /* =============================================================================
-   Ranking — Top N de entidades por valor / variación interanual / variación mensual
-   para un indicador y un mes seleccionados.
+   Ranking — Tabla única sortable de entidades por indicador y mes seleccionados.
+   Cada fila muestra valor, variación interanual y variación mensual.
+   El usuario ordena tocando los encabezados (estilo planilla).
    ============================================================================= */
 (function () {
   "use strict";
@@ -9,14 +10,22 @@
   UI.mountFooter();
 
   const STATE_KEY = "bcra.ranking.state";
-  const state = loadState() || {
-    indKey: null,    // 'origen|codigo_dato'
-    refYM: null,     // mes de referencia (yyyymm int)
-    topN: 10,
+  const DEFAULTS = {
+    indKey: null,        // 'origen|codigo_dato'
+    refYM: null,         // mes de referencia (yyyymm int)
+    topN: 20,
     includeGroups: true,
+    sortKey: "value",    // 'value' | 'yoy' | 'mom' | 'alias'
+    sortDir: "desc",     // 'asc' | 'desc'
+    query: "",           // búsqueda por nombre
   };
-  // Si el estado guardado no traía la flag (versión vieja), default a true
-  if (state && typeof state.includeGroups === "undefined") state.includeGroups = true;
+  const state = Object.assign({}, DEFAULTS, loadState() || {});
+  // Migración suave de versiones viejas del estado
+  if (!["value", "yoy", "mom", "alias"].includes(state.sortKey)) state.sortKey = "value";
+  if (!["asc", "desc"].includes(state.sortDir)) state.sortDir = "desc";
+  if (typeof state.includeGroups === "undefined") state.includeGroups = true;
+  if (typeof state.query !== "string") state.query = "";
+
   function loadState() {
     try { return JSON.parse(localStorage.getItem(STATE_KEY)); } catch { return null; }
   }
@@ -28,25 +37,15 @@
   const monthHost = document.getElementById("month-picker");
   const topnInput = document.getElementById("topn-input");
   const incGroupsToggle = document.getElementById("include-groups-toggle");
+  const searchInput = document.getElementById("search-input");
   const statusEl = document.getElementById("ranking-status");
   const metaEl = document.getElementById("ranking-meta");
-
-  const valTable = document.getElementById("rank-value-table");
-  const yoyTable = document.getElementById("rank-yoy-table");
-  const momTable = document.getElementById("rank-mom-table");
-  const valBotTable = document.getElementById("rank-value-bot-table");
-  const yoyBotTable = document.getElementById("rank-yoy-bot-table");
-  const momBotTable = document.getElementById("rank-mom-bot-table");
-  const valMeta = document.getElementById("rank-value-meta");
-  const yoyMeta = document.getElementById("rank-yoy-meta");
-  const momMeta = document.getElementById("rank-mom-meta");
-  const valBotMeta = document.getElementById("rank-value-bot-meta");
-  const yoyBotMeta = document.getElementById("rank-yoy-bot-meta");
-  const momBotMeta = document.getElementById("rank-mom-bot-meta");
+  const countEl = document.getElementById("result-count");
+  const tableEl = document.getElementById("rank-table");
   const dlBtn = document.getElementById("download-csv");
 
   let indCombo, monthCombo;
-  let lastResults = null; // { meta, top_value, top_yoy, top_mom }
+  let lastResults = null; // { meta, records:[] }
 
   function setStatus(msg, type = "info") {
     if (!msg) { statusEl.classList.add("hidden"); return; }
@@ -89,7 +88,6 @@
         badge: i.origen,
       }));
       if (!state.indKey || !indOpts.find((o) => o.value === state.indKey)) {
-        // default: ROE if available, else first indicator
         const roe = indicators.find((i) => i.codigo_dato === 800010400010 && i.origen === "indicad");
         state.indKey = roe ? `${roe.origen}|${roe.codigo_dato}` : (indOpts[0]?.value || null);
       }
@@ -99,18 +97,17 @@
         onChange: (v) => { state.indKey = v; saveState(); render(); },
       });
 
-      topnInput.value = String(state.topN || 10);
+      topnInput.value = String(state.topN || 20);
       topnInput.addEventListener("change", () => {
         const n = parseInt(topnInput.value, 10);
-        if (Number.isFinite(n) && n >= 3 && n <= 50) {
+        if (Number.isFinite(n) && n >= 3 && n <= 200) {
           state.topN = n;
         } else {
-          state.topN = 10;
-          topnInput.value = "10";
+          state.topN = 20;
+          topnInput.value = "20";
         }
         saveState();
-        // re-render rankings only (no need to re-fetch)
-        if (lastResults) renderRankings(lastResults);
+        if (lastResults) renderTable();
       });
 
       incGroupsToggle.checked = !!state.includeGroups;
@@ -118,6 +115,17 @@
         state.includeGroups = !!incGroupsToggle.checked;
         saveState();
         render();
+      });
+
+      searchInput.value = state.query || "";
+      let searchDebounce;
+      searchInput.addEventListener("input", () => {
+        clearTimeout(searchDebounce);
+        searchDebounce = setTimeout(() => {
+          state.query = searchInput.value || "";
+          saveState();
+          if (lastResults) renderTable();
+        }, 120);
       });
 
       UI.hideLoading();
@@ -154,7 +162,6 @@
       const meta = indicators.find((i) => i.origen === origen && i.codigo_dato === code);
       const formato = (meta && meta.formato) ? String(meta.formato).toUpperCase() : "N";
 
-      // entidades a considerar
       let entList;
       if (state.includeGroups) {
         entList = nomina.slice();
@@ -165,7 +172,6 @@
       const codeToIsGroup = new Map(entList.map((n) => [n.codigo_entidad, n.grupo_homogeneo === "GRUPO"]));
       const cods = entList.map((n) => n.codigo_entidad);
 
-      // Necesitamos T-12 .. T para tener YoY y MoM
       const tFrom = BCRA.shiftMonths(state.refYM, -12);
       const tTo = state.refYM;
       const useHomog = UI.getMonedaHomog();
@@ -173,7 +179,6 @@
       const rows = await BCRA.querySeriesOne(origen, cods, code, tFrom, tTo, { homogeneizar: useHomog });
       if (myToken !== renderToken) return;
 
-      // Indexar por entidad y mes
       const byEnt = new Map();
       for (const r of rows) {
         if (!byEnt.has(r.codigo_entidad)) byEnt.set(r.codigo_entidad, new Map());
@@ -190,7 +195,6 @@
         const prevMo = monthMap.get(tPrevMo);
         const prevYr = monthMap.get(tPrevYr);
 
-        // Variaciones: pp para %, % sobre previo para N
         let yoy = NaN;
         let mom = NaN;
         if (Number.isFinite(prevYr)) {
@@ -214,27 +218,6 @@
         });
       }
 
-      const top_value = records
-        .slice()
-        .sort((a, b) => b.value - a.value);
-      const bot_value = records
-        .slice()
-        .sort((a, b) => a.value - b.value);
-
-      const top_yoy = records
-        .filter((r) => r.yoy !== null)
-        .sort((a, b) => b.yoy - a.yoy);
-      const bot_yoy = records
-        .filter((r) => r.yoy !== null)
-        .sort((a, b) => a.yoy - b.yoy);
-
-      const top_mom = records
-        .filter((r) => r.mom !== null)
-        .sort((a, b) => b.mom - a.mom);
-      const bot_mom = records
-        .filter((r) => r.mom !== null)
-        .sort((a, b) => a.mom - b.mom);
-
       lastResults = {
         meta: {
           codigo_dato: code,
@@ -246,27 +229,15 @@
           useHomog,
           totalEntidades: records.length,
         },
-        top_value, top_yoy, top_mom,
-        bot_value, bot_yoy, bot_mom,
+        records,
       };
-
-      // metas por card
-      const lblRef = labelMonth(state.refYM);
-      const lblYr  = labelMonth(tPrevYr);
-      const lblMo  = labelMonth(tPrevMo);
-      valMeta.textContent    = `Mes ${lblRef}`;
-      yoyMeta.textContent    = `vs. ${lblYr}`;
-      momMeta.textContent    = `vs. ${lblMo}`;
-      valBotMeta.textContent = `Mes ${lblRef} (orden ascendente)`;
-      yoyBotMeta.textContent = `vs. ${lblYr} (orden ascendente)`;
-      momBotMeta.textContent = `vs. ${lblMo} (orden ascendente)`;
 
       metaEl.textContent =
         `${(meta ? meta.descripcion_dato : `Código ${code}`)} · ${origen} · ` +
         `${records.length} entidad${records.length === 1 ? "" : "es"} con dato en ${labelMonth(state.refYM)}` +
         (useHomog ? " · moneda homogénea" : "");
 
-      renderRankings(lastResults);
+      renderTable();
     } catch (e) {
       console.error(e);
       setStatus("Error: " + e.message, "error");
@@ -275,12 +246,49 @@
     }
   }
 
+  // -------- ordering / filtering ----------
+  // Ordena dejando los nulos al final independientemente de la dirección.
+  function compareWithNulls(a, b, dir) {
+    const aNull = a === null || a === undefined || Number.isNaN(a);
+    const bNull = b === null || b === undefined || Number.isNaN(b);
+    if (aNull && bNull) return 0;
+    if (aNull) return 1;
+    if (bNull) return -1;
+    return dir === "asc" ? (a - b) : (b - a);
+  }
+
+  function getSortedFiltered() {
+    if (!lastResults) return [];
+    let list = lastResults.records.slice();
+
+    const q = (state.query || "").trim().toLowerCase();
+    if (q) {
+      list = list.filter((r) =>
+        (r.alias || "").toLowerCase().includes(q) ||
+        (r.codigo_entidad || "").toLowerCase().includes(q)
+      );
+    }
+
+    const k = state.sortKey;
+    const dir = state.sortDir;
+    list.sort((a, b) => {
+      if (k === "alias") {
+        const ax = (a.alias || "").toLowerCase();
+        const bx = (b.alias || "").toLowerCase();
+        const cmp = ax < bx ? -1 : ax > bx ? 1 : 0;
+        return dir === "asc" ? cmp : -cmp;
+      }
+      return compareWithNulls(a[k], b[k], dir);
+    });
+
+    return list;
+  }
+
   // -------- rendering ----------
   function fmtValue(v, formato) {
     if (!Number.isFinite(v)) return "—";
     const opts = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
     if (formato === "P") return new Intl.NumberFormat("es-AR", opts).format(v) + "%";
-    // N: usar formato compacto (M, MM, B) si valor grande, sino crudo
     if (Math.abs(v) >= 1e6) return BCRA.fmtCompact(v);
     return new Intl.NumberFormat("es-AR", opts).format(v);
   }
@@ -303,51 +311,108 @@
     return "";
   }
 
-  // Render unificado: cada fila trae las tres métricas (valor, var. anual, var. mensual).
-  // sortKey ∈ {"value","yoy","mom"} resalta la columna que ordena la tabla.
-  function renderUnifiedTable(host, list, formato, n, sortKey, ascending) {
-    const cls = (k) => sortKey === k ? "sort-col" : "";
-    const arrow = ascending ? "▲" : "▼";
-    const head = `<thead><tr>
-      <th class="rank-pos">#</th>
-      <th>Entidad</th>
-      <th class="rank-num ${cls("value")}">Valor${sortKey === "value" ? ` <span class="sort-arrow">${arrow}</span>` : ""}</th>
-      <th class="rank-num ${cls("yoy")}">Var. anual${sortKey === "yoy" ? ` <span class="sort-arrow">${arrow}</span>` : ""}</th>
-      <th class="rank-num ${cls("mom")}">Var. mensual${sortKey === "mom" ? ` <span class="sort-arrow">${arrow}</span>` : ""}</th>
-    </tr></thead>`;
-    if (!list.length) {
-      host.innerHTML = head + `<tbody><tr><td colspan="5" class="rank-empty">Sin datos suficientes para esta selección.</td></tr></tbody>`;
+  function headerCell(key, label, alignRight) {
+    const isActive = state.sortKey === key;
+    const arrow = isActive ? (state.sortDir === "asc" ? "▲" : "▼") : "↕";
+    const cls = [
+      "sortable",
+      alignRight ? "rank-num" : "",
+      isActive ? "sort-col" : "",
+    ].filter(Boolean).join(" ");
+    const arrowCls = isActive ? "sort-arrow active" : "sort-arrow";
+    return `<th class="${cls}" data-sort-key="${key}" role="button" tabindex="0" aria-sort="${
+      isActive ? (state.sortDir === "asc" ? "ascending" : "descending") : "none"
+    }">${label} <span class="${arrowCls}">${arrow}</span></th>`;
+  }
+
+  function renderTable() {
+    if (!lastResults) {
+      tableEl.innerHTML = "";
+      countEl.textContent = "";
       return;
     }
+    const fmt = lastResults.meta.formato;
+    const list = getSortedFiltered();
+    const n = state.topN || 20;
+    const slice = list.slice(0, n);
+
+    const totalRec = lastResults.records.length;
+    const filteredCount = list.length;
+    const shownCount = slice.length;
+    if (state.query && state.query.trim()) {
+      countEl.textContent = `${shownCount} de ${filteredCount} (filtrado de ${totalRec})`;
+    } else {
+      countEl.textContent = `Mostrando ${shownCount} de ${totalRec}`;
+    }
+
+    const head = `<thead><tr>
+      <th class="rank-pos">#</th>
+      ${headerCell("alias", "Entidad", false)}
+      ${headerCell("value", "Valor", true)}
+      ${headerCell("yoy", "Var. anual", true)}
+      ${headerCell("mom", "Var. mensual", true)}
+    </tr></thead>`;
+
+    if (!slice.length) {
+      tableEl.innerHTML = head +
+        `<tbody><tr><td colspan="5" class="rank-empty">${
+          state.query ? "Sin resultados para la búsqueda actual." : "Sin datos suficientes para esta selección."
+        }</td></tr></tbody>`;
+      attachHeaderHandlers();
+      return;
+    }
+
+    const aliasSortCls = state.sortKey === "alias" ? "sort-col" : "";
+    const valSortCls   = state.sortKey === "value" ? "sort-col" : "";
+    const yoySortCls   = state.sortKey === "yoy"   ? "sort-col" : "";
+    const momSortCls   = state.sortKey === "mom"   ? "sort-col" : "";
+
     const body = `<tbody>${
-      list.slice(0, n).map((r, i) => {
-        const dYoy = fmtDelta(r.yoy, formato);
-        const dMom = fmtDelta(r.mom, formato);
+      slice.map((r, i) => {
+        const dYoy = fmtDelta(r.yoy, fmt);
+        const dMom = fmtDelta(r.mom, fmt);
         return `
           <tr>
             <td class="rank-pos ${rowMedalClass(i)}">${i + 1}</td>
-            <td class="rank-name" title="${UI.escapeHtml(r.alias)}">
+            <td class="rank-name ${aliasSortCls}" title="${UI.escapeHtml(r.alias)}">
               ${UI.escapeHtml(r.alias)}${r.isGroup ? `<span class="group-tag">grupo</span>` : ""}
             </td>
-            <td class="rank-num ${cls("value")}">${fmtValue(r.value, formato)}</td>
-            <td class="rank-num ${cls("yoy")} ${dYoy.cls}">${dYoy.text}</td>
-            <td class="rank-num ${cls("mom")} ${dMom.cls}">${dMom.text}</td>
+            <td class="rank-num ${valSortCls}">${fmtValue(r.value, fmt)}</td>
+            <td class="rank-num ${yoySortCls} ${dYoy.cls}">${dYoy.text}</td>
+            <td class="rank-num ${momSortCls} ${dMom.cls}">${dMom.text}</td>
           </tr>
         `;
       }).join("")
     }</tbody>`;
-    host.innerHTML = head + body;
+
+    tableEl.innerHTML = head + body;
+    attachHeaderHandlers();
   }
 
-  function renderRankings(res) {
-    const n = state.topN || 10;
-    const fmt = res.meta.formato;
-    renderUnifiedTable(valTable,    res.top_value, fmt, n, "value", false);
-    renderUnifiedTable(yoyTable,    res.top_yoy,   fmt, n, "yoy",   false);
-    renderUnifiedTable(momTable,    res.top_mom,   fmt, n, "mom",   false);
-    renderUnifiedTable(valBotTable, res.bot_value, fmt, n, "value", true);
-    renderUnifiedTable(yoyBotTable, res.bot_yoy,   fmt, n, "yoy",   true);
-    renderUnifiedTable(momBotTable, res.bot_mom,   fmt, n, "mom",   true);
+  function setSort(key) {
+    if (state.sortKey === key) {
+      state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+    } else {
+      state.sortKey = key;
+      // Default alias asc; valor/var: desc (mayor → menor) en el primer click.
+      state.sortDir = key === "alias" ? "asc" : "desc";
+    }
+    saveState();
+    renderTable();
+  }
+
+  function attachHeaderHandlers() {
+    tableEl.querySelectorAll("th.sortable").forEach((th) => {
+      const key = th.getAttribute("data-sort-key");
+      if (!key) return;
+      th.addEventListener("click", () => setSort(key));
+      th.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setSort(key);
+        }
+      });
+    });
   }
 
   // -------- CSV download ----------
@@ -357,33 +422,26 @@
     const refLbl = labelMonth(lastResults.meta.refYM);
     const momLbl = labelMonth(lastResults.meta.tPrevMo);
     const yoyLbl = labelMonth(lastResults.meta.tPrevYr);
-    const n = state.topN || 10;
-
-    const rows = [];
+    const list = getSortedFiltered().slice(0, state.topN || 20);
     const unidadVar = fmt === "P" ? "pp" : "%";
-    const pushBlock = (titulo, list) => {
-      list.slice(0, n).forEach((r, i) => {
-        rows.push({
-          ranking: titulo,
-          posicion: i + 1,
-          codigo_entidad: r.codigo_entidad,
-          alias: r.alias,
-          es_grupo: r.isGroup ? 1 : 0,
-          valor_actual: r.value,
-          valor_mes_anterior: r.prevMo,
-          valor_anio_anterior: r.prevYr,
-          variacion_interanual: r.yoy,
-          variacion_mensual: r.mom,
-          unidad_variacion: unidadVar,
-        });
-      });
-    };
-    pushBlock(`top_valor_${refLbl}`,            lastResults.top_value);
-    pushBlock(`top_yoy_${refLbl}_vs_${yoyLbl}`, lastResults.top_yoy);
-    pushBlock(`top_mom_${refLbl}_vs_${momLbl}`, lastResults.top_mom);
-    pushBlock(`bot_valor_${refLbl}`,            lastResults.bot_value);
-    pushBlock(`bot_yoy_${refLbl}_vs_${yoyLbl}`, lastResults.bot_yoy);
-    pushBlock(`bot_mom_${refLbl}_vs_${momLbl}`, lastResults.bot_mom);
+
+    const rows = list.map((r, i) => ({
+      posicion: i + 1,
+      codigo_entidad: r.codigo_entidad,
+      alias: r.alias,
+      es_grupo: r.isGroup ? 1 : 0,
+      mes_referencia: refLbl,
+      valor_actual: r.value,
+      mes_anterior: momLbl,
+      valor_mes_anterior: r.prevMo,
+      anio_anterior: yoyLbl,
+      valor_anio_anterior: r.prevYr,
+      variacion_interanual: r.yoy,
+      variacion_mensual: r.mom,
+      unidad_variacion: unidadVar,
+      ordenado_por: state.sortKey,
+      direccion: state.sortDir,
+    }));
 
     const csv = Papa.unparse(rows);
     const blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });

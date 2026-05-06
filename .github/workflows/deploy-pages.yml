@@ -7,12 +7,17 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
+      # La branch canónica que sirve GitHub Pages es HTML.
+      # main se mantiene como espejo opcional; igual lo dejamos como trigger para
+      # cubrir el caso donde el sync script empuja a main por error.
+      - HTML
       - main
     paths:
       - "index.html"
       - "panel.html"
       - "series.html"
       - "calc.html"
+      - "ranking.html"
       - "assets/**"
       - "data/**"
       - ".github/workflows/deploy-pages.yml"

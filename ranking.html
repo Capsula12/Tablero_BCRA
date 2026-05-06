@@ -16,7 +16,7 @@
       <header class="page-header">
         <div>
           <h1 class="page-title">Ranking de entidades</h1>
-          <p class="page-subtitle">Mejores y peores por valor, variación interanual y variación mensual. Cada tabla muestra las tres métricas.</p>
+          <p class="page-subtitle">Una tabla única con valor, variación interanual y variación mensual. Tocá un encabezado para ordenar; volvelo a tocar para invertir el sentido.</p>
         </div>
         <div id="ranking-meta" class="muted small"></div>
       </header>
@@ -32,8 +32,8 @@
             <div id="month-picker"></div>
           </div>
           <div class="f-2">
-            <label class="field-label">Top N</label>
-            <input type="number" id="topn-input" class="input" min="3" max="50" step="1" value="10" />
+            <label class="field-label">Mostrar top</label>
+            <input type="number" id="topn-input" class="input" min="3" max="200" step="1" value="20" />
           </div>
           <div class="f-2">
             <label class="field-label">Universo</label>
@@ -41,6 +41,15 @@
               <input type="checkbox" id="include-groups-toggle">
               <span class="small">Incluir grupos (ABA, ABE, ADEBA…)</span>
             </label>
+          </div>
+        </div>
+        <div class="filters" style="margin-top:8px">
+          <div class="f-5">
+            <label class="field-label">Buscar entidad</label>
+            <input type="text" id="search-input" class="input" placeholder="Filtrar por nombre o alias..." autocomplete="off" />
+          </div>
+          <div class="f-7" style="display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap">
+            <span class="muted small" id="result-count"></span>
           </div>
         </div>
       </div>
@@ -55,91 +64,21 @@
           la <em>variación mensual</em> compara contra el mes inmediato anterior.
           Para indicadores en porcentaje (formato <code>P</code>) las variaciones se muestran en puntos porcentuales (pp);
           para indicadores numéricos (<code>N</code>), en porcentaje (%) sobre el valor previo.
-          Cada tabla muestra las tres métricas; la columna que ordena la tabla aparece resaltada.
-          Se ignoran filas con dato faltante en alguno de los meses comparados.
+          <strong>Ordená por cualquier columna</strong> tocando su encabezado; volvelo a tocar para invertir el orden.
+          Las celdas con dato faltante quedan al final del orden.
         </div>
       </div>
 
-      <h2 class="section-title">Mejores</h2>
-      <div class="ranking-grid">
-        <div class="card mb-12">
-          <div class="card-header">
-            <h3 class="card-title">Top por valor</h3>
-            <span class="muted small" id="rank-value-meta"></span>
-          </div>
-          <div class="card-body" style="padding:0">
-            <div class="table-wrap">
-              <table class="data ranking-table" id="rank-value-table"></table>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-12">
-          <div class="card-header">
-            <h3 class="card-title">Top por variación interanual</h3>
-            <span class="muted small" id="rank-yoy-meta"></span>
-          </div>
-          <div class="card-body" style="padding:0">
-            <div class="table-wrap">
-              <table class="data ranking-table" id="rank-yoy-table"></table>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-12">
-          <div class="card-header">
-            <h3 class="card-title">Top por variación mensual</h3>
-            <span class="muted small" id="rank-mom-meta"></span>
-          </div>
-          <div class="card-body" style="padding:0">
-            <div class="table-wrap">
-              <table class="data ranking-table" id="rank-mom-table"></table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="section-title">Peores</h2>
-      <div class="ranking-grid">
-        <div class="card mb-12">
-          <div class="card-header">
-            <h3 class="card-title">Bottom por valor</h3>
-            <span class="muted small" id="rank-value-bot-meta"></span>
-          </div>
-          <div class="card-body" style="padding:0">
-            <div class="table-wrap">
-              <table class="data ranking-table" id="rank-value-bot-table"></table>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-12">
-          <div class="card-header">
-            <h3 class="card-title">Caídas interanuales más pronunciadas</h3>
-            <span class="muted small" id="rank-yoy-bot-meta"></span>
-          </div>
-          <div class="card-body" style="padding:0">
-            <div class="table-wrap">
-              <table class="data ranking-table" id="rank-yoy-bot-table"></table>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-12">
-          <div class="card-header">
-            <h3 class="card-title">Caídas mensuales más pronunciadas</h3>
-            <span class="muted small" id="rank-mom-bot-meta"></span>
-          </div>
-          <div class="card-body" style="padding:0">
-            <div class="table-wrap">
-              <table class="data ranking-table" id="rank-mom-bot-table"></table>
-            </div>
+      <div class="card mb-12">
+        <div class="card-body" style="padding:0">
+          <div class="table-wrap">
+            <table class="data ranking-table" id="rank-table"></table>
           </div>
         </div>
       </div>
 
       <div class="flex justify-end mt-12">
-        <button class="btn ghost" id="download-csv">Descargar CSV (los 6 rankings)</button>
+        <button class="btn ghost" id="download-csv">Descargar CSV (vista actual)</button>
       </div>
     </div>
 
