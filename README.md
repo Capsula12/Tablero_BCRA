@@ -20,16 +20,14 @@ Tablero web 100% estático para explorar variables del sistema financiero argent
 
 Toggle global **Moneda homogénea (IPC INDEC)** en la topbar — deflacta los nominales en pesos a precios del último mes con IPC.
 
-### Selectores de período — sliders
+### Selectores de período
 
-Todas las pantallas usan **sliders** (estilo Streamlit) en lugar de combos para elegir el mes / rango:
-
-| Pantalla | Componente | Componente JS |
+| Pantalla | Tipo de selector | Componente JS |
 |---|---|---|
-| Series, Calculadora | Range slider con dos thumbs + shortcuts (`Último año`, `3 años`, `5 años`, `Todo`) | `UI.dateRangeSlider` |
-| Panel, Ranking | Slider de un solo thumb (mes de referencia) | `UI.dateMonthSlider` |
+| Series, Calculadora | **Range slider** con dos thumbs (estilo Streamlit) + shortcuts (`Último año`, `3 años`, `5 años`, `Todo`) | `UI.dateRangeSlider` |
+| Panel, Ranking | Combobox con búsqueda (un solo mes) | `UI.combobox` |
 
-Soporte de teclado en ambos: ← / → = ±1 mes, ↑ / ↓ idem; **PageUp / PageDown = ±12 meses**; Home/End = bordes. Drag-and-drop con mouse o toque. Click sobre la barra mueve el thumb más cercano.
+El range slider soporta teclado: ← / → = ±1 mes; ↑ / ↓ idem; **PageUp / PageDown = ±12 meses**; Home/End = bordes. Drag-and-drop con mouse o toque. Click sobre la barra mueve el thumb más cercano. (Para Panel y Ranking se usa combobox y no slider porque ahí solo se elige UN mes — el slider de un solo thumb agrega complejidad sin valor.)
 
 ---
 
@@ -117,7 +115,7 @@ Tocando un encabezado se ordena por esa columna; volverlo a tocar invierte la di
 
 Controles:
 - **Indicador**: combo con búsqueda. El default es ROE (`indicad/800010400010`).
-- **Mes de referencia**: **slider de un solo thumb** (`UI.dateMonthSlider`) sobre todos los meses con datos. Aceptación de teclado: ←/→ = ±1 mes; PageUp/PageDown = ±12; Home/End = bordes.
+- **Mes**: combo con búsqueda en orden descendente (último mes primero).
 - **Mostrar top**: límite de filas visibles (3–200, default 20). El orden se aplica a *toda* la población antes de cortar.
 - **Universo de entidades**: **segmented control** (estilo radio inline) con dos opciones:
   - `Todas + grupos` (default) — incluye entidades reales + agregados nativos del BCRA (`AA*`: TOTAL SISTEMA FINANCIERO, BANCOS PUBLICOS, BANCOS PRIVADOS, 10 PRIMEROS BANCOS PRIVADOS, etc.) + grupos custom (`GRP_*`: ABA, ABE, ADEBA, ABAPPRA, MACRO E ITAU, ABAPPRA CON NACION).
@@ -179,7 +177,7 @@ El repo privado tiene además un frontend Streamlit con autenticación que consu
 - Encoding `utf-8-sig` (con BOM) en CSVs de configuración; el código tolera ambos.
 - Para sumar un indicador derivado nuevo: agregar fila a `data/derived_indicators.csv` con `codigo_dato,descripcion_dato,formato,rule`. La `rule` admite `VAL(origen:codigo)`, `VAL0(...)` (NaN→0), `DIFF(...)` (mes a mes), `DIV0(num,den)` y aritmética básica.
 - Para sumar un grupo nuevo (ABA, ADEBA, etc.): agregar filas a `data/group_entities.csv` y, si el método de agregación no es el default (`mean` para `P`, `sum` para `N`), una fila a `data/aggregations.csv`.
-- Cuando agregás un indicador, sumá también una fila en `data/detalle_datos.csv` (`codigo_dato,descripcion_dato,detalle_dato`) con una explicación que **enfatice el significado de las variaciones** ("una suba indica X; una baja indica Y"). Esto alimenta los `<details class="help">` (Panel/Series/Calc) y la tarjeta de detalle automática del Ranking.
+- Cuando agregás un indicador (regular o **derivado** vía `data/derived_indicators.csv`), sumá también una fila en `data/detalle_datos.csv` (`codigo_dato,descripcion_dato,detalle_dato`) con una explicación que **enfatice el significado de las variaciones** ("una suba indica X; una baja indica Y"). El detalle se busca por `codigo_dato` (no por origen), así los derivados (`9900xxxxx`) tienen su propia fila. Esto alimenta los `<details class="help">` (Panel/Series/Calc) y la tarjeta de detalle automática del Ranking.
 
 ### Universo de entidades — códigos especiales
 

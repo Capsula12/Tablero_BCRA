@@ -46,7 +46,7 @@
   const detailMeta = detailCard.querySelector(".ind-detail-meta");
   const detailBody = detailCard.querySelector(".ind-detail-body");
 
-  let indCombo, monthSlider, universeSeg;
+  let indCombo, monthCombo, universeSeg;
   let lastResults = null; // { meta, records:[] }
 
   function setStatus(msg, type = "info") {
@@ -73,12 +73,15 @@
         return;
       }
       const months = BCRA.monthsRange(bounds.minYM, bounds.maxYM);
+      const monthOptsDesc = months.slice().reverse().map((ym) => ({
+        value: String(ym),
+        label: labelMonth(ym),
+      }));
       if (!state.refYM || !months.includes(state.refYM)) state.refYM = bounds.maxYM;
 
-      monthSlider = UI.dateMonthSlider(monthHost, months, {
-        value: state.refYM,
-        onChange: (v) => { state.refYM = v; saveState(); render(); },
-        onInput: (v) => { state.refYM = v; },
+      monthCombo = UI.combobox(monthHost, monthOptsDesc, {
+        selected: String(state.refYM),
+        onChange: (v) => { state.refYM = parseInt(v, 10); saveState(); render(); },
       });
 
       const indOpts = indicators.map((i) => ({
