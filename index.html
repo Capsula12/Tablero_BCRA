@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tablero BCRA — Análisis de variables bancarias</title>
+  <meta name="description" content="Tablero interactivo para analizar variables del sistema financiero argentino (BCRA): balances, indicadores, series temporales, comparaciones entre entidades y fórmulas personalizadas. Datos en moneda homogénea (IPC INDEC).">
+  <meta property="og:title" content="Tablero BCRA">
+  <meta property="og:description" content="Análisis interactivo de bancos argentinos (BCRA): balances, indicadores y series temporales.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='800' font-size='34' fill='white'>B</text><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%236fa8ff'/><stop offset='1' stop-color='%23c084fc'/></linearGradient></defs></svg>">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="topbar-host"></div>
+
+    <div class="container">
+      <section class="hero">
+        <div>
+          <h1>Análisis del sistema financiero argentino</h1>
+          <p class="lead">
+            Explorá las series del BCRA: balances, indicadores de rentabilidad, liquidez,
+            cartera y composición — por entidad o agrupando bancos. Comparaciones intermensuales
+            e interanuales, fórmulas personalizadas y deflactor IPC INDEC.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="panel.html">Abrir Panel</a>
+            <a class="btn ghost" href="series.html">Comparar series</a>
+            <a class="btn ghost" href="calc.html">Calculadora</a>
+            <a class="btn ghost" href="ranking.html">Ranking</a>
+          </div>
+          <div class="mt-16 small muted">
+            Funciona 100% en el navegador. Los datos viven en este repo y se cargan bajo demanda.
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="kpi"><div class="kpi-label">Entidades</div><div class="kpi-value" id="kpi-ents">—</div><div class="kpi-sub">bancos + grupos</div></div>
+          <div class="kpi"><div class="kpi-label">Indicadores</div><div class="kpi-value" id="kpi-inds">—</div><div class="kpi-sub">balres + indicad + inf_adi + derived</div></div>
+          <div class="kpi"><div class="kpi-label">Años</div><div class="kpi-value" id="kpi-years">—</div><div class="kpi-sub">cobertura del dataset</div></div>
+          <div class="kpi"><div class="kpi-label">Último mes</div><div class="kpi-value" id="kpi-last">—</div><div class="kpi-sub">en moneda homogénea (IPC)</div></div>
+        </div>
+      </section>
+
+      <div class="feature-grid">
+        <a href="panel.html" class="feature-card">
+          <div class="icon">▤</div>
+          <h3>Panel por entidad</h3>
+          <p>Tablero con mini-series y deltas (mes anterior, año anterior). Ideal para ver el estado actual de un banco o un grupo de un vistazo.</p>
+          <span class="arrow">Abrir →</span>
+        </a>
+        <a href="series.html" class="feature-card">
+          <div class="icon">▥</div>
+          <h3>Series</h3>
+          <p>Compará un mismo indicador en varias entidades a lo largo del tiempo. Buscador con autocompletado y selección múltiple.</p>
+          <span class="arrow">Abrir →</span>
+        </a>
+        <a href="calc.html" class="feature-card">
+          <div class="icon">≡</div>
+          <h3>Calculadora</h3>
+          <p>Construí fórmulas combinando indicadores con operadores y paréntesis, y graficá el resultado por entidad.</p>
+          <span class="arrow">Abrir →</span>
+        </a>
+        <a href="ranking.html" class="feature-card">
+          <div class="icon">★</div>
+          <h3>Ranking</h3>
+          <p>Top N de entidades por valor del mes, variación interanual y variación mensual para cualquier indicador.</p>
+          <span class="arrow">Abrir →</span>
+        </a>
+      </div>
+
+      <div class="card padded mt-24">
+        <h3 class="card-title" style="margin-top:0">Cómo funciona</h3>
+        <ul class="muted small" style="line-height:1.7">
+          <li>Los CSVs de <code class="mono">/data</code> se cargan bajo demanda. Las páginas que cubren un período corto (Panel) descargan sólo los años necesarios.</li>
+          <li>Los <strong>grupos</strong> (ABA, ABAPPRA, ADEBA, etc.) se calculan con las reglas de <code class="mono">aggregations.csv</code> (suma, promedio o promedio ponderado).</li>
+          <li>Los <strong>indicadores derivados</strong> usan <code class="mono">derived_indicators.csv</code> con expresiones tipo <code class="mono">DIV0(VAL0(...) + VAL0(...), VAL(...))</code>.</li>
+          <li>El toggle <strong>Moneda homogénea</strong> deflacta los nominales en pesos a precios del último mes con IPC INDEC.</li>
+          <li>Reglas de limpieza heredadas del backend Python: valores 0 se reemplazan por el mes anterior; outliers de % &gt; 99000 se ignoran.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="footer-host"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script>
+    UI.mountTopbar("index");
+    UI.mountFooter();
+
+    (async function () {
+      try {
+        // Indicators
+        const inds = await BCRA.listIndicators();
+        document.getElementById("kpi-inds").textContent = inds.length.toLocaleString("es-AR");
+
+        // Entities
+        const nom = await BCRA.loadNomina();
+        document.getElementById("kpi-ents").textContent = nom.length.toLocaleString("es-AR");
+
+        // Years
+        const bounds = await BCRA.getMonthBounds();
+        if (bounds) {
+          document.getElementById("kpi-years").textContent = bounds.years.length;
+          const ym = bounds.maxYM;
+          const y = Math.floor(ym / 100);
+          const m = String(ym % 100).padStart(2, "0");
+          document.getElementById("kpi-last").textContent = `${y}-${m}`;
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
+</body>
+</html>

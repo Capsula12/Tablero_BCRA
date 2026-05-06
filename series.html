@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Series — Tablero BCRA</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='800' font-size='34' fill='white'>B</text><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%236fa8ff'/><stop offset='1' stop-color='%23c084fc'/></linearGradient></defs></svg>">
+</head>
+<body>
+  <div class="app-shell">
+    <div id="topbar-host"></div>
+
+    <div class="container">
+      <header class="page-header">
+        <div>
+          <h1 class="page-title">Series</h1>
+          <p class="page-subtitle">Compará un mismo indicador entre varias entidades a lo largo del tiempo.</p>
+        </div>
+        <div id="series-meta" class="muted small"></div>
+      </header>
+
+      <div class="card padded mb-12">
+        <div class="filters">
+          <div class="f-3">
+            <label class="field-label">Desde</label>
+            <div id="from-picker"></div>
+          </div>
+          <div class="f-3">
+            <label class="field-label">Hasta</label>
+            <div id="to-picker"></div>
+          </div>
+          <div class="f-6">
+            <label class="field-label">Entidades</label>
+            <div id="entities-picker"></div>
+          </div>
+          <div class="f-12">
+            <label class="field-label">Indicadores</label>
+            <div id="vars-picker"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="series-status" class="notice info hidden"></div>
+
+      <div id="series-charts"></div>
+
+      <div class="card mt-24" id="data-table-card" hidden>
+        <div class="card-header">
+          <h3 class="card-title">Datos (último indicador mostrado)</h3>
+          <button class="btn ghost" id="download-csv">Descargar CSV</button>
+        </div>
+        <div class="card-body" style="padding:0">
+          <div class="table-wrap" style="max-height:400px">
+            <table class="data" id="data-table"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer-host"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/series.js"></script>
+</body>
+</html>

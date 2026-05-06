@@ -1,0 +1,147 @@
+﻿codigo_dato,descripcion_dato,formato,origen,homogeneizable,deflactor
+100010000000,A C T I V O,N,balres,1,IPC_INDEC_NAC_NG
+100010100000,Efectivo y deposito en bancos,N,balres,1,IPC_INDEC_NAC_NG
+100010200000,Títulos Públicos y Privados,N,balres,1,IPC_INDEC_NAC_NG
+100010300000,Préstamos,N,balres,1,IPC_INDEC_NAC_NG
+100010301000,Sector Público no Financiero,N,balres,1,IPC_INDEC_NAC_NG
+100010302000,Sector Financiero,N,balres,1,IPC_INDEC_NAC_NG
+100010303000,Sector Privado no Financiero y Residentes en el Ext.,N,balres,1,IPC_INDEC_NAC_NG
+100010303001,Adelantos,N,balres,1,IPC_INDEC_NAC_NG
+100010303005,"Doc a sola firma, descont. y comprados",N,balres,1,IPC_INDEC_NAC_NG
+100010303010,Hipotecarios,N,balres,1,IPC_INDEC_NAC_NG
+100010303015,Prendarios,N,balres,1,IPC_INDEC_NAC_NG
+100010303020,Personales,N,balres,1,IPC_INDEC_NAC_NG
+100010303030,Otros,N,balres,1,IPC_INDEC_NAC_NG
+100010303045,Intereses y dif. cotiz. deveng. a cobrar,N,balres,1,IPC_INDEC_NAC_NG
+100010303050,Cobros no aplicados,N,balres,1,IPC_INDEC_NAC_NG
+100010303055,Intereses documentados,N,balres,1,IPC_INDEC_NAC_NG
+100010303060,Ajustes NIIF,N,balres,1,IPC_INDEC_NAC_NG
+100010304000,Previsiones,N,balres,1,IPC_INDEC_NAC_NG
+100010400000,Otros Cred.por Interm.Finan.,N,balres,1,IPC_INDEC_NAC_NG
+100010401000,Montos a cobrar por ventas contado a liq. y a término,N,balres,1,IPC_INDEC_NAC_NG
+100010409000,Otros,N,balres,1,IPC_INDEC_NAC_NG
+100010500000,Credito por arrendamiento financiero,N,balres,1,IPC_INDEC_NAC_NG
+100010600000,Part. en otras Sociedades,N,balres,1,IPC_INDEC_NAC_NG
+100010600005,En entidades financieras,N,balres,1,IPC_INDEC_NAC_NG
+100010600020,Otras,N,balres,1,IPC_INDEC_NAC_NG
+100010600030,Deterioro de valor,N,balres,1,IPC_INDEC_NAC_NG
+100010700000,Créditos Diversos,N,balres,1,IPC_INDEC_NAC_NG
+100010800000,"Propiedad, plantas y equipo",N,balres,1,IPC_INDEC_NAC_NG
+100010900000,Bienes Diversos,N,balres,1,IPC_INDEC_NAC_NG
+100011000000,Activos Intangibles,N,balres,1,IPC_INDEC_NAC_NG
+100011100000,Filiales en el Exterior,N,balres,1,IPC_INDEC_NAC_NG
+100011200000,Partidas Pend. de Imputación,N,balres,1,IPC_INDEC_NAC_NG
+100020000000,P A S I V O,N,balres,1,IPC_INDEC_NAC_NG
+100020100000,Depósitos,N,balres,1,IPC_INDEC_NAC_NG
+100020101000,Sector Público no financiero,N,balres,1,IPC_INDEC_NAC_NG
+100020102000,Sector Financiero,N,balres,1,IPC_INDEC_NAC_NG
+100020103000,Sector Privado no Financiero y Residentes en el Ext.,N,balres,1,IPC_INDEC_NAC_NG
+100020103001,Cuentas corrientes,N,balres,1,IPC_INDEC_NAC_NG
+100020103005,Caja de ahorros,N,balres,1,IPC_INDEC_NAC_NG
+100020103010,Plazo fijo e inversiones a plazo,N,balres,1,IPC_INDEC_NAC_NG
+100020103015,Otros,N,balres,1,IPC_INDEC_NAC_NG
+100020103020,Intereses y dif. cotiz. deveng. a pagar,N,balres,1,IPC_INDEC_NAC_NG
+100020103025,Ajustes NIIF,N,balres,1,IPC_INDEC_NAC_NG
+100020200000,Otras Oblig.por Intermed. Financ.,N,balres,1,IPC_INDEC_NAC_NG
+100020200005,Obligaciones Negociables,N,balres,1,IPC_INDEC_NAC_NG
+100020200010,Líneas de Créditos del Exterior,N,balres,1,IPC_INDEC_NAC_NG
+100020200020,Montos a pagar por compras contado a liq. y a término,N,balres,1,IPC_INDEC_NAC_NG
+100020200090,Otras,N,balres,1,IPC_INDEC_NAC_NG
+100020300000,Obligaciones Diversas,N,balres,1,IPC_INDEC_NAC_NG
+100020400000,Provisiones,N,balres,1,IPC_INDEC_NAC_NG
+100020500000,Obligaciones Subordinadas,N,balres,1,IPC_INDEC_NAC_NG
+100020600000,Partidas Pendientes de Imputación,N,balres,1,IPC_INDEC_NAC_NG
+100030000000,P A T R I M O N I O   N E T O,N,balres,1,IPC_INDEC_NAC_NG
+100030100000,"Capital, Aportes, Reservas y ORI acumulado",N,balres,1,IPC_INDEC_NAC_NG
+100030600000,Resultados no asignados,N,balres,1,IPC_INDEC_NAC_NG
+100040000000,R D O S. I N T E G R A L E S  A C U M.  D E L  P E R I O D O,N,balres,1,IPC_INDEC_NAC_NG
+100040100000,Ingresos financieros,N,balres,1,IPC_INDEC_NAC_NG
+100040100005,Por Intereses,N,balres,1,IPC_INDEC_NAC_NG
+100040100090,Otros Ingresos Financieros,N,balres,1,IPC_INDEC_NAC_NG
+100040200000,Egresos financieros,N,balres,1,IPC_INDEC_NAC_NG
+100040200005,Por Intereses,N,balres,1,IPC_INDEC_NAC_NG
+100040200090,Otros Egresos Financieros,N,balres,1,IPC_INDEC_NAC_NG
+100040300000,Cargo por incobrabilidad,N,balres,1,IPC_INDEC_NAC_NG
+100040400000,Ingresos por servicios,N,balres,1,IPC_INDEC_NAC_NG
+100040500000,Egresos por servicios,N,balres,1,IPC_INDEC_NAC_NG
+100040700000,Gastos de administración,N,balres,1,IPC_INDEC_NAC_NG
+100040800000,Créditos recuperados y previsiones desafectadas,N,balres,1,IPC_INDEC_NAC_NG
+100041200000,Resultado monetario,N,balres,1,IPC_INDEC_NAC_NG
+100041300000,Otros,N,balres,1,IPC_INDEC_NAC_NG
+100041400000,Impuesto a las ganancias,N,balres,1,IPC_INDEC_NAC_NG
+100041500000,Otro resultado integral,N,balres,1,IPC_INDEC_NAC_NG
+100050000000,PARTIDAS FUERA DE BALANCE,N,balres,1,IPC_INDEC_NAC_NG
+100050100000,Créditos irrecuperables en partidas fuera del balance,N,balres,1,IPC_INDEC_NAC_NG
+100050200000,Contingentes acreedoras,N,balres,1,IPC_INDEC_NAC_NG
+100050300000,De Control acreedoras,N,balres,1,IPC_INDEC_NAC_NG
+100050400000,De Derivados acreedoras,N,balres,1,IPC_INDEC_NAC_NG
+100050500000,De Actividad fiduciaria acreedoras,N,balres,1,IPC_INDEC_NAC_NG
+100050600000,Contingentes deudoras,N,balres,1,IPC_INDEC_NAC_NG
+100050700000,De Control deudoras,N,balres,1,IPC_INDEC_NAC_NG
+100050800000,De Derivados deudoras,N,balres,1,IPC_INDEC_NAC_NG
+100050900000,De Actividad fiduciaria deudoras,N,balres,1,IPC_INDEC_NAC_NG
+100060000000,"Importe a netear de operac. y pases, a término y contado a l",N,balres,1,IPC_INDEC_NAC_NG
+8000111,A11 - Cartera Irregular Sector Privado (%),P,indicad,0,
+80001111,L1 - Liquidez Total con Posición de Call (%),P,indicad,0,
+800010100010,C1 - Apalancamiento (en veces),N,indicad,0,
+800010100020,C2 - Pérdida Potencial de Cartera en Situación 2 a 6 (%),P,indicad,0,
+800010100030,C3 - Pérdida Potencial de Cartera en Situación 3 a 6 (%),P,indicad,0,
+800010200090,A9 - Total Cartera Irregular / Total Financiaciones (%),P,indicad,0,
+800010200110,A11 - Cartera Irregular Sector Privado (%),P,indicad,0,
+800010200120,A12 - Participación Cartera Comercial Sector Privado (%),P,indicad,0,
+800010200130,A13 - Participación Cartera Consumo Sector Privado (%),P,indicad,0,
+800010200140,A14 - Previsiones sobre Cartera Irregular Total (%),P,indicad,0,
+800010200160,A16 - Cartera Irregular Consumo Sector Privado (%),P,indicad,0,
+800010200170,A17 - Cartera Irregular Comercial Sector Privado (%),P,indicad,0,
+800010200210,A21 - Posición de Previsiones Mín Sector Priv No Fciero (%),P,indicad,0,
+800010201030,AG3 - Importancia de Cartera Vencida del Sector Privado (%),P,indicad,0,
+800010201290,AG29 - Efectivo y Depósito en Bancos / Activo (%),P,indicad,0,
+800010300010,E1 - Absorción de Gastos de Ad. con Volúmen de Negocio (%),P,indicad,0,
+800010300020,E2 - Margen de Rentabilidad Operat./Gastos de Estructura (%),P,indicad,0,
+800010300040,E4 - Depósitos por Empleado (en millones de pesos),N,indicad,1,IPC_INDEC_NAC_NG
+800010300050,E5 - Financiaciones por Empleado (en millones de pesos),N,indicad,1,IPC_INDEC_NAC_NG
+800010400010,R1 - Rendimiento Anual del Patrimonio ( ROE) (%),P,indicad,0,
+800010400020,R2 - Rendimiento Ordinario del Patrimonio (%),P,indicad,0,
+800010400080,R8 - Tasa Implicita Préstamos Totales (%),P,indicad,0,
+800010400090,R9 - Tasa Implicita Depósitos Totales (%),P,indicad,0,
+800010400170,R17 - Gastos en Personal / Gastos de Administración (%),P,indicad,0,
+800010401010,RG1 - Retorno sobre Activos ( ROA) (%),P,indicad,0,
+800010401020,RG2 - Ingresos Financieros Netos / Activo  (%),P,indicad,0,
+800010401030,RG3 - Cargos por Incobrabilidad / Activo  (%),P,indicad,0,
+800010401040,RG4 - Ingresos Netos por Servicios / Activo  (%),P,indicad,0,
+800010401050,RG5 - Gastos de Administración / Activo  (%),P,indicad,0,
+800010401150,RG15 - Retorno sobre Activos (ROA) antes Imp. de Gcias (%),P,indicad,0,
+800010500010,L1 - Liq con titulos c/cotiz + posición de call y leliq (%),P,indicad,0,
+800010500080,L8_II - Liquidez con títulos con cotiz (%),P,indicad,0,
+800010500090,L9 - Liquidez con leliq y pases (%),P,indicad,0,
+110000000001,CANTIDAD ENTIDADES FINANCIERAS,N,inf_adi,0,
+110000000002,Bancos,N,inf_adi,0,
+110000000003,Bancos Públicos,N,inf_adi,0,
+110000000004,Bancos Privados,N,inf_adi,0,
+110000000005,Bancos Locales de Capital Nacional,N,inf_adi,0,
+110000000006,Bancos Locales de Capital extranjero,N,inf_adi,0,
+110000000007,Bancos Sucursales de Entidades Financieras del Exter,N,inf_adi,0,
+110000000008,Compañías Financieras,N,inf_adi,0,
+110000000009,Compañías Financieras de Capital Nacional,N,inf_adi,0,
+110000000010,Compañías Financieras de Capital Extranjero,N,inf_adi,0,
+110000000011,Cajas de Crédito,N,inf_adi,0,
+310000000033,Cantidad de cuentas corrientes,N,inf_adi,0,
+310000000043,Cantidad de cuentas de ahorro,N,inf_adi,0,
+310000000044,Cantidad de cajas de ahorro de ayuda social,N,inf_adi,0,
+310000000045,Cantidad de cuentas previsionales,N,inf_adi,0,
+310000000051,Cantidad de operaciones a plazo fijo Individuos,N,inf_adi,0,
+310000000052,Cantidad de operaciones a plazo fijo Empresas,N,inf_adi,0,
+310000000061,Cantidad de operaciones por préstamos Individuos,N,inf_adi,0,
+310000000062,Cantidad de operaciones por préstamos Empresas,N,inf_adi,0,
+310000000063,Cantidad de operaciones por préstamos hipotecarios,N,inf_adi,0,
+310000000064,Cantidad de operaciones por préstamos prendarios,N,inf_adi,0,
+310000000065,Cantidad de operaciones por otros préstamos,N,inf_adi,0,
+310000000070,Dotación de personal,N,inf_adi,0,
+312100000011,Cantidad de titulares por tarjetas de crédito,N,inf_adi,0,
+312100000012,Cantidad de tarjetas de crédito (plásticos),N,inf_adi,0,
+318000100001,Cantidad de cuentas con tarjetas de débito,N,inf_adi,0,
+318000100002,Cantidad de tarjetas de débito,N,inf_adi,0,
+318000500001,Cantidad de cheques librados por cuentacorrentistas,N,inf_adi,0,
+318000500002,Monto pagado por cheques librados,N,inf_adi,1,IPC_INDEC_NAC_NG
+400100001000,Cantidad de Cuentas,N,inf_adi,0,
+400100002000,Cantidad de Empresas,N,inf_adi,0,

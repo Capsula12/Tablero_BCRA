@@ -1,0 +1,3 @@
+codigo_dato,descripcion_dato,formato,rule
+990000003,CALC Variación cantidad hipotecarios (MoM),N,"DIFF(inf_adi:310000000063)"
+990000002,CALC Cuentas por empleado,N,"DIV0(VAL0(inf_adi:310000000045)+VAL0(inf_adi:310000000044)+VAL0(inf_adi:310000000043)+VAL0(inf_adi:310000000033), VAL(inf_adi:310000000070))"

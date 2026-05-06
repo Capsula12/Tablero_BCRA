@@ -1,0 +1,32 @@
+codigo_dato,origen,method,weight_codigo_dato,nota
+100010000000,balres,sum,,ACTIVO total
+100010100000,balres,sum,,
+100010200000,balres,sum,,
+100010300000,balres,sum,,Préstamos (base para ponderar tasas / cartera)
+100020100000,balres,sum,,Depósitos (base para ponderar tasa implícita depósitos)
+100040700000,balres,sum,,Gastos de administración (base para ponderar R17)
+100030000000,balres,sum,,Patrimonio Neto (base para ponderar ROE)
+310000000070,inf_adi,sum,,Dotación de personal
+400100001000,inf_adi,sum,,Cantidad de Cuentas
+800010401010,indicad,weighted_mean,100010000000,ROA (retorno sobre activos)
+800010401020,indicad,weighted_mean,100010000000,Ingresos Financieros Netos / Activo
+800010401030,indicad,weighted_mean,100010000000,Cargos por Incobrabilidad / Activo
+800010401040,indicad,weighted_mean,100010000000,Ingresos Netos por Servicios / Activo
+800010401050,indicad,weighted_mean,100010000000,Gastos de Administración / Activo
+800010400010,indicad,weighted_mean,100030000000,ROE (retorno sobre patrimonio)
+800010400170,indicad,weighted_mean,100040700000,Gastos personal / gastos administración
+800010400080,indicad,weighted_mean,100010300000,Tasa Implícita Préstamos Totales
+800010400090,indicad,weighted_mean,100020100000,Tasa Implícita Depósitos Totales
+800010201290,indicad,weighted_mean,100010000000,Efectivo y Depósitos en Bancos / Activo
+800010200090,indicad,weighted_mean,100010300000,Total cartera irregular / financiaciones
+800010200110,indicad,weighted_mean,100010300000,Cartera irregular sector privado
+800010200160,indicad,weighted_mean,100010300000,Cartera irregular consumo SP
+800010200170,indicad,weighted_mean,100010300000,Cartera irregular comercial SP
+800010500010,indicad,weighted_mean,100010000000,L1 Liquidez (aprox ponderada por Activo)
+800010500080,indicad,weighted_mean,100010000000,L8 Liquidez (aprox ponderada por Activo)
+800010500090,indicad,weighted_mean,100010000000,L9 Liquidez (aprox ponderada por Activo)
+800010300010,indicad,mean,,Absorción de gastos de Ad. / Volumen
+800010300020,indicad,mean,,Margen rentab. op. / gastos estructura
+800010400020,indicad,mean,,Rendimiento ordinario del patrimonio
+800010400010,indicad,weighted_mean,100030000000,ROE ponderado por PN
+990000002,derived,weighted_mean,310000000070,"Cuentas por empleado = sum(cuentas)/sum(dotación)"
