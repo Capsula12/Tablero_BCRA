@@ -228,9 +228,9 @@
 
           const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
           layout.margin = { l: 60, r: 18, t: 14, b: 70 };
-          layout.xaxis = Object.assign({}, layout.xaxis, { title: { text: "Fecha", font: { color: "#7a8197" } } });
+          layout.xaxis = Object.assign({}, layout.xaxis, { title: { text: "Fecha", font: { color: "#64748b" } } });
           layout.yaxis = Object.assign({}, layout.yaxis, {
-            title: { text: meta && String(meta.formato).toUpperCase() === "P" ? "Valor (%)" : "Valor", font: { color: "#7a8197" } },
+            title: { text: meta && String(meta.formato).toUpperCase() === "P" ? "Valor (%)" : "Valor", font: { color: "#64748b" } },
             tickformat: meta && String(meta.formato).toUpperCase() === "P" ? ".2f" : ",.2f",
           });
           layout.legend = Object.assign({}, layout.legend, { orientation: "h", y: -0.18 });

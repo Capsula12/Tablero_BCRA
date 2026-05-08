@@ -424,30 +424,32 @@
   const PLOTLY_LAYOUT = {
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor: "rgba(0,0,0,0)",
-    font: { color: "#e7eaf3", family: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif", size: 12 },
+    font: { color: "#0f172a", family: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif", size: 12 },
     margin: { l: 50, r: 18, t: 30, b: 40 },
     xaxis: {
-      gridcolor: "#262e3d",
-      zerolinecolor: "#3a455c",
-      tickfont: { color: "#b6bccb", size: 11 },
-      title: { font: { color: "#7a8197", size: 11 } },
+      gridcolor: "#e2e8f0",
+      zerolinecolor: "#cbd5e1",
+      linecolor: "#cbd5e1",
+      tickfont: { color: "#475569", size: 11 },
+      title: { font: { color: "#64748b", size: 11 } },
     },
     yaxis: {
-      gridcolor: "#262e3d",
-      zerolinecolor: "#3a455c",
-      tickfont: { color: "#b6bccb", size: 11 },
-      title: { font: { color: "#7a8197", size: 11 } },
+      gridcolor: "#e2e8f0",
+      zerolinecolor: "#cbd5e1",
+      linecolor: "#cbd5e1",
+      tickfont: { color: "#475569", size: 11 },
+      title: { font: { color: "#64748b", size: 11 } },
     },
     legend: {
-      bgcolor: "rgba(0,0,0,0)",
-      font: { color: "#b6bccb", size: 11 },
+      bgcolor: "rgba(255,255,255,0)",
+      font: { color: "#334155", size: 11 },
       orientation: "h",
       y: -0.18,
     },
     hoverlabel: {
-      bgcolor: "#1e2532",
-      bordercolor: "#3a455c",
-      font: { color: "#e7eaf3", size: 12 },
+      bgcolor: "#ffffff",
+      bordercolor: "#cbd5e1",
+      font: { color: "#0f172a", size: 12 },
     },
   };
 
@@ -458,11 +460,12 @@
     modeBarButtonsToRemove: ["lasso2d", "select2d", "autoScale2d"],
   };
 
-  // Color palette for series (color-blind friendly-ish)
+  // Color palette for series — saturated enough to read on white background,
+  // ColorBrewer-inspired and roughly color-blind friendly.
   const COLORS = [
-    "#9bd1ff", "#c084fc", "#21c87a", "#f4b740", "#ff8aa0",
-    "#6fa8ff", "#ffd166", "#86e3ce", "#fa8baf", "#a78bfa",
-    "#7dd3fc", "#fb7185", "#34d399", "#fbbf24", "#60a5fa",
+    "#2563eb", "#7c3aed", "#16a34a", "#d97706", "#dc2626",
+    "#0891b2", "#db2777", "#65a30d", "#9333ea", "#ea580c",
+    "#0284c7", "#be185d", "#15803d", "#a16207", "#475569",
   ];
   function colorFor(idx) { return COLORS[idx % COLORS.length]; }
 

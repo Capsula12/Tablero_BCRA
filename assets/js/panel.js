@@ -250,16 +250,16 @@
             x: xs, y: ys,
             mode: "lines+markers",
             type: "scatter",
-            line: { color: "#9bd1ff", width: 2.4, shape: "linear" },
-            marker: { size: 5, color: "#9bd1ff" },
+            line: { color: "#2563eb", width: 2.4, shape: "linear" },
+            marker: { size: 5, color: "#2563eb" },
             hovertemplate: "<b>%{x}</b><br>" + (String(formato).toUpperCase() === "P" ? "%{y:.2f}%" : "%{y:,.2f}") + "<extra></extra>",
           };
           const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
           layout.height = 150;
           layout.margin = { l: 42, r: 8, t: 6, b: 28 };
           layout.showlegend = false;
-          layout.xaxis = Object.assign({}, layout.xaxis, { tickfont: { color: "#7a8197", size: 9 } });
-          layout.yaxis = Object.assign({}, layout.yaxis, { tickfont: { color: "#7a8197", size: 9 } });
+          layout.xaxis = Object.assign({}, layout.xaxis, { tickfont: { color: "#94a3b8", size: 9 } });
+          layout.yaxis = Object.assign({}, layout.yaxis, { tickfont: { color: "#94a3b8", size: 9 } });
 
           Plotly.newPlot(chartHost, [trace], layout, Object.assign({}, UI.PLOTLY_CONFIG, { displayModeBar: false }));
           await UI.attachHelp(infoHost, item.code);

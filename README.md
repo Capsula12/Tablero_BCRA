@@ -39,8 +39,8 @@ Tablero_BCRA/
 ├─ .nojekyll                              # evita procesamiento Jekyll en GitHub Pages
 ├─ assets/
 │  ├─ css/
-│  │  ├─ style.css                        # tema oscuro, layout responsive
-│  │  └─ ranking.css                      # estilos puntuales de la pantalla Ranking
+│  │  ├─ style.css                        # tema CLARO (single source of truth de tokens), layout responsive
+│  │  └─ ranking.css                      # estilos puntuales de la pantalla Ranking (consume los tokens de style.css)
 │  └─ js/
 │     ├─ data.js                          # capa de datos (CSV → memoria, IPC, derived, grupos)
 │     ├─ ui.js                            # combobox, multiselect, topbar, helpers Plotly
@@ -61,6 +61,50 @@ Tablero_BCRA/
 └─ .github/workflows/
    └─ deploy-pages.yml                    # publica el sitio en cada push a main
 ```
+
+---
+
+## Diseño / sistema visual
+
+El tablero usa un **tema claro** (light), con paleta y tipografía pensadas para dashboards analíticos (referencias: Stripe, Linear, Vercel, Tableau). Todos los tokens viven como custom properties en `:root` dentro de `assets/css/style.css` — para retocar la paleta cambiá los tokens, **no toques los componentes**.
+
+### Tokens principales (`assets/css/style.css :root`)
+
+| Categoría | Token | Valor | Uso |
+|---|---|---|---|
+| Fondo | `--bg` | `#f5f7fb` | fondo de página |
+| Fondo | `--bg-2` | `#eef2f7` | code, formula display, help-body |
+| Superficie | `--surface` | `#ffffff` | cards, inputs, dropdowns |
+| Superficie | `--surface-2` | `#f8fafc` | hover, table headers, combo-search |
+| Superficie | `--surface-3` | `#eef2f7` | seg-control track, hover en options |
+| Borde | `--border` / `--border-strong` | `#e2e8f0` / `#cbd5e1` | bordes default / hover |
+| Brand | `--primary` / `--primary-soft` | `#2563eb` / `#1d4ed8` (blue-600/700) | acento principal |
+| Brand | `--primary-tint` | `#eff6ff` | fondos suaves (chips, hover de nav, ranking de columna activa) |
+| Brand | `--accent` / `--accent-tint` | `#7c3aed` / `#f5f3ff` | acento secundario (gradientes, group-tag, formula op) |
+| Semántico | `--success` / `--danger` / `--warning` | `#15803d` / `#dc2626` / `#b45309` | deltas, notices |
+| Texto | `--text` / `--text-soft` / `--text-muted` / `--text-dim` | `#0f172a` / `#334155` / `#64748b` / `#94a3b8` | jerarquía slate-900 → slate-400 |
+
+### Tipografía
+
+- Stack: `Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ...` (system-first; si `Inter` está instalado o cacheado se usa, si no cae al sans serif del SO).
+- Base: `14.5px / 1.55`. KPIs `26px`. `h1` page title `26px`, hero `42px` con `letter-spacing: -1.2px`.
+- Números siempre con `font-variant-numeric: tabular-nums` y/o `var(--font-mono)` para que las columnas alineen en tablas y deltas.
+
+### Componentes (clases preservadas — no renombrar)
+
+`.app-shell` → `.topbar` + `.container` + `.footer`. `.card` (`.padded`, `.padded-lg`, `.card-header`, `.card-title`, `.card-body`). `.filters` (grid 12-col en ≥900px, span via `.f-3 .f-4 .f-5 .f-6 .f-8 .f-12`). Form: `.input`, `.select`, `.btn` (`.primary` / `.ghost` / `.danger` / `.icon`), `.checkbox`. Datos: `.kpi`, `.mini-card`, `table.data` + `.table-wrap`. Específicos del tablero: `.multiselect` + `.combo` (custom UI en `ui.js`), `.range-slider` (dual-thumb, también `.single` en `dateMonthSlider`), `.seg-control`, `.ind-detail-card`, `.formula-display`, `.feature-card` (landing). Notices: `.notice` + `.warn` / `.error` / `.info`. Loader: `.loading-overlay` + `.spinner` + `.inline-loader`.
+
+### Plotly (charts)
+
+Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo transparente, grids `#e2e8f0`, ticks `#475569`, hoverlabel blanco con borde `#cbd5e1`. La paleta de series es `UI.COLORS` (15 colores saturados, color-blind-friendly-ish, todos con buen contraste sobre blanco). Las páginas (`panel.js`, `series.js`, `calc.js`) clonan el layout default y sólo overridean lo específico (títulos de ejes, márgenes). **Si agregás un chart nuevo, partí siempre de `JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT))` — no hardcodees colores ni la fuente.**
+
+### Reglas para mantener consistencia
+
+1. Cualquier color visible en pantalla tiene que venir de un token (`var(--xxx)`). No usar hex literales en CSS salvo en el SVG inline del caret del `.select` y la flecha del icono.
+2. Los chips, tags y "tints" usan el patrón `tint background + border al 20-25% del color base + texto en la versión `-soft`/`-700`` para legibilidad sobre claro.
+3. Sombras siempre vía las cuatro escalas (`--shadow-xs/sm/md/lg`). Los cards default usan `--shadow-xs`; el hover sube a `--shadow-sm` o `--shadow-md`; los dropdowns usan `--shadow-lg`.
+4. Para porcentajes / variaciones: `delta-pos` (verde) / `delta-neg` (rojo) / `delta-zero|na` (gris) — definidos en `style.css` y usados en Panel y Ranking.
+5. **No agregar dependencias de fuentes externas** (Google Fonts, etc.) — el sistema tipográfico funciona 100% sin red. `Inter` está sólo como first-choice del stack.
 
 ---
 

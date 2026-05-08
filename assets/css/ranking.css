@@ -1,5 +1,5 @@
 /* =============================================================================
-   Ranking page styles
+   Ranking page styles (light theme)
    ============================================================================= */
 
 .ranking-grid {
@@ -25,50 +25,56 @@
   color: var(--text-muted);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 9px 10px;
+  letter-spacing: 0.05em;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--border);
   z-index: 1;
 }
 .ranking-table td {
-  padding: 9px 10px;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
 .ranking-table tr:last-child td { border-bottom: none; }
-.ranking-table tr:hover td { background: rgba(255,255,255,0.02); }
+.ranking-table tbody tr:nth-child(even) td { background: rgba(15, 23, 42, 0.015); }
+.ranking-table tbody tr:hover td { background: var(--primary-tint); }
 .ranking-table .rank-pos {
-  width: 32px;
+  width: 36px;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   text-align: right;
 }
-.ranking-table .rank-pos.medal-1 { color: #f4b740; }
-.ranking-table .rank-pos.medal-2 { color: #c4c8d4; }
-.ranking-table .rank-pos.medal-3 { color: #c79262; }
+.ranking-table .rank-pos.medal-1 { color: #d97706; }
+.ranking-table .rank-pos.medal-2 { color: #64748b; }
+.ranking-table .rank-pos.medal-3 { color: #b45309; }
 .ranking-table .rank-name {
   max-width: 1px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: var(--text);
+  font-weight: 500;
 }
 .ranking-table .rank-name .group-tag {
   display: inline-block;
   margin-left: 6px;
   font-size: 10px;
-  padding: 1px 6px;
+  padding: 1px 7px;
   border-radius: 999px;
-  background: rgba(192,132,252,0.12);
-  color: #c084fc;
-  border: 1px solid rgba(192,132,252,0.25);
+  background: var(--accent-tint);
+  color: var(--accent);
+  border: 1px solid rgba(124, 58, 237, 0.22);
   vertical-align: middle;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 .ranking-table .rank-num {
   text-align: right;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   white-space: nowrap;
+  color: var(--text);
 }
 .ranking-table .rank-prev {
   text-align: right;
@@ -86,20 +92,26 @@
 
 /* Columna por la que ordena la tabla */
 .ranking-table th.sort-col {
-  color: var(--text);
-  background: rgba(192,132,252,0.10);
+  color: var(--primary-soft);
+  background: var(--primary-tint);
 }
 .ranking-table td.sort-col {
-  background: rgba(192,132,252,0.05);
+  background: rgba(37, 99, 235, 0.04);
   font-weight: 700;
+}
+.ranking-table tbody tr:nth-child(even) td.sort-col {
+  background: rgba(37, 99, 235, 0.06);
+}
+.ranking-table tbody tr:hover td.sort-col {
+  background: rgba(37, 99, 235, 0.1);
 }
 .ranking-table .sort-arrow {
   font-size: 9px;
-  opacity: 0.35;
+  opacity: 0.4;
   margin-left: 4px;
   user-select: none;
 }
-.ranking-table .sort-arrow.active { opacity: 0.95; }
+.ranking-table .sort-arrow.active { opacity: 1; color: var(--primary); }
 
 /* Encabezados clickeables (estilo "primera fila de Excel") */
 .ranking-table th.sortable {
@@ -108,20 +120,20 @@
   transition: background-color 120ms ease, color 120ms ease;
 }
 .ranking-table th.sortable:hover {
-  background: rgba(192,132,252,0.16);
-  color: var(--text);
+  background: var(--primary-tint);
+  color: var(--primary-soft);
 }
 .ranking-table th.sortable:focus-visible {
-  outline: 2px solid #c084fc;
+  outline: 2px solid var(--primary);
   outline-offset: -2px;
 }
 
 /* Encabezados "Mejores" / "Peores" entre las grids */
 .section-title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 18px 2px 8px;
 }
