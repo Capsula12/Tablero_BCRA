@@ -1,0 +1,514 @@
+/* =============================================================================
+   Sucursales y dependencias — página completa.
+   ============================================================================= */
+(function () {
+  "use strict";
+
+  UI.mountTopbar("sucursales");
+  UI.mountFooter();
+
+  const STATE_KEY = "bcra.sucursales.state";
+  const state = loadState() || {
+    alias: "NACION",
+    mesStr: null,           // YYYY-MM seleccionado para mapa+resumen
+    distScope: "auto",      // "auto" | "provincia" | "pba_partido"
+    tsAliases: [],
+    tsFromMes: null,
+    tsToMes: null,
+    tsCats: null,           // null => default = all 4
+    tsCompare: false,
+  };
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STATE_KEY)); } catch { return null; }
+  }
+  function saveState() {
+    try { localStorage.setItem(STATE_KEY, JSON.stringify(state)); } catch {}
+  }
+
+  // ----- DOM
+  const entityHost = document.getElementById("entity-picker");
+  const monthHost  = document.getElementById("month-picker");
+  const metaEl     = document.getElementById("suc-meta");
+  const statusEl   = document.getElementById("suc-status");
+  const mapEl      = document.getElementById("suc-map");
+  const legendEl   = document.getElementById("map-legend");
+  const mapNoteEl  = document.getElementById("map-month-note");
+  const mapSumEl   = document.getElementById("map-summary");
+  const kpisEl     = document.getElementById("suc-kpis");
+  const distChartEl = document.getElementById("dist-chart");
+  const distToggleHost = document.getElementById("dist-toggle");
+  const tsRangeHost = document.getElementById("ts-range");
+  const tsEntHost   = document.getElementById("ts-entities");
+  const tsCatHost   = document.getElementById("ts-cats");
+  const tsChartEl   = document.getElementById("ts-chart");
+  const tsCompareEl = document.getElementById("ts-compare");
+
+  // ----- UI components state
+  let entityCombo = null;
+  let monthCombo  = null;
+  let distSegment = null;
+  let tsRangeSlider = null;
+  let tsEntMulti = null;
+  let tsCatMulti = null;
+
+  // ----- Leaflet
+  let map = null;
+  let markerGroups = null;       // { sucursal: L.markerClusterGroup, ... }
+  let allLocations = [];         // todas las locations del alias seleccionado en el snapshot
+  let snapshotMesStr = "";       // mes del snapshot del mapa
+  let categoryVisibility = { sucursal: true, cajero: true, terminal_autoservicio: true, dependencia_automatizada: true };
+
+  function setStatus(msg, type = "info") {
+    if (!msg) { statusEl.classList.add("hidden"); statusEl.textContent = ""; return; }
+    statusEl.className = `notice ${type}`;
+    statusEl.textContent = msg;
+  }
+
+  // -------- init ----------
+  (async function init() {
+    UI.showLoading("Cargando datos de casas...");
+    try {
+      const [nomina, months, ubi] = await Promise.all([
+        BCRA.loadNomina(),
+        CASAS.listMonths(),
+        CASAS.loadUbicacionesLatest(),
+      ]);
+
+      if (!months.length) {
+        setStatus("No encontré data/casas_serie_mensual.csv.", "error");
+        UI.hideLoading();
+        return;
+      }
+      snapshotMesStr = ubi.mesStr || months[months.length - 1];
+
+      // -------- Entity combo (single)
+      const entOpts = nomina
+        .map((n) => ({
+          value: n.alias,
+          label: n.alias + (n.grupo_homogeneo === "GRUPO" ? " · grupo" : ""),
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+      if (!entOpts.find((o) => o.value === state.alias)) {
+        const naci = entOpts.find((o) => /NACION|NACIÓN/.test(o.value));
+        state.alias = naci ? naci.value : entOpts[0].value;
+      }
+      entityCombo = UI.combobox(entityHost, entOpts, {
+        selected: state.alias,
+        placeholder: "Buscar entidad o grupo...",
+        onChange: (v) => { state.alias = v; saveState(); refreshMap(); refreshKPIs(); refreshDist(); },
+      });
+
+      // -------- Month combo (single, descending)
+      const monthOpts = months.slice().reverse().map((m) => ({ value: m, label: m }));
+      if (!state.mesStr || !monthOpts.find((o) => o.value === state.mesStr)) {
+        state.mesStr = monthOpts[0].value;
+      }
+      monthCombo = UI.combobox(monthHost, monthOpts, {
+        selected: state.mesStr,
+        placeholder: "Buscar mes...",
+        onChange: (v) => { state.mesStr = v; saveState(); refreshKPIs(); refreshDist(); updateMapNote(); },
+      });
+
+      // -------- Distribution scope segmented (Provincia / Partido PBA / Auto)
+      distSegment = UI.segmented(distToggleHost, [
+        { value: "auto", label: "Auto" },
+        { value: "provincia", label: "Por provincia" },
+        { value: "pba_partido", label: "PBA por partido" },
+      ], { selected: state.distScope, onChange: (v) => { state.distScope = v; saveState(); refreshDist(); } });
+
+      // -------- Time-series range slider (uses yyyymm ints)
+      const ymInts = months.map(mesToInt);
+      // default: last 60 months
+      const defFrom = ymInts[Math.max(0, ymInts.length - 60)];
+      const defTo   = ymInts[ymInts.length - 1];
+      if (!state.tsFromMes || !ymInts.includes(state.tsFromMes)) state.tsFromMes = defFrom;
+      if (!state.tsToMes || !ymInts.includes(state.tsToMes)) state.tsToMes = defTo;
+
+      tsRangeSlider = UI.dateRangeSlider(tsRangeHost, ymInts, {
+        from: state.tsFromMes,
+        to: state.tsToMes,
+        onChange: ({ from, to }) => { state.tsFromMes = from; state.tsToMes = to; saveState(); refreshTS(); },
+      });
+
+      // -------- TS entities multiselect
+      if (!state.tsAliases || !state.tsAliases.length) state.tsAliases = [state.alias];
+      tsEntMulti = UI.multiselect(tsEntHost, entOpts, {
+        selected: state.tsAliases,
+        placeholder: "Buscar entidad o grupo...",
+        onChange: (vals) => { state.tsAliases = vals; saveState(); refreshTS(); },
+      });
+
+      // -------- TS categories multiselect
+      const catOpts = CASAS.CATEGORIES.map((c) => ({ value: c, label: CASAS.CATEGORY_LABEL[c] }));
+      if (!state.tsCats || !state.tsCats.length) state.tsCats = CASAS.CATEGORIES.slice();
+      tsCatMulti = UI.multiselect(tsCatHost, catOpts, {
+        selected: state.tsCats,
+        placeholder: "Buscar categoría...",
+        onChange: (vals) => { state.tsCats = vals.length ? vals : CASAS.CATEGORIES.slice(); saveState(); refreshTS(); },
+      });
+
+      // -------- Compare checkbox
+      tsCompareEl.checked = !!state.tsCompare;
+      tsCompareEl.addEventListener("change", () => { state.tsCompare = !!tsCompareEl.checked; saveState(); refreshTS(); });
+
+      // -------- Build the map once
+      initMap();
+      updateMapNote();
+      await refreshMap();
+      await refreshKPIs();
+      await refreshDist();
+      await refreshTS();
+      UI.hideLoading();
+    } catch (e) {
+      console.error(e);
+      setStatus("Error inicializando: " + e.message, "error");
+      UI.hideLoading();
+    }
+  })();
+
+  function updateMapNote() {
+    if (!snapshotMesStr) { mapNoteEl.textContent = ""; return; }
+    if (state.mesStr === snapshotMesStr) {
+      mapNoteEl.textContent = `Mapa y resumen muestran el snapshot ${snapshotMesStr}.`;
+    } else {
+      mapNoteEl.innerHTML = `El mapa muestra el snapshot disponible <strong>${UI.escapeHtml(snapshotMesStr)}</strong>; el resumen y la distribución usan el mes seleccionado (<strong>${UI.escapeHtml(state.mesStr)}</strong>).`;
+    }
+  }
+
+  // ===========================================================================
+  // MAPA
+  // ===========================================================================
+  function initMap() {
+    map = L.map(mapEl, { zoomControl: true, scrollWheelZoom: true });
+    map.setView([-38.5, -63.5], 4);  // centro de Argentina
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+      maxZoom: 18,
+    }).addTo(map);
+
+    markerGroups = {};
+    for (const c of CASAS.CATEGORIES) {
+      markerGroups[c] = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: true,
+        disableClusteringAtZoom: 11,
+        chunkedLoading: true,
+        maxClusterRadius: 50,
+        iconCreateFunction: makeClusterIconFactory(CASAS.CATEGORY_COLOR[c]),
+      });
+      map.addLayer(markerGroups[c]);
+    }
+  }
+
+  function makeClusterIconFactory(color) {
+    return function (cluster) {
+      const n = cluster.getChildCount();
+      const size = n < 10 ? 28 : n < 100 ? 34 : n < 500 ? 40 : 48;
+      const html = `<div style="background:${color};color:#fff;width:${size}px;height:${size}px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;border:3px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.3);font-size:12px">${n}</div>`;
+      return L.divIcon({ html, className: "casa-cluster", iconSize: [size, size] });
+    };
+  }
+
+  function makeMarkerIcon(color) {
+    return L.divIcon({
+      className: "casa-marker",
+      html: `<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,0.3)"></div>`,
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+  }
+
+  async function refreshMap() {
+    if (!map) return;
+    // Reset
+    for (const c of CASAS.CATEGORIES) markerGroups[c].clearLayers();
+
+    const ubi = await CASAS.loadUbicacionesLatest();
+    const codes = new Set(await CASAS.resolveMemberCodes(state.alias));
+    const counts = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0 };
+    const located = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0 };
+    const filtered = [];
+    for (const r of ubi.rows) {
+      if (!codes.has(r.codigo_entidad)) continue;
+      const cat = r.categoria;
+      if (!(cat in counts)) continue;
+      counts[cat]++;
+      if (r.latitud != null && r.longitud != null && r.latitud !== 0 && r.longitud !== 0) {
+        located[cat]++;
+        filtered.push(r);
+      }
+    }
+    allLocations = filtered;
+
+    // Plot markers
+    const bounds = [];
+    for (const r of filtered) {
+      const color = CASAS.CATEGORY_COLOR[r.categoria];
+      const icon = makeMarkerIcon(color);
+      const marker = L.marker([r.latitud, r.longitud], { icon });
+      const popup = `
+        <div>
+          <span class="pop-tag" style="background:${color}">${UI.escapeHtml(CASAS.CATEGORY_LABEL_SHORT[r.categoria])}</span>
+          <b>${UI.escapeHtml(r.denominacion || r.tipo_filial || "(sin denominación)")}</b><br>
+          <span class="muted small">${UI.escapeHtml(r.tipo_filial || "")}</span><br>
+          ${UI.escapeHtml(r.direccion || "")}<br>
+          ${UI.escapeHtml(r.localidad || "")} — ${UI.escapeHtml(r.partido || "")}<br>
+          <span class="muted small">${UI.escapeHtml(r.provincia || "")}</span>
+        </div>`;
+      marker.bindPopup(popup);
+      markerGroups[r.categoria].addLayer(marker);
+      bounds.push([r.latitud, r.longitud]);
+    }
+
+    if (bounds.length) {
+      try { map.fitBounds(bounds, { padding: [30, 30], maxZoom: 12 }); } catch {}
+    } else {
+      map.setView([-38.5, -63.5], 4);
+    }
+
+    renderLegend(counts, located);
+    mapSumEl.textContent = bounds.length
+      ? `${bounds.length.toLocaleString("es-AR")} puntos en el mapa · snapshot ${snapshotMesStr}`
+      : `Sin puntos para ${state.alias} en el snapshot ${snapshotMesStr}.`;
+  }
+
+  function renderLegend(counts, located) {
+    const rows = CASAS.CATEGORIES.map((c) => {
+      const color = CASAS.CATEGORY_COLOR[c];
+      const off = categoryVisibility[c] ? "" : "off";
+      const label = CASAS.CATEGORY_LABEL[c];
+      const cnt = counts[c] || 0;
+      const loc = located[c] || 0;
+      return `
+        <label class="legend-row ${off}" data-cat="${c}">
+          <input type="checkbox" ${categoryVisibility[c] ? "checked" : ""}>
+          <span class="dot" style="background:${color}"></span>
+          <span class="legend-label">${label}</span>
+          <span class="legend-count" title="puntos ubicados / total">${loc.toLocaleString("es-AR")} / ${cnt.toLocaleString("es-AR")}</span>
+        </label>`;
+    }).join("");
+    legendEl.innerHTML = `<h4>Capas del mapa</h4>${rows}`;
+    legendEl.querySelectorAll(".legend-row").forEach((row) => {
+      const cat = row.getAttribute("data-cat");
+      row.querySelector("input").addEventListener("change", (e) => {
+        const checked = !!e.target.checked;
+        categoryVisibility[cat] = checked;
+        row.classList.toggle("off", !checked);
+        if (checked) map.addLayer(markerGroups[cat]);
+        else map.removeLayer(markerGroups[cat]);
+      });
+    });
+  }
+
+  // ===========================================================================
+  // KPI cards (Panel-like)
+  // ===========================================================================
+  async function refreshKPIs() {
+    kpisEl.innerHTML = "";
+    const months = await CASAS.listMonths();
+    const monthsAsc = months.slice();
+    const idx = monthsAsc.indexOf(state.mesStr);
+    const prevMesStr = idx > 0 ? monthsAsc[idx - 1] : null;
+    const prevYMes = (() => {
+      const y = parseInt(state.mesStr.slice(0, 4), 10) - 1;
+      const m = state.mesStr.slice(5);
+      const cand = `${y}-${m}`;
+      return monthsAsc.includes(cand) ? cand : null;
+    })();
+
+    const [cur, prevM, prevY] = await Promise.all([
+      CASAS.getResumen(state.alias, state.mesStr),
+      prevMesStr ? CASAS.getResumen(state.alias, prevMesStr) : Promise.resolve(null),
+      prevYMes ? CASAS.getResumen(state.alias, prevYMes) : Promise.resolve(null),
+    ]);
+
+    metaEl.textContent = `${state.alias} · ${state.mesStr}`;
+
+    for (const cat of CASAS.CATEGORIES) {
+      const val = cur.total[cat] || 0;
+      const prevMVal = prevM ? (prevM.total[cat] || 0) : null;
+      const prevYVal = prevY ? (prevY.total[cat] || 0) : null;
+      const dm = prevMVal != null && prevMVal !== 0 ? ((val - prevMVal) / prevMVal * 100) : null;
+      const dy = prevYVal != null && prevYVal !== 0 ? ((val - prevYVal) / prevYVal * 100) : null;
+      const dmText = formatDeltaPct(dm);
+      const dyText = formatDeltaPct(dy);
+      const dmAbs  = prevMVal != null ? (val - prevMVal) : null;
+      const dyAbs  = prevYVal != null ? (val - prevYVal) : null;
+
+      const card = document.createElement("div");
+      card.className = "mini-card";
+      card.innerHTML = `
+        <div class="mc-origen" style="background:${CASAS.CATEGORY_COLOR[cat]}22;color:${CASAS.CATEGORY_COLOR[cat]}">${UI.escapeHtml(CASAS.CATEGORY_LABEL_SHORT[cat])}</div>
+        <div class="mc-title">${UI.escapeHtml(CASAS.CATEGORY_LABEL[cat])}</div>
+        <div class="mc-stats" style="border-top:none;padding-top:0">
+          <div class="mc-actual" style="font-size:32px">${val.toLocaleString("es-AR")}</div>
+          <div class="mc-deltas">
+            <span><span class="delta-label">vs mes ant.:</span> <span class="delta ${dmText.cls}">${dmText.text}${dmAbs != null ? ` <small class="muted">(${fmtSigned(dmAbs)})</small>` : ""}</span></span>
+            <span><span class="delta-label">vs año ant.:</span> <span class="delta ${dyText.cls}">${dyText.text}${dyAbs != null ? ` <small class="muted">(${fmtSigned(dyAbs)})</small>` : ""}</span></span>
+          </div>
+        </div>`;
+      kpisEl.appendChild(card);
+    }
+  }
+
+  function fmtSigned(n) { return (n > 0 ? "+" : "") + n.toLocaleString("es-AR"); }
+  function formatDeltaPct(v) {
+    if (v == null || !Number.isFinite(v)) return { text: "—", cls: "delta-na" };
+    const sign = v > 0 ? "+" : "";
+    const cls = v > 0 ? "delta-pos" : v < 0 ? "delta-neg" : "delta-zero";
+    return { text: `${sign}${v.toFixed(1)}%`, cls };
+  }
+
+  // ===========================================================================
+  // Distribution chart
+  // ===========================================================================
+  async function refreshDist() {
+    const cur = await CASAS.getResumen(state.alias, state.mesStr);
+    // ¿modo provincia o partido PBA?
+    let mode = state.distScope;
+    if (mode === "auto") {
+      // Si la entidad concentra >50% en PBA, mostrar partidos
+      const totSucPBA = cur.porProvincia.get("sucursal")?.get("BUENOS AIRES") || 0;
+      const totSuc = cur.total["sucursal"] || 0;
+      mode = (totSuc > 0 && totSucPBA / totSuc > 0.5) ? "pba_partido" : "provincia";
+    }
+
+    let labels = [];
+    let traceData = {};  // {categoria: [counts aligned to labels]}
+    for (const c of CASAS.CATEGORIES) traceData[c] = [];
+
+    if (mode === "pba_partido") {
+      // PBA por partido — sumar contribución de todas las categorías a partido
+      const partTotals = new Map();
+      for (const c of CASAS.CATEGORIES) {
+        const m = cur.porPartidoPBA.get(c);
+        if (!m) continue;
+        for (const [k, v] of m) partTotals.set(k, (partTotals.get(k) || 0) + v);
+      }
+      labels = Array.from(partTotals.keys()).sort((a, b) => partTotals.get(b) - partTotals.get(a)).slice(0, 40);
+      for (const lab of labels) {
+        for (const c of CASAS.CATEGORIES) {
+          const m = cur.porPartidoPBA.get(c);
+          traceData[c].push(m ? (m.get(lab) || 0) : 0);
+        }
+      }
+    } else {
+      // Por provincia
+      const provTotals = new Map();
+      for (const c of CASAS.CATEGORIES) {
+        const m = cur.porProvincia.get(c);
+        if (!m) continue;
+        for (const [k, v] of m) provTotals.set(k, (provTotals.get(k) || 0) + v);
+      }
+      labels = Array.from(provTotals.keys()).sort((a, b) => provTotals.get(b) - provTotals.get(a));
+      for (const lab of labels) {
+        for (const c of CASAS.CATEGORIES) {
+          const m = cur.porProvincia.get(c);
+          traceData[c].push(m ? (m.get(lab) || 0) : 0);
+        }
+      }
+    }
+
+    if (!labels.length) {
+      Plotly.purge(distChartEl);
+      distChartEl.innerHTML = `<div class="muted" style="padding:60px;text-align:center">Sin datos de distribución para ${UI.escapeHtml(state.alias)} en ${UI.escapeHtml(state.mesStr)}.</div>`;
+      return;
+    }
+
+    const traces = CASAS.CATEGORIES.map((c) => ({
+      x: labels,
+      y: traceData[c],
+      name: CASAS.CATEGORY_LABEL_SHORT[c],
+      type: "bar",
+      marker: { color: CASAS.CATEGORY_COLOR[c] },
+      hovertemplate: `<b>%{x}</b><br>${CASAS.CATEGORY_LABEL[c]}: %{y:,}<extra></extra>`,
+    }));
+
+    const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
+    layout.barmode = "stack";
+    layout.margin = { l: 50, r: 18, t: 14, b: 110 };
+    layout.xaxis = Object.assign({}, layout.xaxis, {
+      tickangle: -45, automargin: true,
+      title: { text: mode === "pba_partido" ? "Partido (PBA)" : "Provincia", font: { color: "#64748b" } },
+    });
+    layout.yaxis = Object.assign({}, layout.yaxis, {
+      title: { text: "Cantidad", font: { color: "#64748b" } },
+      tickformat: ",d",
+    });
+    Plotly.newPlot(distChartEl, traces, layout, UI.PLOTLY_CONFIG);
+  }
+
+  // ===========================================================================
+  // Evolución mensual (time series)
+  // ===========================================================================
+  async function refreshTS() {
+    if (!state.tsAliases.length) {
+      Plotly.purge(tsChartEl);
+      tsChartEl.innerHTML = `<div class="muted" style="padding:60px;text-align:center">Seleccioná al menos una entidad.</div>`;
+      return;
+    }
+    const cats = state.tsCats && state.tsCats.length ? state.tsCats : CASAS.CATEGORIES.slice();
+    const months = await CASAS.listMonths();
+    const fromStr = intToMes(state.tsFromMes);
+    const toStr   = intToMes(state.tsToMes);
+    const series = await CASAS.getTimeSeries(state.tsAliases, cats, fromStr, toStr);
+
+    if (!series.length) {
+      Plotly.purge(tsChartEl);
+      tsChartEl.innerHTML = `<div class="muted" style="padding:60px;text-align:center">Sin datos en el rango seleccionado.</div>`;
+      return;
+    }
+
+    const traces = [];
+    let colorIdx = 0;
+    for (const s of series) {
+      const pts = state.tsCompare ? CASAS.indexToBase100(s.points) : CASAS.sanitizePoints(s.points);
+      const xs = pts.map((p) => p.mes_str);
+      const ys = pts.map((p) => p.value);
+      const label = `${s.alias} · ${CASAS.CATEGORY_LABEL_SHORT[s.categoria]}`;
+      // Dash pattern por categoría para distinguir cuando hay múltiples entidades
+      const dash = ({ sucursal: "solid", cajero: "dot", terminal_autoservicio: "dash", dependencia_automatizada: "dashdot" })[s.categoria] || "solid";
+      // Color por entidad (asignamos un color por alias, no por categoría, para distinguir bancos);
+      // si hay 1 sola entidad y varias categorías, sí coloreamos por categoría.
+      let color;
+      if (state.tsAliases.length === 1) {
+        color = CASAS.CATEGORY_COLOR[s.categoria];
+      } else {
+        const aliasIdx = state.tsAliases.indexOf(s.alias);
+        color = UI.colorFor(aliasIdx);
+      }
+      traces.push({
+        x: xs, y: ys,
+        type: "scatter", mode: "lines+markers",
+        name: label,
+        line: { color, width: 2, dash },
+        marker: { size: 4, color },
+        hovertemplate: `<b>${label}</b><br>%{x}<br>` + (state.tsCompare ? "Índice: %{y:.1f}" : "Cantidad: %{y:,.0f}") + "<extra></extra>",
+        connectgaps: true,
+      });
+      colorIdx++;
+    }
+
+    const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
+    layout.margin = { l: 60, r: 18, t: 14, b: 70 };
+    layout.xaxis = Object.assign({}, layout.xaxis, { title: { text: "Fecha", font: { color: "#64748b" } } });
+    layout.yaxis = Object.assign({}, layout.yaxis, {
+      title: { text: state.tsCompare ? "Índice (100 = primer mes)" : "Cantidad", font: { color: "#64748b" } },
+      tickformat: state.tsCompare ? ".1f" : ",d",
+    });
+    layout.legend = Object.assign({}, layout.legend, { orientation: "h", y: -0.18 });
+    Plotly.newPlot(tsChartEl, traces, layout, UI.PLOTLY_CONFIG);
+  }
+
+  // ----- helpers --------------------------------------------------------
+  function mesToInt(s) {
+    const [y, m] = String(s).split("-");
+    return parseInt(y, 10) * 100 + parseInt(m, 10);
+  }
+  function intToMes(n) {
+    if (n == null) return null;
+    const y = Math.floor(n / 100);
+    const m = String(n % 100).padStart(2, "0");
+    return `${y}-${m}`;
+  }
+})();

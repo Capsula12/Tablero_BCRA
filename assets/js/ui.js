@@ -14,6 +14,7 @@
       { key: "series", label: "Series", href: "series.html", icon: "▥" },
       { key: "calc", label: "Calculadora", href: "calc.html", icon: "≡" },
       { key: "ranking", label: "Ranking", href: "ranking.html", icon: "★" },
+      { key: "sucursales", label: "Sucursales", href: "sucursales.html", icon: "◉" },
     ];
     const navHtml = pages.map((p) => {
       const cls = p.key === activePage ? "active" : "";

@@ -1,0 +1,81 @@
+/* Sucursales — mapa + leyenda */
+.suc-map-wrap {
+  position: relative;
+  width: 100%;
+  height: 540px;
+}
+#suc-map {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.map-legend {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 500;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 14px !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  font-size: 12px;
+  min-width: 220px;
+}
+.map-legend h4 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #475569;
+}
+.map-legend .legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  cursor: pointer;
+  user-select: none;
+}
+.map-legend .legend-row .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+}
+.map-legend .legend-row .legend-count {
+  margin-left: auto;
+  color: #475569;
+  font-variant-numeric: tabular-nums;
+}
+.map-legend .legend-row.off .legend-label,
+.map-legend .legend-row.off .legend-count {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+.map-legend .legend-row input[type=checkbox] { margin: 0; }
+
+/* Leaflet circle marker — usamos divIcon estilizado */
+.casa-marker {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+}
+
+/* Padded-sm helper */
+.card.padded-sm { padding: 10px 12px; }
+
+/* Map tooltip styling tweaks */
+.leaflet-popup-content { font-size: 12px; line-height: 1.45; }
+.leaflet-popup-content b { color: #0f172a; }
+.leaflet-popup-content .pop-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+  color: #fff;
+  margin-right: 4px;
+}
