@@ -306,6 +306,44 @@
     };
   }
 
+  // -------------------------------------------------------------------------
+  // Casas indicators (origen="casas") — single CSV loaded once, partitioned by year.
+  // Schema compatible con dataset_normalizado_YYYY.csv:
+  //   codigo_entidad, descripcion_entidad, codigo_dato, descripcion_dato,
+  //   valor_dato, formato, año, mes, mes_str, origen
+  // -------------------------------------------------------------------------
+  let _casasIndPromise = null;
+  let _casasIndByYear = null; // { 2015: [rows], 2016: [rows], ... } once loaded
+  function loadCasasIndicadores() {
+    if (_casasIndByYear) return Promise.resolve(_casasIndByYear);
+    if (_casasIndPromise) return _casasIndPromise;
+    _casasIndPromise = new Promise((resolve) => {
+      Papa.parse(DATA_BASE + "casas_indicadores.csv", {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        dynamicTyping: false,
+        encoding: "utf-8",
+        complete: (res) => {
+          const byYear = {};
+          for (const r of res.data) {
+            const row = parseYearRow(r);
+            if (!row) continue;
+            if (!byYear[row.año]) byYear[row.año] = [];
+            byYear[row.año].push(row);
+          }
+          _casasIndByYear = byYear;
+          resolve(byYear);
+        },
+        error: () => {
+          _casasIndByYear = {};
+          resolve({});
+        },
+      });
+    });
+    return _casasIndPromise;
+  }
+
   function loadYear(year, progressCb) {
     if (cache.yearData[year]) return Promise.resolve(cache.yearData[year]);
     if (cache.yearLoading[year]) return cache.yearLoading[year];
@@ -318,12 +356,17 @@
         skipEmptyLines: true,
         dynamicTyping: false,
         encoding: "utf-8",
-        complete: (res) => {
+        complete: async (res) => {
           const out = [];
           for (const r of res.data) {
             const row = parseYearRow(r);
             if (row) out.push(row);
           }
+          // Inject casas rows for this year (one shared load).
+          try {
+            const casas = await loadCasasIndicadores();
+            if (casas[year]) out.push(...casas[year]);
+          } catch {}
           cache.yearData[year] = out;
           if (progressCb) progressCb({ type: "year-done", year, count: out.length });
           resolve(out);

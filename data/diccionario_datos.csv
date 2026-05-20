@@ -145,3 +145,7 @@
 318000500002,Monto pagado por cheques librados,N,inf_adi,1,IPC_INDEC_NAC_NG
 400100001000,Cantidad de Cuentas,N,inf_adi,0,
 400100002000,Cantidad de Empresas,N,inf_adi,0,
+991000001,Sucursales (red propia),N,casas,0,
+991000002,Cajeros automáticos fuera de casas operativas,N,casas,0,
+991000003,Terminales de autoservicio,N,casas,0,
+991000004,Dependencias automatizadas,N,casas,0,

@@ -48,17 +48,16 @@
       <div class="card padded mb-12">
         <div class="card-header" style="border:none;padding:0;margin-bottom:10px">
           <h3 class="card-title" style="margin:0">Mapa</h3>
-          <span class="muted small" id="map-summary"></span>
+          <div id="map-mode-toggle"></div>
         </div>
         <div class="suc-map-wrap">
-          <div id="suc-map"></div>
+          <!-- Mapa Leaflet (puntos) -->
+          <div id="suc-map" class="map-hidden-when-other"></div>
           <div class="map-legend card padded-sm" id="map-legend"></div>
+          <!-- Mapa choropleth Plotly (distribución por provincia) -->
+          <div id="suc-choropleth" class="map-hidden-when-other"></div>
         </div>
-        <div class="muted small mt-8">
-          El snapshot del mapa corresponde siempre al último mes disponible
-          (los snapshots históricos no se commitean al repo por su tamaño).
-          Los conteos del resumen y de las distribuciones sí cambian con el selector de mes.
-        </div>
+        <div class="muted small mt-8" id="map-foot-note"></div>
       </div>
 
       <!-- Resumen tipo Panel -->

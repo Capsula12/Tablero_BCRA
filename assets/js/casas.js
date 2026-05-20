@@ -173,7 +173,8 @@
   }
 
   /**
-   * Para un alias de entidad (puede ser GRP_X) devuelve el array de codigo_entidad que lo componen.
+   * Para un alias de entidad (puede ser GRP_X o AAxxx) devuelve el array de codigo_entidad
+   * que lo componen (sólo entidades 5-dígito; los AA se expanden a sus miembros).
    * Para una entidad común, el array tiene un único elemento.
    */
   async function resolveMemberCodes(alias) {
@@ -185,9 +186,53 @@
       const { members } = await BCRA.loadGroupMaps();
       return members.get(code) || [];
     }
-    // También manejar agregados nativos AAxxxxx (TOTAL, BCOS PUB, etc.) — esos no tienen miembros explícitos,
-    // así que los devolvemos como una entidad sola (no aplica para casas, pero por compatibilidad).
+    if (code.startsWith("AA")) {
+      // Expandir AA → todas las entidades 5-dígito cuyo grupo_homogeneo cae dentro de
+      // la sub-jerarquía del AA. Si es AA000, devolver todas.
+      const aaTree = buildAaTree(nomina);
+      const descendantSet = aaTree.descendants[code] || new Set([code]);
+      const memberCodes = [];
+      for (const n of nomina) {
+        const c = n.codigo_entidad;
+        if (c.startsWith("AA") || c.startsWith("GRP_")) continue;
+        if (descendantSet.has(n.grupo_homogeneo)) memberCodes.push(c);
+        else if (code === "AA000") memberCodes.push(c);
+      }
+      return memberCodes;
+    }
     return [code];
+  }
+
+  // Build a small AA hierarchy from the nomina (AAxxx entries hint at their parent
+  // via grupo_homogeneo).
+  let _aaTreeCache = null;
+  function buildAaTree(nomina) {
+    if (_aaTreeCache) return _aaTreeCache;
+    const aaParent = {};
+    for (const n of nomina) {
+      if (n.codigo_entidad.startsWith("AA")) aaParent[n.codigo_entidad] = n.grupo_homogeneo;
+    }
+    const children = {};
+    for (const aa in aaParent) {
+      const p = aaParent[aa];
+      if (!p) continue;
+      if (!children[p]) children[p] = new Set();
+      children[p].add(aa);
+    }
+    const descendants = {};
+    for (const aa in aaParent) {
+      const stack = [aa];
+      const seen = new Set();
+      while (stack.length) {
+        const x = stack.pop();
+        if (seen.has(x)) continue;
+        seen.add(x);
+        for (const c of (children[x] || [])) stack.push(c);
+      }
+      descendants[aa] = seen;
+    }
+    _aaTreeCache = { aaParent, children, descendants };
+    return _aaTreeCache;
   }
 
   /**

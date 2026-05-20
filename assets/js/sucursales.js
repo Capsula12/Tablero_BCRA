@@ -11,6 +11,7 @@
   const state = loadState() || {
     alias: "NACION",
     mesStr: null,           // YYYY-MM seleccionado para mapa+resumen
+    mapMode: "choropleth",  // "choropleth" | "osm"
     distScope: "auto",      // "auto" | "provincia" | "pba_partido"
     tsAliases: [],
     tsFromMes: null,
@@ -31,9 +32,12 @@
   const metaEl     = document.getElementById("suc-meta");
   const statusEl   = document.getElementById("suc-status");
   const mapEl      = document.getElementById("suc-map");
+  const choroplethEl = document.getElementById("suc-choropleth");
+  const mapWrapEl  = document.querySelector(".suc-map-wrap");
   const legendEl   = document.getElementById("map-legend");
   const mapNoteEl  = document.getElementById("map-month-note");
-  const mapSumEl   = document.getElementById("map-summary");
+  const mapFootNote = document.getElementById("map-foot-note");
+  const mapModeToggle = document.getElementById("map-mode-toggle");
   const kpisEl     = document.getElementById("suc-kpis");
   const distChartEl = document.getElementById("dist-chart");
   const distToggleHost = document.getElementById("dist-toggle");
@@ -47,9 +51,11 @@
   let entityCombo = null;
   let monthCombo  = null;
   let distSegment = null;
+  let mapModeSeg = null;
   let tsRangeSlider = null;
   let tsEntMulti = null;
   let tsCatMulti = null;
+  let argentinaGeo = null;   // cache del GeoJSON de provincias
 
   // ----- Leaflet
   let map = null;
@@ -106,7 +112,13 @@
       monthCombo = UI.combobox(monthHost, monthOpts, {
         selected: state.mesStr,
         placeholder: "Buscar mes...",
-        onChange: (v) => { state.mesStr = v; saveState(); refreshKPIs(); refreshDist(); updateMapNote(); },
+        onChange: (v) => {
+          state.mesStr = v; saveState();
+          updateMapNote();
+          refreshKPIs(); refreshDist();
+          // El choropleth depende del mes; el OSM no (sólo snapshot).
+          if (state.mapMode === "choropleth") refreshMap();
+        },
       });
 
       // -------- Distribution scope segmented (Provincia / Partido PBA / Auto)
@@ -115,6 +127,12 @@
         { value: "provincia", label: "Por provincia" },
         { value: "pba_partido", label: "PBA por partido" },
       ], { selected: state.distScope, onChange: (v) => { state.distScope = v; saveState(); refreshDist(); } });
+
+      // -------- Map mode segmented (Choropleth provincia / OSM puntos)
+      mapModeSeg = UI.segmented(mapModeToggle, [
+        { value: "choropleth", label: "Distribución por provincia" },
+        { value: "osm", label: "Mapa interactivo" },
+      ], { selected: state.mapMode, onChange: (v) => { state.mapMode = v; saveState(); applyMapMode(); refreshMap(); } });
 
       // -------- Time-series range slider (uses yyyymm ints)
       const ymInts = months.map(mesToInt);
@@ -153,6 +171,7 @@
 
       // -------- Build the map once
       initMap();
+      applyMapMode();
       updateMapNote();
       await refreshMap();
       await refreshKPIs();
@@ -179,11 +198,19 @@
   // MAPA
   // ===========================================================================
   function initMap() {
-    map = L.map(mapEl, { zoomControl: true, scrollWheelZoom: true });
-    map.setView([-38.5, -63.5], 4);  // centro de Argentina
+    // Bounds que encierran Argentina (lat sur a norte; lon oeste a este).
+    const ARG_BOUNDS = [[-55.5, -73.6], [-21.5, -53.6]];
+    map = L.map(mapEl, {
+      zoomControl: true,
+      scrollWheelZoom: true,
+      maxBounds: [[-60, -85], [-15, -45]],   // un poco más amplio para que se pueda pan
+      maxBoundsViscosity: 0.8,
+    });
+    map.fitBounds(ARG_BOUNDS, { padding: [10, 10] });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
       maxZoom: 18,
+      minZoom: 3,
     }).addTo(map);
 
     markerGroups = {};
@@ -218,9 +245,27 @@
     });
   }
 
+  function applyMapMode() {
+    if (!mapWrapEl) return;
+    mapWrapEl.classList.toggle("mode-osm", state.mapMode === "osm");
+    mapWrapEl.classList.toggle("mode-choropleth", state.mapMode === "choropleth");
+    // Si pasamos a OSM, invalidar size para que Leaflet redibuje correctamente.
+    if (state.mapMode === "osm" && map) {
+      setTimeout(() => map.invalidateSize(), 50);
+    }
+  }
+
   async function refreshMap() {
+    if (state.mapMode === "osm") {
+      await refreshOSM();
+    } else {
+      await refreshChoropleth();
+    }
+  }
+
+  async function refreshOSM() {
     if (!map) return;
-    // Reset
+    // Reset markers
     for (const c of CASAS.CATEGORIES) markerGroups[c].clearLayers();
 
     const ubi = await CASAS.loadUbicacionesLatest();
@@ -240,8 +285,6 @@
     }
     allLocations = filtered;
 
-    // Plot markers
-    const bounds = [];
     for (const r of filtered) {
       const color = CASAS.CATEGORY_COLOR[r.categoria];
       const icon = makeMarkerIcon(color);
@@ -257,19 +300,101 @@
         </div>`;
       marker.bindPopup(popup);
       markerGroups[r.categoria].addLayer(marker);
-      bounds.push([r.latitud, r.longitud]);
-    }
-
-    if (bounds.length) {
-      try { map.fitBounds(bounds, { padding: [30, 30], maxZoom: 12 }); } catch {}
-    } else {
-      map.setView([-38.5, -63.5], 4);
     }
 
     renderLegend(counts, located);
-    mapSumEl.textContent = bounds.length
-      ? `${bounds.length.toLocaleString("es-AR")} puntos en el mapa · snapshot ${snapshotMesStr}`
-      : `Sin puntos para ${state.alias} en el snapshot ${snapshotMesStr}.`;
+    mapFootNote.innerHTML = state.mesStr === snapshotMesStr
+      ? `Mapa interactivo del snapshot <strong>${UI.escapeHtml(snapshotMesStr)}</strong>. ${filtered.length.toLocaleString("es-AR")} puntos.`
+      : `El mapa interactivo sólo dispone del snapshot disponible <strong>${UI.escapeHtml(snapshotMesStr)}</strong>; el resumen y la distribución sí cambian con el mes. Para ver provincias mes a mes, usá la vista "Distribución por provincia".`;
+  }
+
+  async function loadArgentinaGeo() {
+    if (argentinaGeo) return argentinaGeo;
+    const res = await fetch("data/argentina_provincias.geo.json");
+    argentinaGeo = await res.json();
+    return argentinaGeo;
+  }
+
+  async function refreshChoropleth() {
+    const [geo, cur] = await Promise.all([
+      loadArgentinaGeo(),
+      CASAS.getResumen(state.alias, state.mesStr),
+    ]);
+    // Agregamos un trace por provincia: suma de TODAS las categorías.
+    const provTotals = new Map();
+    for (const cat of CASAS.CATEGORIES) {
+      const m = cur.porProvincia.get(cat);
+      if (!m) continue;
+      for (const [k, v] of m) provTotals.set(k, (provTotals.get(k) || 0) + v);
+    }
+    // Catálogo del GeoJSON: features[].properties.provincia
+    const provNames = geo.features.map((f) => f.properties.provincia);
+    const z = provNames.map((p) => provTotals.get(p) || 0);
+
+    // Hover text con desglose por categoría
+    function breakdown(p) {
+      const parts = [];
+      for (const cat of CASAS.CATEGORIES) {
+        const m = cur.porProvincia.get(cat);
+        const v = m ? (m.get(p) || 0) : 0;
+        if (v > 0) parts.push(`${CASAS.CATEGORY_LABEL_SHORT[cat]}: ${v.toLocaleString("es-AR")}`);
+      }
+      return parts.length ? parts.join("<br>") : "(sin presencia)";
+    }
+    const hovertext = provNames.map((p) => `<b>${p}</b><br>Total: ${(provTotals.get(p) || 0).toLocaleString("es-AR")}<br>${breakdown(p)}`);
+
+    const trace = {
+      type: "choropleth",
+      geojson: geo,
+      featureidkey: "properties.provincia",
+      locations: provNames,
+      z,
+      hovertext,
+      hovertemplate: "%{hovertext}<extra></extra>",
+      colorscale: [
+        [0,    "#eff6ff"],
+        [0.15, "#bfdbfe"],
+        [0.35, "#60a5fa"],
+        [0.6,  "#2563eb"],
+        [0.85, "#1d4ed8"],
+        [1,    "#0c2461"],
+      ],
+      marker: { line: { color: "#fff", width: 0.7 } },
+      colorbar: {
+        title: { text: "Cantidad", font: { color: "#475569", size: 11 } },
+        thickness: 14,
+        len: 0.85,
+        x: 1.02,
+      },
+    };
+
+    const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
+    layout.margin = { l: 0, r: 0, t: 6, b: 6 };
+    layout.geo = {
+      projection: { type: "mercator" },
+      lataxis: { range: [-56, -21] },
+      lonaxis: { range: [-75, -52] },
+      showframe: false,
+      showcoastlines: false,
+      showland: true,
+      landcolor: "#f1f5f9",
+      bgcolor: "rgba(0,0,0,0)",
+      fitbounds: "geojson",
+    };
+    const config = Object.assign({}, UI.PLOTLY_CONFIG, {
+      displayModeBar: true,
+      toImageButtonOptions: {
+        format: "png",
+        filename: `sucursales_${state.alias.replace(/[^A-Za-z0-9_-]+/g, "_")}_${state.mesStr}`,
+        height: 800,
+        width: 800,
+        scale: 2,
+      },
+    });
+    Plotly.newPlot(choroplethEl, [trace], layout, config);
+
+    const total = z.reduce((a, b) => a + b, 0);
+    mapFootNote.innerHTML = `Distribución por provincia · <strong>${UI.escapeHtml(state.alias)}</strong> · <strong>${UI.escapeHtml(state.mesStr)}</strong> · total ${total.toLocaleString("es-AR")} unidades. Usá la barra de Plotly para exportar el mapa como PNG.`;
   }
 
   function renderLegend(counts, located) {
