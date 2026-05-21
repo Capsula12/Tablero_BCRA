@@ -207,11 +207,20 @@
       maxBoundsViscosity: 0.8,
     });
     map.fitBounds(ARG_BOUNDS, { padding: [10, 10] });
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "© OpenStreetMap contributors",
-      maxZoom: 18,
-      minZoom: 3,
-    }).addTo(map);
+    // Base IGN Argentina (ArgenMap) — cartografía oficial del Instituto
+    // Geográfico Nacional. Usamos esta en vez de OpenStreetMap porque OSM
+    // rotula el archipiélago como "Falkland Islands"; IGN lo rotula
+    // correctamente como "Islas Malvinas (ARG)". Es un servicio TMS (Y
+    // invertida) → pasamos `tms: true` para que Leaflet flippee la coord.
+    L.tileLayer(
+      "https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG:3857@png/{z}/{x}/{y}.png",
+      {
+        tms: true,
+        attribution: "© <a href=\"https://www.ign.gob.ar/\" target=\"_blank\" rel=\"noopener\">IGN Argentina</a> · ArgenMap",
+        maxZoom: 18,
+        minZoom: 3,
+      }
+    ).addTo(map);
 
     markerGroups = {};
     for (const c of CASAS.CATEGORIES) {
