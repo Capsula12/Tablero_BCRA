@@ -14,18 +14,20 @@
   const DATA_BASE = "data/";
 
   // Orden y nombres legibles de las cuatro categorías.
-  const CATEGORIES = ["sucursal", "cajero", "terminal_autoservicio", "dependencia_automatizada"];
+  const CATEGORIES = ["sucursal", "cajero", "terminal_autoservicio", "dependencia_automatizada", "operatoria_restringida"];
   const CATEGORY_LABEL = {
     sucursal: "Sucursales",
     cajero: "Cajeros (fuera de sucursales)",
     terminal_autoservicio: "Terminales de autoservicio",
     dependencia_automatizada: "Dependencias automatizadas",
+    operatoria_restringida: "Sucursales — operatoria restringida (prestación de determinadas actividades)",
   };
   const CATEGORY_LABEL_SHORT = {
     sucursal: "Sucursales",
     cajero: "Cajeros",
     terminal_autoservicio: "TA",
     dependencia_automatizada: "DA",
+    operatoria_restringida: "Op. restringida",
   };
   // Colores de marcadores en mapa y barras / líneas en charts.
   const CATEGORY_COLOR = {
@@ -33,6 +35,7 @@
     cajero: "#16a34a",                   // verde
     terminal_autoservicio: "#d97706",    // naranja
     dependencia_automatizada: "#7c3aed", // violeta
+    operatoria_restringida: "#dc2626",   // rojo
   };
 
   const cache = {

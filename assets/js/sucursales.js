@@ -62,7 +62,7 @@
   let markerGroups = null;       // { sucursal: L.markerClusterGroup, ... }
   let allLocations = [];         // todas las locations del alias seleccionado en el snapshot
   let snapshotMesStr = "";       // mes del snapshot del mapa
-  let categoryVisibility = { sucursal: true, cajero: true, terminal_autoservicio: true, dependencia_automatizada: true };
+  let categoryVisibility = { sucursal: true, cajero: true, terminal_autoservicio: true, dependencia_automatizada: true, operatoria_restringida: true };
 
   function setStatus(msg, type = "info") {
     if (!msg) { statusEl.classList.add("hidden"); statusEl.textContent = ""; return; }
@@ -270,8 +270,8 @@
 
     const ubi = await CASAS.loadUbicacionesLatest();
     const codes = new Set(await CASAS.resolveMemberCodes(state.alias));
-    const counts = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0 };
-    const located = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0 };
+    const counts = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0, operatoria_restringida: 0 };
+    const located = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0, operatoria_restringida: 0 };
     const filtered = [];
     for (const r of ubi.rows) {
       if (!codes.has(r.codigo_entidad)) continue;
@@ -343,6 +343,12 @@
     }
     const hovertext = provNames.map((p) => `<b>${p}</b><br>Total: ${(provTotals.get(p) || 0).toLocaleString("es-AR")}<br>${breakdown(p)}`);
 
+    // Para que las provincias sin presencia no queden indistinguibles del
+    // fondo: el color base de la escala arranca en un gris algo más oscuro y
+    // dibujamos un borde provincial bien visible. Cuando todas las provincias
+    // tienen z=0 (entidades chicas, meses sin datos) Plotly normaliza la
+    // escala y igual se ve el contorno.
+    const allZero = !z.some((v) => v > 0);
     const trace = {
       type: "choropleth",
       geojson: geo,
@@ -351,20 +357,27 @@
       z,
       hovertext,
       hovertemplate: "%{hovertext}<extra></extra>",
+      // Escala secuencial con un mínimo perceptible (gris claro pero distinto
+      // del fondo) para que las provincias vacías sigan siendo distinguibles.
       colorscale: [
-        [0,    "#eff6ff"],
-        [0.15, "#bfdbfe"],
-        [0.35, "#60a5fa"],
-        [0.6,  "#2563eb"],
-        [0.85, "#1d4ed8"],
-        [1,    "#0c2461"],
+        [0,    "#e2e8f0"],
+        [0.10, "#cbd5e1"],
+        [0.25, "#93c5fd"],
+        [0.45, "#3b82f6"],
+        [0.70, "#1d4ed8"],
+        [1.00, "#0c2461"],
       ],
-      marker: { line: { color: "#fff", width: 0.7 } },
+      zmin: 0,
+      // Si todo es 0 fijamos un zmax simbólico para que la colorbar no se
+      // colapse y el trace no devuelva NaN al renderizar.
+      zmax: allZero ? 1 : undefined,
+      marker: { line: { color: "#1e293b", width: 1.1 } },
       colorbar: {
         title: { text: "Cantidad", font: { color: "#475569", size: 11 } },
         thickness: 14,
         len: 0.85,
         x: 1.02,
+        tickfont: { color: "#475569", size: 10 },
       },
     };
 
@@ -377,8 +390,13 @@
       showframe: false,
       showcoastlines: false,
       showland: true,
-      landcolor: "#f1f5f9",
+      landcolor: "#f8fafc",
       bgcolor: "rgba(0,0,0,0)",
+      // Cuando el GeoJSON tiene huecos (provincias vacías) el "land" queda
+      // visible; un trazo de provincia oscuro las separa del fondo.
+      showsubunits: true,
+      subunitcolor: "#1e293b",
+      subunitwidth: 1.0,
       fitbounds: "geojson",
     };
     const config = Object.assign({}, UI.PLOTLY_CONFIG, {
@@ -592,7 +610,7 @@
       const ys = pts.map((p) => p.value);
       const label = `${s.alias} · ${CASAS.CATEGORY_LABEL_SHORT[s.categoria]}`;
       // Dash pattern por categoría para distinguir cuando hay múltiples entidades
-      const dash = ({ sucursal: "solid", cajero: "dot", terminal_autoservicio: "dash", dependencia_automatizada: "dashdot" })[s.categoria] || "solid";
+      const dash = ({ sucursal: "solid", cajero: "dot", terminal_autoservicio: "dash", dependencia_automatizada: "dashdot", operatoria_restringida: "longdash" })[s.categoria] || "solid";
       // Color por entidad (asignamos un color por alias, no por categoría, para distinguir bancos);
       // si hay 1 sola entidad y varias categorías, sí coloreamos por categoría.
       let color;
