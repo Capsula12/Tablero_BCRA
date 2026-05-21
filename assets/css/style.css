@@ -373,6 +373,9 @@ label.field-label {
   position: relative;
   width: 100%;
 }
+/* Mismo motivo que .combo.open: cuando se despliega, levantamos el control
+   por encima del mapa hermano. */
+.multiselect.open { z-index: 1500; }
 .multiselect .ms-control {
   display: flex;
   flex-wrap: wrap;
@@ -491,6 +494,10 @@ label.field-label {
   position: relative;
   width: 100%;
 }
+/* Cuando el dropdown está abierto, levantamos toda la combo por encima de
+   cualquier elemento hermano (mapa Leaflet usa hasta z-index ~700, Plotly
+   modebar 1001). Sin esto la lista queda tapada por el mapa de Sucursales. */
+.combo.open { z-index: 1500; }
 .combo .combo-control {
   width: 100%;
   background: var(--surface);

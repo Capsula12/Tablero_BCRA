@@ -53,10 +53,13 @@
         <div class="suc-map-wrap">
           <!-- Mapa Leaflet (puntos) -->
           <div id="suc-map" class="map-hidden-when-other"></div>
-          <div class="map-legend card padded-sm" id="map-legend"></div>
           <!-- Mapa choropleth Plotly (distribución por provincia) -->
           <div id="suc-choropleth" class="map-hidden-when-other"></div>
         </div>
+        <!-- Referencias del mapa interactivo: viven AFUERA del mapa para no
+             interferir con la interacción (click/hover/zoom de Leaflet) y
+             solo se muestran en modo "Mapa interactivo". -->
+        <div class="map-legend" id="map-legend" hidden></div>
         <div class="muted small mt-8" id="map-foot-note"></div>
       </div>
 

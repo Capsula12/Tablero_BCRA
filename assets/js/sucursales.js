@@ -249,6 +249,9 @@
     if (!mapWrapEl) return;
     mapWrapEl.classList.toggle("mode-osm", state.mapMode === "osm");
     mapWrapEl.classList.toggle("mode-choropleth", state.mapMode === "choropleth");
+    // La leyenda ahora vive afuera del .suc-map-wrap → la mostramos/ocultamos
+    // directamente. Sólo aplica al modo "Mapa interactivo".
+    if (legendEl) legendEl.hidden = state.mapMode !== "osm";
     // Si pasamos a OSM, invalidar size para que Leaflet redibuje correctamente.
     if (state.mapMode === "osm" && map) {
       setTimeout(() => map.invalidateSize(), 50);
@@ -268,7 +271,17 @@
     // Reset markers
     for (const c of CASAS.CATEGORIES) markerGroups[c].clearLayers();
 
-    const ubi = await CASAS.loadUbicacionesLatest();
+    const [ubi, nomina] = await Promise.all([
+      CASAS.loadUbicacionesLatest(),
+      BCRA.loadNomina(),
+    ]);
+    // codigo_entidad → { alias, entidad } para enriquecer el popup con el
+    // nombre de la entidad (no viene en casas_ubicaciones_latest.csv).
+    const entityByCode = new Map();
+    for (const n of nomina) {
+      if (!n.codigo_entidad || n.codigo_entidad.startsWith("AA") || n.codigo_entidad.startsWith("GRP_")) continue;
+      entityByCode.set(n.codigo_entidad, { alias: n.alias || "", entidad: n.entidad || "" });
+    }
     const codes = new Set(await CASAS.resolveMemberCodes(state.alias));
     const counts = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0, operatoria_restringida: 0 };
     const located = { sucursal: 0, cajero: 0, terminal_autoservicio: 0, dependencia_automatizada: 0, operatoria_restringida: 0 };
@@ -289,13 +302,18 @@
       const color = CASAS.CATEGORY_COLOR[r.categoria];
       const icon = makeMarkerIcon(color);
       const marker = L.marker([r.latitud, r.longitud], { icon });
+      const ent = entityByCode.get(r.codigo_entidad) || { alias: "", entidad: "" };
+      // Mostramos alias destacado + razón social completa abajo (si difieren).
+      const aliasLabel = ent.alias || ent.entidad || r.codigo_entidad;
+      const fullLabel = ent.entidad && ent.entidad.toUpperCase() !== aliasLabel.toUpperCase() ? ent.entidad : "";
       const popup = `
         <div>
-          <span class="pop-tag" style="background:${color}">${UI.escapeHtml(CASAS.CATEGORY_LABEL_SHORT[r.categoria])}</span>
-          <b>${UI.escapeHtml(r.denominacion || r.tipo_filial || "(sin denominación)")}</b><br>
+          <div class="pop-entity"><span class="pop-tag" style="background:${color}">${UI.escapeHtml(CASAS.CATEGORY_LABEL_SHORT[r.categoria])}</span><b>${UI.escapeHtml(aliasLabel)}</b></div>
+          ${fullLabel ? `<div class="muted small pop-ent-full">${UI.escapeHtml(fullLabel)}</div>` : ""}
+          <div class="pop-suc"><b>${UI.escapeHtml(r.denominacion || r.tipo_filial || "(sin denominación)")}</b></div>
           <span class="muted small">${UI.escapeHtml(r.tipo_filial || "")}</span><br>
           ${UI.escapeHtml(r.direccion || "")}<br>
-          ${UI.escapeHtml(r.localidad || "")} — ${UI.escapeHtml(r.partido || "")}<br>
+          ${UI.escapeHtml(r.localidad || "")}${r.partido ? ` — ${UI.escapeHtml(r.partido)}` : ""}<br>
           <span class="muted small">${UI.escapeHtml(r.provincia || "")}</span>
         </div>`;
       marker.bindPopup(popup);
@@ -320,18 +338,20 @@
       loadArgentinaGeo(),
       CASAS.getResumen(state.alias, state.mesStr),
     ]);
-    // Agregamos un trace por provincia: suma de TODAS las categorías.
-    const provTotals = new Map();
-    for (const cat of CASAS.CATEGORIES) {
-      const m = cur.porProvincia.get(cat);
-      if (!m) continue;
-      for (const [k, v] of m) provTotals.set(k, (provTotals.get(k) || 0) + v);
-    }
-    // Catálogo del GeoJSON: features[].properties.provincia
-    const provNames = geo.features.map((f) => f.properties.provincia);
-    const z = provNames.map((p) => provTotals.get(p) || 0);
 
-    // Hover text con desglose por categoría
+    // Coloreamos las provincias por *cantidad de SUCURSALES* únicamente
+    // (las otras 4 categorías se muestran en el hover pero no tiñen el mapa
+    // — son escalas de magnitudes muy distintas entre sí).
+    const sucMap = cur.porProvincia.get("sucursal") || new Map();
+    const provNames = geo.features.map((f) => f.properties.provincia);
+    const z = provNames.map((p) => sucMap.get(p) || 0);
+
+    // Stats para escala dinámica por entidad: NACION (max ≈ 500) y un banco
+    // chico (max ≈ 20) tienen que ser ambos legibles.
+    const zMax = Math.max(1, ...z);  // mínimo 1 para que la colorbar no se colapse
+
+    // Hover: además del valor de SUCURSAL, mostramos el desglose completo
+    // por categoría para no perder información.
     function breakdown(p) {
       const parts = [];
       for (const cat of CASAS.CATEGORIES) {
@@ -341,15 +361,33 @@
       }
       return parts.length ? parts.join("<br>") : "(sin presencia)";
     }
-    const hovertext = provNames.map((p) => `<b>${p}</b><br>Total: ${(provTotals.get(p) || 0).toLocaleString("es-AR")}<br>${breakdown(p)}`);
+    const hovertext = provNames.map((p) => {
+      const suc = sucMap.get(p) || 0;
+      return `<b>${p}</b><br>Sucursales: <b>${suc.toLocaleString("es-AR")}</b><br><span style="font-size:11px;color:#475569">Detalle por categoría:</span><br>${breakdown(p)}`;
+    });
 
-    // Para que las provincias sin presencia no queden indistinguibles del
-    // fondo: el color base de la escala arranca en un gris algo más oscuro y
-    // dibujamos un borde provincial bien visible. Cuando todas las provincias
-    // tienen z=0 (entidades chicas, meses sin datos) Plotly normaliza la
-    // escala y igual se ve el contorno.
-    const allZero = !z.some((v) => v > 0);
-    const trace = {
+    // Colorscale tipo "mapa electoral": 0 = gris (sin presencia) y luego un
+    // gradiente verde→amarillo→naranja→rojo. Los breakpoints están corridos
+    // al low end porque la distribución de sucursales suele estar dominada
+    // por una sola provincia (PBA o CABA), y si dejamos breaks lineales (.20,
+    // .45 etc.) todas las provincias chicas terminan en el mismo tono mint.
+    // Con breaks más agresivos, 5/500 ya es verde, 25/500 amarillo, 100/500
+    // naranja, 250/500 rojo — distinción visible aun cuando una provincia
+    // domine el total.
+    const colorscale = [
+      [0,      "#e5e7eb"],
+      [0.0001, "#a7f3d0"],
+      [0.04,   "#34d399"],
+      [0.12,   "#facc15"],
+      [0.28,   "#f97316"],
+      [0.55,   "#dc2626"],
+      [1.00,   "#7f1d1d"],
+    ];
+    const provBorder = { color: "#0f172a", width: 1.2 };
+
+    // Trace principal: 23 provincias + CABA (CABA es invisible en el mapa
+    // a esta escala, pero la sumamos al trace para no romper el orden).
+    const mainTrace = {
       type: "choropleth",
       geojson: geo,
       featureidkey: "properties.provincia",
@@ -357,32 +395,49 @@
       z,
       hovertext,
       hovertemplate: "%{hovertext}<extra></extra>",
-      // Escala secuencial con un mínimo perceptible (gris claro pero distinto
-      // del fondo) para que las provincias vacías sigan siendo distinguibles.
-      colorscale: [
-        [0,    "#e2e8f0"],
-        [0.10, "#cbd5e1"],
-        [0.25, "#93c5fd"],
-        [0.45, "#3b82f6"],
-        [0.70, "#1d4ed8"],
-        [1.00, "#0c2461"],
-      ],
+      colorscale,
       zmin: 0,
-      // Si todo es 0 fijamos un zmax simbólico para que la colorbar no se
-      // colapse y el trace no devuelva NaN al renderizar.
-      zmax: allZero ? 1 : undefined,
-      marker: { line: { color: "#1e293b", width: 1.1 } },
+      zmax: zMax,
+      marker: { line: provBorder },
       colorbar: {
-        title: { text: "Cantidad", font: { color: "#475569", size: 11 } },
+        title: { text: "Sucursales", font: { color: "#334155", size: 11 } },
         thickness: 14,
         len: 0.85,
         x: 1.02,
-        tickfont: { color: "#475569", size: 10 },
+        tickfont: { color: "#334155", size: 10 },
+        outlinecolor: "#cbd5e1",
+        outlinewidth: 1,
       },
+    };
+
+    // CABA inset — replicamos sólo la feature de CABA con la misma escala,
+    // en un geo subplot zoom-in en la esquina superior derecha. Así, aunque
+    // sea diminuta en el mapa principal, se ve clara como una "isla".
+    const cabaTrace = {
+      type: "choropleth",
+      geojson: geo,
+      featureidkey: "properties.provincia",
+      locations: ["CABA"],
+      z: [sucMap.get("CABA") || 0],
+      // Re-usamos los mismos límites/escala para que el color coincida.
+      colorscale,
+      zmin: 0,
+      zmax: zMax,
+      marker: { line: { color: provBorder.color, width: 1.6 } },
+      showscale: false,
+      geo: "geo2",
+      hovertext: [`<b>CABA</b><br>Sucursales: <b>${(sucMap.get("CABA") || 0).toLocaleString("es-AR")}</b><br><span style=\"font-size:11px;color:#475569\">Detalle por categoría:</span><br>${breakdown("CABA")}`],
+      hovertemplate: "%{hovertext}<extra></extra>",
     };
 
     const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
     layout.margin = { l: 0, r: 0, t: 6, b: 6 };
+    // Fondo coherente con el resto del tablero — slate claro, distinto del
+    // blanco de las cards, para que la silueta del país no se confunda.
+    layout.paper_bgcolor = "#eef2f7";
+    layout.plot_bgcolor  = "#eef2f7";
+    // Mapa principal: ocupa la mayor parte del ancho. Dejamos un margen a la
+    // derecha para el inset de CABA + colorbar.
     layout.geo = {
       projection: { type: "mercator" },
       lataxis: { range: [-56, -21] },
@@ -392,27 +447,51 @@
       showland: true,
       landcolor: "#f8fafc",
       bgcolor: "rgba(0,0,0,0)",
-      // Cuando el GeoJSON tiene huecos (provincias vacías) el "land" queda
-      // visible; un trazo de provincia oscuro las separa del fondo.
       showsubunits: true,
-      subunitcolor: "#1e293b",
-      subunitwidth: 1.0,
+      subunitcolor: provBorder.color,
+      subunitwidth: 0.6,
+      domain: { x: [0, 0.78], y: [0, 1] },
       fitbounds: "geojson",
     };
+    // Inset CABA — bbox ajustado al recuadro de la ciudad, en el cuadrante
+    // superior derecho a la altura aproximada de PBA (estilo mapa electoral).
+    layout.geo2 = {
+      projection: { type: "mercator" },
+      lonaxis: { range: [-58.55, -58.32] },
+      lataxis: { range: [-34.72, -34.52] },
+      showframe: true,
+      framecolor: provBorder.color,
+      framewidth: 1.5,
+      showland: true,
+      landcolor: "#f8fafc",
+      bgcolor: "#ffffff",
+      domain: { x: [0.78, 0.97], y: [0.55, 0.92] },
+    };
+    layout.annotations = [
+      {
+        text: "<b>CABA</b>",
+        xref: "paper", yref: "paper",
+        x: 0.875, y: 0.95,
+        showarrow: false,
+        font: { color: "#0f172a", size: 11 },
+      },
+    ];
     const config = Object.assign({}, UI.PLOTLY_CONFIG, {
       displayModeBar: true,
       toImageButtonOptions: {
         format: "png",
         filename: `sucursales_${state.alias.replace(/[^A-Za-z0-9_-]+/g, "_")}_${state.mesStr}`,
         height: 800,
-        width: 800,
+        width: 900,
         scale: 2,
       },
     });
-    Plotly.newPlot(choroplethEl, [trace], layout, config);
+    Plotly.newPlot(choroplethEl, [mainTrace, cabaTrace], layout, config);
 
     const total = z.reduce((a, b) => a + b, 0);
-    mapFootNote.innerHTML = `Distribución por provincia · <strong>${UI.escapeHtml(state.alias)}</strong> · <strong>${UI.escapeHtml(state.mesStr)}</strong> · total ${total.toLocaleString("es-AR")} unidades. Usá la barra de Plotly para exportar el mapa como PNG.`;
+    const maxProv = z.reduce((acc, v, i) => (v > acc.v ? { v, p: provNames[i] } : acc), { v: -1, p: "" });
+    const maxNote = maxProv.v > 0 ? ` · pico en <strong>${UI.escapeHtml(maxProv.p)}</strong> (${maxProv.v.toLocaleString("es-AR")})` : "";
+    mapFootNote.innerHTML = `Mapa coloreado por <strong>cantidad de sucursales</strong> · escala 0 a ${zMax.toLocaleString("es-AR")} · <strong>${UI.escapeHtml(state.alias)}</strong> · <strong>${UI.escapeHtml(state.mesStr)}</strong> · total país ${total.toLocaleString("es-AR")} sucursales${maxNote}. CABA se muestra ampliada arriba a la derecha. El hover trae el desglose por categoría.`;
   }
 
   function renderLegend(counts, located) {
@@ -430,7 +509,7 @@
           <span class="legend-count" title="puntos ubicados / total">${loc.toLocaleString("es-AR")} / ${cnt.toLocaleString("es-AR")}</span>
         </label>`;
     }).join("");
-    legendEl.innerHTML = `<h4>Capas del mapa</h4>${rows}`;
+    legendEl.innerHTML = `<h4>Capas</h4>${rows}`;
     legendEl.querySelectorAll(".legend-row").forEach((row) => {
       const cat = row.getAttribute("data-cat");
       row.querySelector("input").addEventListener("change", (e) => {

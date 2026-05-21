@@ -12,37 +12,44 @@
 }
 /* Mostrar / esconder mapa activo */
 .suc-map-wrap.mode-osm        #suc-choropleth { display: none; }
-.suc-map-wrap.mode-osm        .map-legend     { display: block; }
 .suc-map-wrap.mode-choropleth #suc-map        { display: none; }
-.suc-map-wrap.mode-choropleth .map-legend     { display: none; }
+
+/* Leyenda del mapa interactivo — vive AFUERA del mapa (sibling de
+   .suc-map-wrap) para no interferir con la interacción. Strip horizontal con
+   chips clickables; se oculta con [hidden] en modo choropleth. */
 .map-legend {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 500;
-  background: #fff;
-  border: 1px solid #cbd5e1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 12px 14px !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   font-size: 12px;
-  min-width: 220px;
 }
+.map-legend[hidden] { display: none; }
 .map-legend h4 {
-  margin: 0 0 8px;
-  font-size: 12px;
+  margin: 0;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .06em;
-  color: #475569;
+  color: var(--text-muted);
+  align-self: center;
+  padding-right: 4px;
+  border-right: 1px solid var(--border);
 }
 .map-legend .legend-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 0;
+  padding: 4px 8px;
   cursor: pointer;
   user-select: none;
+  border-radius: 6px;
+  transition: background 0.12s ease;
 }
+.map-legend .legend-row:hover { background: var(--surface-3); }
 .map-legend .legend-row .dot {
   width: 12px;
   height: 12px;
@@ -52,8 +59,7 @@
   flex-shrink: 0;
 }
 .map-legend .legend-row .legend-count {
-  margin-left: auto;
-  color: #475569;
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
 .map-legend .legend-row.off .legend-label,
@@ -83,4 +89,20 @@
   font-size: 10px;
   color: #fff;
   margin-right: 4px;
+}
+.leaflet-popup-content .pop-entity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+.leaflet-popup-content .pop-ent-full {
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+.leaflet-popup-content .pop-suc {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px dashed #cbd5e1;
 }
