@@ -57,12 +57,17 @@
   let tsCatMulti = null;
   let argentinaGeo = null;   // cache del GeoJSON de provincias
 
-  // ----- Leaflet
+  // ----- Leaflet — mapa interactivo (puntos OSM)
   let map = null;
   let markerGroups = null;       // { sucursal: L.markerClusterGroup, ... }
   let allLocations = [];         // todas las locations del alias seleccionado en el snapshot
   let snapshotMesStr = "";       // mes del snapshot del mapa
   let categoryVisibility = { sucursal: true, cajero: true, terminal_autoservicio: true, dependencia_automatizada: true, operatoria_restringida: true };
+  // ----- Leaflet — choropleth (distribución por provincia)
+  let choroMap = null;           // mapa principal de Argentina
+  let choroLayer = null;         // capa GeoJSON con las 24 provincias
+  let choroCabaMap = null;       // mini-mapa inset con CABA
+  let choroCabaLayer = null;
 
   function setStatus(msg, type = "info") {
     if (!msg) { statusEl.classList.add("hidden"); statusEl.textContent = ""; return; }
@@ -284,9 +289,18 @@
     // La leyenda ahora vive afuera del .suc-map-wrap → la mostramos/ocultamos
     // directamente. Sólo aplica al modo "Mapa interactivo".
     if (legendEl) legendEl.hidden = state.mapMode !== "osm";
-    // Si pasamos a OSM, invalidar size para que Leaflet redibuje correctamente.
+    // Invalidar size de los mapas Leaflet al cambiar de modo — sin esto,
+    // el mapa que estaba escondido renderea con dimensiones cero.
     if (state.mapMode === "osm" && map) {
       setTimeout(() => map.invalidateSize(), 50);
+    }
+    if (state.mapMode === "choropleth" && choroMap) {
+      setTimeout(() => {
+        choroMap.invalidateSize();
+        if (choroCabaMap) choroCabaMap.invalidateSize();
+        if (choroLayer) choroMap.fitBounds(choroLayer.getBounds(), { padding: [8, 8] });
+        if (choroCabaLayer) choroCabaMap.fitBounds(choroCabaLayer.getBounds(), { padding: [3, 3] });
+      }, 50);
     }
   }
 
@@ -365,25 +379,127 @@
     return argentinaGeo;
   }
 
+  // ===========================================================================
+  // Choropleth — implementación basada en Leaflet (NO Plotly).
+  //
+  // Por qué: Plotly choropleth viene fallando en este caso — aún con bordes
+  // explícitos y colorscale agresiva, el mapa rendereado quedaba con
+  // provincias indistinguibles del fondo (probablemente por el rendering
+  // SVG/Canvas de Plotly + interacción con los stops continuos). Pasamos a
+  // Leaflet + L.geoJSON donde cada provincia es un <path> con `fillColor`,
+  // `color` (stroke) y `weight` explícitos — sin sorpresas de rendering.
+  //
+  // Layout: contenedor padre #suc-choropleth tiene dos hijos:
+  //   #choro-main   — mapa principal Argentina (24 provincias) ocupa el
+  //                   ancho disponible
+  //   #choro-caba   — inset cuadrado en la esquina superior derecha,
+  //                   absoluto, sólo con CABA
+  // Y un panel #choro-legend con los 7 buckets de color.
+  // ===========================================================================
+  // Bins discretos estilo mapa electoral. Cada provincia cae en un único
+  // bucket (no se interpola). Son fracciones del máximo de la entidad, así
+  // la escala se adapta: NACION (max ~200) y un banco chico (max ~20) usan
+  // los mismos cortes relativos.
+  const CHORO_BIN_COLORS = [
+    "#e5e7eb", // 0:      gris muy claro (sin presencia)
+    "#bbf7d0", // <5%:    verde muy claro
+    "#4ade80", // 5-15%:  verde
+    "#eab308", // 15-30%: amarillo
+    "#f97316", // 30-55%: naranja
+    "#dc2626", // 55-80%: rojo
+    "#7f1d1d", // ≥80%:   rojo oscuro
+  ];
+  const CHORO_BIN_BREAKS = [0.0001, 0.05, 0.15, 0.30, 0.55, 0.80];
+  const CHORO_BIN_LABELS = ["0 (sin presencia)", "< 5%", "5–15%", "15–30%", "30–55%", "55–80%", "≥ 80%"];
+
+  function pickBin(value, zMax) {
+    if (zMax <= 0 || !Number.isFinite(value)) return 0;
+    const frac = value / zMax;
+    let bin = 0;
+    for (let i = 0; i < CHORO_BIN_BREAKS.length; i++) {
+      if (frac >= CHORO_BIN_BREAKS[i]) bin = i + 1;
+    }
+    return bin;
+  }
+
+  function buildChoroContainers() {
+    // Replace #suc-choropleth content with our own structure once.
+    if (choroplethEl.querySelector("#choro-main")) return;
+    choroplethEl.innerHTML = `
+      <div id="choro-main"></div>
+      <div id="choro-caba-wrap">
+        <div class="choro-caba-label">CABA</div>
+        <div id="choro-caba"></div>
+      </div>
+      <div id="choro-legend" class="choro-legend"></div>`;
+  }
+
+  function initChoroMaps(geo) {
+    // Main map — sin tiles base. Sólo polygons.
+    if (!choroMap) {
+      choroMap = L.map(document.getElementById("choro-main"), {
+        zoomControl: false,
+        attributionControl: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        dragging: false,
+        boxZoom: false,
+        keyboard: false,
+        touchZoom: false,
+      });
+    }
+    if (!choroCabaMap) {
+      choroCabaMap = L.map(document.getElementById("choro-caba"), {
+        zoomControl: false,
+        attributionControl: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        dragging: false,
+        boxZoom: false,
+        keyboard: false,
+        touchZoom: false,
+      });
+    }
+  }
+
+  function styleFor(provName, sucMap, zMax) {
+    const v = sucMap.get(provName) || 0;
+    const bin = pickBin(v, zMax);
+    return {
+      fillColor: CHORO_BIN_COLORS[bin],
+      fillOpacity: 1,
+      color: "#0f172a",     // borde oscuro
+      weight: 1.2,
+      opacity: 1,
+    };
+  }
+
+  function tooltipFor(provName, sucMap, breakdown) {
+    const suc = sucMap.get(provName) || 0;
+    return `
+      <div class="choro-tip">
+        <div class="choro-tip-head">${UI.escapeHtml(provName)}</div>
+        <div class="choro-tip-suc">Sucursales: <b>${suc.toLocaleString("es-AR")}</b></div>
+        <div class="choro-tip-bd">${breakdown(provName)}</div>
+      </div>`;
+  }
+
   async function refreshChoropleth() {
     const [geo, cur] = await Promise.all([
       loadArgentinaGeo(),
       CASAS.getResumen(state.alias, state.mesStr),
     ]);
 
-    // Coloreamos las provincias por *cantidad de SUCURSALES* únicamente
-    // (las otras 4 categorías se muestran en el hover pero no tiñen el mapa
-    // — son escalas de magnitudes muy distintas entre sí).
+    // Asegurar contenedores y mapas Leaflet.
+    buildChoroContainers();
+    initChoroMaps(geo);
+
+    // Datos: coloreamos por sucursales (la categoría sucursal únicamente).
     const sucMap = cur.porProvincia.get("sucursal") || new Map();
     const provNames = geo.features.map((f) => f.properties.provincia);
     const z = provNames.map((p) => sucMap.get(p) || 0);
+    const zMax = Math.max(1, ...z);
 
-    // Stats para escala dinámica por entidad: NACION (max ≈ 500) y un banco
-    // chico (max ≈ 20) tienen que ser ambos legibles.
-    const zMax = Math.max(1, ...z);  // mínimo 1 para que la colorbar no se colapse
-
-    // Hover: además del valor de SUCURSAL, mostramos el desglose completo
-    // por categoría para no perder información.
     function breakdown(p) {
       const parts = [];
       for (const cat of CASAS.CATEGORIES) {
@@ -391,166 +507,76 @@
         const v = m ? (m.get(p) || 0) : 0;
         if (v > 0) parts.push(`${CASAS.CATEGORY_LABEL_SHORT[cat]}: ${v.toLocaleString("es-AR")}`);
       }
-      return parts.length ? parts.join("<br>") : "(sin presencia)";
+      return parts.length ? parts.join("<br>") : "<span style='color:#94a3b8'>(sin presencia)</span>";
     }
-    const hovertext = provNames.map((p) => {
-      const suc = sucMap.get(p) || 0;
-      return `<b>${p}</b><br>Sucursales: <b>${suc.toLocaleString("es-AR")}</b><br><span style="font-size:11px;color:#475569">Detalle por categoría:</span><br>${breakdown(p)}`;
-    });
 
-    // Colorscale DISCRETA (bins) estilo mapa electoral: cada provincia cae
-    // en uno de 7 buckets con un color sólido. Esto resuelve el problema de
-    // distribuciones muy sesgadas (PBA con 10x el resto) donde una escala
-    // continua dejaba todas las provincias chicas pintadas casi iguales.
-    // Los buckets son fracciones del máximo, así la escala se adapta a la
-    // entidad: NACION (max~200) y un banco chico (max~20) usan los mismos
-    // cortes proporcionales.
-    const BIN_COLORS = [
-      "#cbd5e1", // 0           : sin presencia (slate-300, claramente visible)
-      "#bbf7d0", // 0.01 — 5%   : verde muy claro
-      "#4ade80", // 5 — 15%     : verde
-      "#eab308", // 15 — 30%    : amarillo
-      "#f97316", // 30 — 55%    : naranja
-      "#dc2626", // 55 — 80%    : rojo
-      "#7f1d1d", // 80 — 100%   : rojo oscuro
-    ];
-    const BIN_BREAKS = [0.0001, 0.05, 0.15, 0.30, 0.55, 0.80];
-    // Construye la colorscale de Plotly como una secuencia de pares de stops
-    // en la misma posición → genera saltos abruptos entre buckets.
-    const colorscale = (() => {
-      const cs = [[0, BIN_COLORS[0]]];
-      for (let i = 0; i < BIN_BREAKS.length; i++) {
-        const eps = 1e-6;
-        cs.push([Math.max(0, BIN_BREAKS[i] - eps), BIN_COLORS[i]]);
-        cs.push([BIN_BREAKS[i], BIN_COLORS[i + 1]]);
-      }
-      cs.push([1, BIN_COLORS[BIN_COLORS.length - 1]]);
-      return cs;
-    })();
-    // Borde provincial bien oscuro y grueso para que cada provincia se
-    // distinga aún cuando dos provincias adyacentes caen en el mismo bucket.
-    const provBorder = { color: "#0f172a", width: 1.8 };
-
-    // Trace principal: 23 provincias + CABA (CABA es invisible en el mapa
-    // a esta escala, pero la sumamos al trace para no romper el orden).
-    const mainTrace = {
-      type: "choropleth",
-      geojson: geo,
-      featureidkey: "properties.provincia",
-      locations: provNames,
-      z,
-      hovertext,
-      hovertemplate: "%{hovertext}<extra></extra>",
-      colorscale,
-      zmin: 0,
-      zmax: zMax,
-      marker: { line: provBorder },
-      colorbar: {
-        title: { text: "Sucursales", font: { color: "#334155", size: 11 } },
-        thickness: 14,
-        len: 0.85,
-        x: 1.02,
-        // Ticks en los límites de bins para que se entienda como escala
-        // discreta (cada tramo de la colorbar es un bucket sólido).
-        tickmode: "array",
-        tickvals: [0, ...BIN_BREAKS.map((b) => Math.round(b * zMax))],
-        tickfont: { color: "#334155", size: 10 },
-        outlinecolor: "#cbd5e1",
-        outlinewidth: 1,
+    // ----- Main map: 23 provincias (todo salvo CABA) -------------------------
+    const mainGeo = {
+      type: "FeatureCollection",
+      features: geo.features.filter((f) => f.properties.provincia !== "CABA"),
+    };
+    if (choroLayer) choroMap.removeLayer(choroLayer);
+    choroLayer = L.geoJSON(mainGeo, {
+      style: (f) => styleFor(f.properties.provincia, sucMap, zMax),
+      onEachFeature: (f, layer) => {
+        layer.bindTooltip(tooltipFor(f.properties.provincia, sucMap, breakdown), {
+          sticky: true,
+          direction: "top",
+          className: "choro-tooltip",
+          offset: [0, -6],
+        });
+        layer.on("mouseover", (e) => e.target.setStyle({ weight: 2.5, color: "#000" }).bringToFront());
+        layer.on("mouseout",  (e) => choroLayer.resetStyle(e.target));
       },
-    };
+    }).addTo(choroMap);
+    choroMap.fitBounds(choroLayer.getBounds(), { padding: [8, 8] });
 
-    // CABA inset — replicamos sólo la feature de CABA con la misma escala,
-    // en un geo subplot zoom-in en la esquina superior derecha. Así, aunque
-    // sea diminuta en el mapa principal, se ve clara como una "isla".
-    const cabaTrace = {
-      type: "choropleth",
-      geojson: geo,
-      featureidkey: "properties.provincia",
-      locations: ["CABA"],
-      z: [sucMap.get("CABA") || 0],
-      // Re-usamos los mismos límites/escala para que el color coincida.
-      colorscale,
-      zmin: 0,
-      zmax: zMax,
-      marker: { line: { color: provBorder.color, width: 1.6 } },
-      showscale: false,
-      geo: "geo2",
-      hovertext: [`<b>CABA</b><br>Sucursales: <b>${(sucMap.get("CABA") || 0).toLocaleString("es-AR")}</b><br><span style=\"font-size:11px;color:#475569\">Detalle por categoría:</span><br>${breakdown("CABA")}`],
-      hovertemplate: "%{hovertext}<extra></extra>",
+    // ----- CABA inset --------------------------------------------------------
+    const cabaGeo = {
+      type: "FeatureCollection",
+      features: geo.features.filter((f) => f.properties.provincia === "CABA"),
     };
-
-    const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
-    layout.margin = { l: 0, r: 0, t: 6, b: 6 };
-    // Fondo distinto a todos los colores de los buckets para que cada
-    // provincia quede claramente separada del entorno. Slate-100/200 sobre
-    // un océano claro que da silueta a Argentina.
-    layout.paper_bgcolor = "#dbeafe";  // celeste muy claro (océano)
-    layout.plot_bgcolor  = "#dbeafe";
-    // Mapa principal: ocupa la mayor parte del ancho. Dejamos un margen a la
-    // derecha para el inset de CABA + colorbar.
-    layout.geo = {
-      projection: { type: "mercator" },
-      lataxis: { range: [-56, -21] },
-      lonaxis: { range: [-75, -52] },
-      showframe: false,
-      showcoastlines: true,
-      coastlinecolor: "#1e3a8a",
-      coastlinewidth: 1,
-      showland: true,
-      // Land color visible sólo por fuera de las provincias (en los huecos
-      // del GeoJSON, p.ej. islas no representadas). Un tono apenas distinto
-      // del bg para dar profundidad sin chocar.
-      landcolor: "#e0f2fe",
-      bgcolor: "rgba(0,0,0,0)",
-      showsubunits: true,
-      subunitcolor: provBorder.color,
-      subunitwidth: 0.8,
-      showcountries: true,
-      countrycolor: "#1e293b",
-      countrywidth: 1.0,
-      domain: { x: [0, 0.78], y: [0, 1] },
-      fitbounds: "geojson",
-    };
-    // Inset CABA — bbox ajustado al recuadro de la ciudad, en el cuadrante
-    // superior derecho a la altura aproximada de PBA (estilo mapa electoral).
-    layout.geo2 = {
-      projection: { type: "mercator" },
-      lonaxis: { range: [-58.55, -58.32] },
-      lataxis: { range: [-34.72, -34.52] },
-      showframe: true,
-      framecolor: provBorder.color,
-      framewidth: 1.5,
-      showland: true,
-      landcolor: "#e0f2fe",
-      bgcolor: "#f8fafc",
-      domain: { x: [0.78, 0.97], y: [0.55, 0.92] },
-    };
-    layout.annotations = [
-      {
-        text: "<b>CABA</b>",
-        xref: "paper", yref: "paper",
-        x: 0.875, y: 0.95,
-        showarrow: false,
-        font: { color: "#0f172a", size: 11 },
+    if (choroCabaLayer) choroCabaMap.removeLayer(choroCabaLayer);
+    choroCabaLayer = L.geoJSON(cabaGeo, {
+      style: (f) => Object.assign(styleFor(f.properties.provincia, sucMap, zMax), { weight: 1.4 }),
+      onEachFeature: (f, layer) => {
+        layer.bindTooltip(tooltipFor(f.properties.provincia, sucMap, breakdown), {
+          sticky: true,
+          direction: "top",
+          className: "choro-tooltip",
+        });
       },
-    ];
-    const config = Object.assign({}, UI.PLOTLY_CONFIG, {
-      displayModeBar: true,
-      toImageButtonOptions: {
-        format: "png",
-        filename: `sucursales_${state.alias.replace(/[^A-Za-z0-9_-]+/g, "_")}_${state.mesStr}`,
-        height: 800,
-        width: 900,
-        scale: 2,
-      },
-    });
-    Plotly.newPlot(choroplethEl, [mainTrace, cabaTrace], layout, config);
+    }).addTo(choroCabaMap);
+    choroCabaMap.fitBounds(choroCabaLayer.getBounds(), { padding: [3, 3] });
 
+    // ----- Leyenda -----------------------------------------------------------
+    const legendEl2 = document.getElementById("choro-legend");
+    const labels = CHORO_BIN_LABELS.map((lbl, i) => {
+      const v = i === 0 ? 0 : Math.round(CHORO_BIN_BREAKS[i - 1] * zMax);
+      const vNext = i === CHORO_BIN_LABELS.length - 1 ? zMax : Math.round(CHORO_BIN_BREAKS[i] * zMax) - 1;
+      const range = i === 0 ? "0" : (vNext > v ? `${v.toLocaleString("es-AR")}–${vNext.toLocaleString("es-AR")}` : `${v.toLocaleString("es-AR")}`);
+      return `<div class="choro-legend-row">
+        <span class="choro-legend-swatch" style="background:${CHORO_BIN_COLORS[i]}"></span>
+        <span class="choro-legend-range">${range}</span>
+      </div>`;
+    }).join("");
+    legendEl2.innerHTML = `<div class="choro-legend-title">Sucursales</div>${labels}`;
+
+    // ----- Foot note ---------------------------------------------------------
     const total = z.reduce((a, b) => a + b, 0);
     const maxProv = z.reduce((acc, v, i) => (v > acc.v ? { v, p: provNames[i] } : acc), { v: -1, p: "" });
     const maxNote = maxProv.v > 0 ? ` · pico en <strong>${UI.escapeHtml(maxProv.p)}</strong> (${maxProv.v.toLocaleString("es-AR")})` : "";
     mapFootNote.innerHTML = `Mapa coloreado por <strong>cantidad de sucursales</strong> · escala 0 a ${zMax.toLocaleString("es-AR")} · <strong>${UI.escapeHtml(state.alias)}</strong> · <strong>${UI.escapeHtml(state.mesStr)}</strong> · total país ${total.toLocaleString("es-AR")} sucursales${maxNote}. CABA se muestra ampliada arriba a la derecha. El hover trae el desglose por categoría.`;
+
+    // Importante: recalcular el tamaño del map cuando el contenedor cambia
+    // (ej. al alternar modos). Sin esto, Leaflet renderea con dimensiones
+    // viejas y queda gris.
+    setTimeout(() => {
+      choroMap && choroMap.invalidateSize();
+      choroCabaMap && choroCabaMap.invalidateSize();
+      if (choroLayer) choroMap.fitBounds(choroLayer.getBounds(), { padding: [8, 8] });
+      if (choroCabaLayer) choroCabaMap.fitBounds(choroCabaLayer.getBounds(), { padding: [3, 3] });
+    }, 50);
   }
 
   function renderLegend(counts, located) {
