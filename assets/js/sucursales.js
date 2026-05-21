@@ -203,22 +203,45 @@
     map = L.map(mapEl, {
       zoomControl: true,
       scrollWheelZoom: true,
-      maxBounds: [[-60, -85], [-15, -45]],   // un poco más amplio para que se pueda pan
-      maxBoundsViscosity: 0.8,
+      // Sin maxBounds → el usuario puede pan-ear libremente fuera de
+      // Argentina (la base IGN cubre el mundo entero a baja resolución).
+      minZoom: 2,                            // permite alejarse hasta ver Sudamérica completa
     });
     map.fitBounds(ARG_BOUNDS, { padding: [10, 10] });
+    // Control custom "↺ Centrar Argentina" en la esquina superior izquierda
+    // (debajo del zoom). Re-encuadra el mapa al rectángulo del país.
+    const RecenterControl = L.Control.extend({
+      options: { position: "topleft" },
+      onAdd: function () {
+        const btn = L.DomUtil.create("a", "leaflet-control-recenter leaflet-bar leaflet-control");
+        btn.href = "#";
+        btn.title = "Centrar Argentina";
+        btn.setAttribute("role", "button");
+        btn.innerHTML = "↺";
+        L.DomEvent.on(btn, "click", (e) => {
+          L.DomEvent.preventDefault(e);
+          map.fitBounds(ARG_BOUNDS, { padding: [10, 10] });
+        });
+        L.DomEvent.disableClickPropagation(btn);
+        return btn;
+      },
+    });
+    new RecenterControl().addTo(map);
     // Base IGN Argentina (ArgenMap) — cartografía oficial del Instituto
     // Geográfico Nacional. Usamos esta en vez de OpenStreetMap porque OSM
     // rotula el archipiélago como "Falkland Islands"; IGN lo rotula
-    // correctamente como "Islas Malvinas (ARG)". Es un servicio TMS (Y
-    // invertida) → pasamos `tms: true` para que Leaflet flippee la coord.
+    // correctamente como "Islas Malvinas (ARG)". El endpoint es TMS (Y
+    // invertida); usamos el placeholder `{-y}` en la URL en lugar de la
+    // opción `tms: true` porque, en pruebas con Leaflet 1.9.4, esta forma
+    // carga tiles correctamente en todos los niveles de zoom (con
+    // `tms: true` el layer no creaba <img> al zoomear a z=2).
     L.tileLayer(
-      "https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG:3857@png/{z}/{x}/{y}.png",
+      "https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG:3857@png/{z}/{x}/{-y}.png",
       {
-        tms: true,
         attribution: "© <a href=\"https://www.ign.gob.ar/\" target=\"_blank\" rel=\"noopener\">IGN Argentina</a> · ArgenMap",
         maxZoom: 18,
-        minZoom: 3,
+        minZoom: 2,
+        noWrap: true,
       }
     ).addTo(map);
 
@@ -375,24 +398,38 @@
       return `<b>${p}</b><br>Sucursales: <b>${suc.toLocaleString("es-AR")}</b><br><span style="font-size:11px;color:#475569">Detalle por categoría:</span><br>${breakdown(p)}`;
     });
 
-    // Colorscale tipo "mapa electoral": 0 = gris (sin presencia) y luego un
-    // gradiente verde→amarillo→naranja→rojo. Los breakpoints están corridos
-    // al low end porque la distribución de sucursales suele estar dominada
-    // por una sola provincia (PBA o CABA), y si dejamos breaks lineales (.20,
-    // .45 etc.) todas las provincias chicas terminan en el mismo tono mint.
-    // Con breaks más agresivos, 5/500 ya es verde, 25/500 amarillo, 100/500
-    // naranja, 250/500 rojo — distinción visible aun cuando una provincia
-    // domine el total.
-    const colorscale = [
-      [0,      "#e5e7eb"],
-      [0.0001, "#a7f3d0"],
-      [0.04,   "#34d399"],
-      [0.12,   "#facc15"],
-      [0.28,   "#f97316"],
-      [0.55,   "#dc2626"],
-      [1.00,   "#7f1d1d"],
+    // Colorscale DISCRETA (bins) estilo mapa electoral: cada provincia cae
+    // en uno de 7 buckets con un color sólido. Esto resuelve el problema de
+    // distribuciones muy sesgadas (PBA con 10x el resto) donde una escala
+    // continua dejaba todas las provincias chicas pintadas casi iguales.
+    // Los buckets son fracciones del máximo, así la escala se adapta a la
+    // entidad: NACION (max~200) y un banco chico (max~20) usan los mismos
+    // cortes proporcionales.
+    const BIN_COLORS = [
+      "#cbd5e1", // 0           : sin presencia (slate-300, claramente visible)
+      "#bbf7d0", // 0.01 — 5%   : verde muy claro
+      "#4ade80", // 5 — 15%     : verde
+      "#eab308", // 15 — 30%    : amarillo
+      "#f97316", // 30 — 55%    : naranja
+      "#dc2626", // 55 — 80%    : rojo
+      "#7f1d1d", // 80 — 100%   : rojo oscuro
     ];
-    const provBorder = { color: "#0f172a", width: 1.2 };
+    const BIN_BREAKS = [0.0001, 0.05, 0.15, 0.30, 0.55, 0.80];
+    // Construye la colorscale de Plotly como una secuencia de pares de stops
+    // en la misma posición → genera saltos abruptos entre buckets.
+    const colorscale = (() => {
+      const cs = [[0, BIN_COLORS[0]]];
+      for (let i = 0; i < BIN_BREAKS.length; i++) {
+        const eps = 1e-6;
+        cs.push([Math.max(0, BIN_BREAKS[i] - eps), BIN_COLORS[i]]);
+        cs.push([BIN_BREAKS[i], BIN_COLORS[i + 1]]);
+      }
+      cs.push([1, BIN_COLORS[BIN_COLORS.length - 1]]);
+      return cs;
+    })();
+    // Borde provincial bien oscuro y grueso para que cada provincia se
+    // distinga aún cuando dos provincias adyacentes caen en el mismo bucket.
+    const provBorder = { color: "#0f172a", width: 1.8 };
 
     // Trace principal: 23 provincias + CABA (CABA es invisible en el mapa
     // a esta escala, pero la sumamos al trace para no romper el orden).
@@ -413,6 +450,10 @@
         thickness: 14,
         len: 0.85,
         x: 1.02,
+        // Ticks en los límites de bins para que se entienda como escala
+        // discreta (cada tramo de la colorbar es un bucket sólido).
+        tickmode: "array",
+        tickvals: [0, ...BIN_BREAKS.map((b) => Math.round(b * zMax))],
         tickfont: { color: "#334155", size: 10 },
         outlinecolor: "#cbd5e1",
         outlinewidth: 1,
@@ -441,10 +482,11 @@
 
     const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));
     layout.margin = { l: 0, r: 0, t: 6, b: 6 };
-    // Fondo coherente con el resto del tablero — slate claro, distinto del
-    // blanco de las cards, para que la silueta del país no se confunda.
-    layout.paper_bgcolor = "#eef2f7";
-    layout.plot_bgcolor  = "#eef2f7";
+    // Fondo distinto a todos los colores de los buckets para que cada
+    // provincia quede claramente separada del entorno. Slate-100/200 sobre
+    // un océano claro que da silueta a Argentina.
+    layout.paper_bgcolor = "#dbeafe";  // celeste muy claro (océano)
+    layout.plot_bgcolor  = "#dbeafe";
     // Mapa principal: ocupa la mayor parte del ancho. Dejamos un margen a la
     // derecha para el inset de CABA + colorbar.
     layout.geo = {
@@ -452,13 +494,21 @@
       lataxis: { range: [-56, -21] },
       lonaxis: { range: [-75, -52] },
       showframe: false,
-      showcoastlines: false,
+      showcoastlines: true,
+      coastlinecolor: "#1e3a8a",
+      coastlinewidth: 1,
       showland: true,
-      landcolor: "#f8fafc",
+      // Land color visible sólo por fuera de las provincias (en los huecos
+      // del GeoJSON, p.ej. islas no representadas). Un tono apenas distinto
+      // del bg para dar profundidad sin chocar.
+      landcolor: "#e0f2fe",
       bgcolor: "rgba(0,0,0,0)",
       showsubunits: true,
       subunitcolor: provBorder.color,
-      subunitwidth: 0.6,
+      subunitwidth: 0.8,
+      showcountries: true,
+      countrycolor: "#1e293b",
+      countrywidth: 1.0,
       domain: { x: [0, 0.78], y: [0, 1] },
       fitbounds: "geojson",
     };
@@ -472,8 +522,8 @@
       framecolor: provBorder.color,
       framewidth: 1.5,
       showland: true,
-      landcolor: "#f8fafc",
-      bgcolor: "#ffffff",
+      landcolor: "#e0f2fe",
+      bgcolor: "#f8fafc",
       domain: { x: [0.78, 0.97], y: [0.55, 0.92] },
     };
     layout.annotations = [

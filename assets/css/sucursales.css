@@ -76,6 +76,22 @@
   box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
 }
 
+/* Botón "↺ Centrar Argentina" — control custom de Leaflet en la topleft.
+   Se mimetiza con el zoom de Leaflet pero usa un símbolo de recarga. */
+.leaflet-control-recenter {
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  text-decoration: none;
+  cursor: pointer;
+}
+.leaflet-control-recenter:hover { background: #f1f5f9; }
+
 /* Padded-sm helper */
 .card.padded-sm { padding: 10px 12px; }
 
