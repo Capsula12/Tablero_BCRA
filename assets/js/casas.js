@@ -17,7 +17,7 @@
   const CATEGORIES = ["sucursal", "cajero", "terminal_autoservicio", "dependencia_automatizada", "operatoria_restringida"];
   const CATEGORY_LABEL = {
     sucursal: "Sucursales",
-    cajero: "Cajeros (fuera de sucursales)",
+    cajero: "Cajeros (dentro y fuera de casas operativas)",
     terminal_autoservicio: "Terminales de autoservicio",
     dependencia_automatizada: "Dependencias automatizadas",
     operatoria_restringida: "Sucursales — operatoria restringida (prestación de determinadas actividades)",

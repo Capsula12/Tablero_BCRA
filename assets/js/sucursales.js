@@ -656,6 +656,41 @@
         </div>`;
       kpisEl.appendChild(card);
     }
+
+    // Tarjeta destacada: "Sucursales + anexos" (factor combinado = sucursales
+    // plenas + operatoria restringida + dependencias automatizadas). Mismo
+    // criterio que el indicador casas 991000006 que viaja por Panel/Ranking.
+    const comboVal  = comboTotal(cur);
+    const comboPrevM = prevM ? comboTotal(prevM) : null;
+    const comboPrevY = prevY ? comboTotal(prevY) : null;
+    const cdm = comboPrevM != null && comboPrevM !== 0 ? ((comboVal - comboPrevM) / comboPrevM * 100) : null;
+    const cdy = comboPrevY != null && comboPrevY !== 0 ? ((comboVal - comboPrevY) / comboPrevY * 100) : null;
+    const cdmText = formatDeltaPct(cdm);
+    const cdyText = formatDeltaPct(cdy);
+    const cdmAbs = comboPrevM != null ? (comboVal - comboPrevM) : null;
+    const cdyAbs = comboPrevY != null ? (comboVal - comboPrevY) : null;
+    const comboCard = document.createElement("div");
+    comboCard.className = "mini-card kpi-combo";
+    comboCard.innerHTML = `
+      <div class="mc-origen" style="background:${COMBO_COLOR}22;color:${COMBO_COLOR}">Suc. + anexos</div>
+      <div class="mc-title">${UI.escapeHtml(COMBO_LABEL_FULL)}</div>
+      <div class="mc-stats" style="border-top:none;padding-top:0">
+        <div class="mc-actual" style="font-size:32px">${comboVal.toLocaleString("es-AR")}</div>
+        <div class="mc-deltas">
+          <span><span class="delta-label">vs mes ant.:</span> <span class="delta ${cdmText.cls}">${cdmText.text}${cdmAbs != null ? ` <small class="muted">(${fmtSigned(cdmAbs)})</small>` : ""}</span></span>
+          <span><span class="delta-label">vs año ant.:</span> <span class="delta ${cdyText.cls}">${cdyText.text}${cdyAbs != null ? ` <small class="muted">(${fmtSigned(cdyAbs)})</small>` : ""}</span></span>
+        </div>
+      </div>`;
+    kpisEl.insertBefore(comboCard, kpisEl.firstChild);
+  }
+
+  // Factor combinado "Sucursales + anexos": suma de sucursales plenas +
+  // operatoria restringida + dependencias automatizadas (excluye cajeros y TA).
+  const COMBO_CATS = ["sucursal", "operatoria_restringida", "dependencia_automatizada"];
+  const COMBO_COLOR = "#0f766e";
+  const COMBO_LABEL_FULL = "Sucursales + anexos (suc. + op. restringida + dependencias)";
+  function comboTotal(resumen) {
+    return COMBO_CATS.reduce((s, c) => s + (resumen.total[c] || 0), 0);
   }
 
   function fmtSigned(n) { return (n > 0 ? "+" : "") + n.toLocaleString("es-AR"); }

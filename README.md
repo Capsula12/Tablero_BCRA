@@ -17,8 +17,11 @@ Tablero web 100% estático para explorar variables del sistema financiero argent
 | [Series](series.html) | Compará un mismo indicador en varias entidades a lo largo del tiempo. |
 | [Calculadora](calc.html) | Construí fórmulas combinando indicadores con operadores y paréntesis. |
 | [Ranking](ranking.html) | Top N de entidades por valor del mes, variación interanual y variación mensual. |
+| [Sucursales](sucursales.html) | Red de atención física: sucursales, cajeros, terminales de autoservicio, dependencias y operatoria restringida. Mapa choropleth + mapa interactivo (Leaflet), resumen con KPIs y evolución mensual. |
 
 Toggle global **Moneda homogénea (IPC INDEC)** en la topbar — deflacta los nominales en pesos a precios del último mes con IPC.
+
+> **Indicadores de casas (origen `casas`)**: las categorías de la red de atención (`991000001`..`991000005`) y el **factor combinado `991000006` = "Sucursales + anexos"** (sucursales + operatoria restringida + dependencias) se inyectan en la capa de datos vía `casas_indicadores.csv`, así que aparecen también en **Panel / Series / Ranking / Calculadora** como cualquier otro indicador. El indicador `991000002` (cajeros) cuenta los ATMs **dentro y fuera** de casas operativas.
 
 ### Selectores de período
 
@@ -35,17 +38,19 @@ El range slider soporta teclado: ← / → = ±1 mes; ↑ / ↓ idem; **PageUp /
 
 ```
 Tablero_BCRA/
-├─ index.html  panel.html  series.html  calc.html  ranking.html
+├─ index.html  panel.html  series.html  calc.html  ranking.html  sucursales.html
 ├─ .nojekyll                              # evita procesamiento Jekyll en GitHub Pages
 ├─ assets/
 │  ├─ css/
 │  │  ├─ style.css                        # tema CLARO (single source of truth de tokens), layout responsive
-│  │  └─ ranking.css                      # estilos puntuales de la pantalla Ranking (consume los tokens de style.css)
+│  │  ├─ ranking.css                      # estilos puntuales de la pantalla Ranking (consume los tokens de style.css)
+│  │  └─ sucursales.css                   # estilos de la pantalla Sucursales (mapas, KPIs, choropleth)
 │  └─ js/
-│     ├─ data.js                          # capa de datos (CSV → memoria, IPC, derived, grupos)
+│     ├─ data.js                          # capa de datos (CSV → memoria, IPC, derived, grupos; inyecta casas)
+│     ├─ casas.js                         # capa de datos de Sucursales (serie mensual, ubicaciones, agregados)
 │     ├─ ui.js                            # combobox, multiselect, topbar, helpers Plotly
 │     ├─ panel.js  series.js  calc.js
-│     └─ ranking.js
+│     └─ ranking.js  sucursales.js
 │
 ├─ data/                                  # CSVs versionados — los lee el cliente con PapaParse
 │  ├─ dataset_normalizado_YYYY.csv        # particionado por año (2015..2026)
@@ -56,6 +61,10 @@ Tablero_BCRA/
 │  ├─ aggregations.csv                    # cómo agrega cada indicador en grupos (sum/mean/weighted_mean)
 │  ├─ ipc_indec_nacional_nivel_general.csv  # IPC INDEC para moneda homogénea
 │  ├─ detalle_datos.csv                   # texto largo "Más info" por indicador
+│  ├─ casas_indicadores.csv               # casas como indicadores (origen=casas), incl. 991000006 combinado
+│  ├─ casas_serie_mensual.csv             # conteos por entidad × mes × categoría × provincia (+ partido PBA)
+│  ├─ casas_ubicaciones_latest.csv        # snapshot del último mes con lat/lon (mapa interactivo)
+│  ├─ argentina_provincias.geo.json       # GeoJSON de provincias para el choropleth
 │  └─ _manifest.json                      # lista de años disponibles para la carga lazy
 │
 └─ .github/workflows/
