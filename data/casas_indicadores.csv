@@ -576,6 +576,11 @@
 00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,2,2026-02,casas
 00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000001,Sucursales (red propia),304,N,2026,2,2026-02,casas
 00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000003,Terminales de autoservicio,981,N,2026,2,2026-02,casas
+00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),982,N,2026,3,2026-03,casas
+00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000004,Dependencias automatizadas,1,N,2026,3,2026-03,casas
+00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,3,2026-03,casas
+00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000001,Sucursales (red propia),298,N,2026,3,2026-03,casas
+00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000003,Terminales de autoservicio,969,N,2026,3,2026-03,casas
 00011,BANCO DE LA NACION ARGENTINA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1346,N,2015,1,2015-01,casas
 00011,BANCO DE LA NACION ARGENTINA,991000004,Dependencias automatizadas,3,N,2015,1,2015-01,casas
 00011,BANCO DE LA NACION ARGENTINA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),63,N,2015,1,2015-01,casas
@@ -1207,6 +1212,11 @@
 00011,BANCO DE LA NACION ARGENTINA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),63,N,2026,2,2026-02,casas
 00011,BANCO DE LA NACION ARGENTINA,991000001,Sucursales (red propia),652,N,2026,2,2026-02,casas
 00011,BANCO DE LA NACION ARGENTINA,991000003,Terminales de autoservicio,4,N,2026,2,2026-02,casas
+00011,BANCO DE LA NACION ARGENTINA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),3232,N,2026,3,2026-03,casas
+00011,BANCO DE LA NACION ARGENTINA,991000004,Dependencias automatizadas,7,N,2026,3,2026-03,casas
+00011,BANCO DE LA NACION ARGENTINA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),62,N,2026,3,2026-03,casas
+00011,BANCO DE LA NACION ARGENTINA,991000001,Sucursales (red propia),652,N,2026,3,2026-03,casas
+00011,BANCO DE LA NACION ARGENTINA,991000003,Terminales de autoservicio,4,N,2026,3,2026-03,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1483,N,2015,1,2015-01,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),110,N,2015,1,2015-01,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000001,Sucursales (red propia),342,N,2015,1,2015-01,casas
@@ -1670,6 +1680,10 @@
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),48,N,2026,2,2026-02,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000001,Sucursales (red propia),349,N,2026,2,2026-02,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000003,Terminales de autoservicio,875,N,2026,2,2026-02,casas
+00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2040,N,2026,3,2026-03,casas
+00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),48,N,2026,3,2026-03,casas
+00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000001,Sucursales (red propia),349,N,2026,3,2026-03,casas
+00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000003,Terminales de autoservicio,875,N,2026,3,2026-03,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),863,N,2015,1,2015-01,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000004,Dependencias automatizadas,21,N,2015,1,2015-01,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2015,1,2015-01,casas
@@ -2198,6 +2212,10 @@
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2026,2,2026-02,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000001,Sucursales (red propia),123,N,2026,2,2026-02,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000003,Terminales de autoservicio,41,N,2026,2,2026-02,casas
+00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),643,N,2026,3,2026-03,casas
+00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2026,3,2026-03,casas
+00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000001,Sucursales (red propia),123,N,2026,3,2026-03,casas
+00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000003,Terminales de autoservicio,40,N,2026,3,2026-03,casas
 00016,CITIBANK N.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),566,N,2015,1,2015-01,casas
 00016,CITIBANK N.A.,991000004,Dependencias automatizadas,8,N,2015,1,2015-01,casas
 00016,CITIBANK N.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),6,N,2015,1,2015-01,casas
@@ -2553,6 +2571,7 @@
 00016,CITIBANK N.A.,991000001,Sucursales (red propia),4,N,2025,12,2025-12,casas
 00016,CITIBANK N.A.,991000001,Sucursales (red propia),4,N,2026,1,2026-01,casas
 00016,CITIBANK N.A.,991000001,Sucursales (red propia),4,N,2026,2,2026-02,casas
+00016,CITIBANK N.A.,991000001,Sucursales (red propia),3,N,2026,3,2026-03,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1427,N,2015,1,2015-01,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000004,Dependencias automatizadas,14,N,2015,1,2015-01,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,1,2015-01,casas
@@ -3118,6 +3137,10 @@
 00017,BANCO BBVA ARGENTINA S.A.,991000004,Dependencias automatizadas,1,N,2026,2,2026-02,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000001,Sucursales (red propia),234,N,2026,2,2026-02,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000003,Terminales de autoservicio,875,N,2026,2,2026-02,casas
+00017,BANCO BBVA ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),842,N,2026,3,2026-03,casas
+00017,BANCO BBVA ARGENTINA S.A.,991000004,Dependencias automatizadas,1,N,2026,3,2026-03,casas
+00017,BANCO BBVA ARGENTINA S.A.,991000001,Sucursales (red propia),234,N,2026,3,2026-03,casas
+00017,BANCO BBVA ARGENTINA S.A.,991000003,Terminales de autoservicio,875,N,2026,3,2026-03,casas
 00018,MUFG BANK LTD,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00018,MUFG BANK LTD,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00018,MUFG BANK LTD,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -3649,6 +3672,10 @@
 00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000004,Dependencias automatizadas,2,N,2026,2,2026-02,casas
 00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),16,N,2026,2,2026-02,casas
 00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000001,Sucursales (red propia),153,N,2026,2,2026-02,casas
+00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),781,N,2026,3,2026-03,casas
+00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000004,Dependencias automatizadas,2,N,2026,3,2026-03,casas
+00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),7,N,2026,3,2026-03,casas
+00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000001,Sucursales (red propia),153,N,2026,3,2026-03,casas
 00027,BANCO SUPERVIELLE S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),645,N,2015,1,2015-01,casas
 00027,BANCO SUPERVIELLE S.A.,991000004,Dependencias automatizadas,4,N,2015,1,2015-01,casas
 00027,BANCO SUPERVIELLE S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),79,N,2015,1,2015-01,casas
@@ -4193,6 +4220,10 @@
 00027,BANCO SUPERVIELLE S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,2,2026-02,casas
 00027,BANCO SUPERVIELLE S.A.,991000001,Sucursales (red propia),129,N,2026,2,2026-02,casas
 00027,BANCO SUPERVIELLE S.A.,991000003,Terminales de autoservicio,179,N,2026,2,2026-02,casas
+00027,BANCO SUPERVIELLE S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),529,N,2026,3,2026-03,casas
+00027,BANCO SUPERVIELLE S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,3,2026-03,casas
+00027,BANCO SUPERVIELLE S.A.,991000001,Sucursales (red propia),129,N,2026,3,2026-03,casas
+00027,BANCO SUPERVIELLE S.A.,991000003,Terminales de autoservicio,178,N,2026,3,2026-03,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000002,Cajeros automáticos (dentro y fuera de casas operativas),442,N,2015,1,2015-01,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),23,N,2015,1,2015-01,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000001,Sucursales (red propia),61,N,2015,1,2015-01,casas
@@ -4695,6 +4726,10 @@
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),8,N,2026,2,2026-02,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000001,Sucursales (red propia),74,N,2026,2,2026-02,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000003,Terminales de autoservicio,176,N,2026,2,2026-02,casas
+00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000002,Cajeros automáticos (dentro y fuera de casas operativas),424,N,2026,3,2026-03,casas
+00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),8,N,2026,3,2026-03,casas
+00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000001,Sucursales (red propia),74,N,2026,3,2026-03,casas
+00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000003,Terminales de autoservicio,174,N,2026,3,2026-03,casas
 00034,BANCO PATAGONIA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),834,N,2015,1,2015-01,casas
 00034,BANCO PATAGONIA S.A.,991000004,Dependencias automatizadas,2,N,2015,1,2015-01,casas
 00034,BANCO PATAGONIA S.A.,991000001,Sucursales (red propia),173,N,2015,1,2015-01,casas
@@ -5097,6 +5132,9 @@
 00034,BANCO PATAGONIA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),571,N,2026,2,2026-02,casas
 00034,BANCO PATAGONIA S.A.,991000001,Sucursales (red propia),169,N,2026,2,2026-02,casas
 00034,BANCO PATAGONIA S.A.,991000003,Terminales de autoservicio,383,N,2026,2,2026-02,casas
+00034,BANCO PATAGONIA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),571,N,2026,3,2026-03,casas
+00034,BANCO PATAGONIA S.A.,991000001,Sucursales (red propia),169,N,2026,3,2026-03,casas
+00034,BANCO PATAGONIA S.A.,991000003,Terminales de autoservicio,383,N,2026,3,2026-03,casas
 00044,BANCO HIPOTECARIO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),233,N,2015,1,2015-01,casas
 00044,BANCO HIPOTECARIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),22,N,2015,1,2015-01,casas
 00044,BANCO HIPOTECARIO S.A.,991000001,Sucursales (red propia),60,N,2015,1,2015-01,casas
@@ -5599,6 +5637,10 @@
 00044,BANCO HIPOTECARIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00044,BANCO HIPOTECARIO S.A.,991000001,Sucursales (red propia),67,N,2026,2,2026-02,casas
 00044,BANCO HIPOTECARIO S.A.,991000003,Terminales de autoservicio,176,N,2026,2,2026-02,casas
+00044,BANCO HIPOTECARIO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),136,N,2026,3,2026-03,casas
+00044,BANCO HIPOTECARIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00044,BANCO HIPOTECARIO S.A.,991000001,Sucursales (red propia),67,N,2026,3,2026-03,casas
+00044,BANCO HIPOTECARIO S.A.,991000003,Terminales de autoservicio,173,N,2026,3,2026-03,casas
 00045,BANCO DE SAN JUAN S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),143,N,2015,1,2015-01,casas
 00045,BANCO DE SAN JUAN S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),6,N,2015,1,2015-01,casas
 00045,BANCO DE SAN JUAN S.A.,991000001,Sucursales (red propia),16,N,2015,1,2015-01,casas
@@ -6104,6 +6146,11 @@
 00045,BANCO DE SAN JUAN S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00045,BANCO DE SAN JUAN S.A.,991000001,Sucursales (red propia),19,N,2026,2,2026-02,casas
 00045,BANCO DE SAN JUAN S.A.,991000003,Terminales de autoservicio,34,N,2026,2,2026-02,casas
+00045,BANCO DE SAN JUAN S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),156,N,2026,3,2026-03,casas
+00045,BANCO DE SAN JUAN S.A.,991000004,Dependencias automatizadas,1,N,2026,3,2026-03,casas
+00045,BANCO DE SAN JUAN S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00045,BANCO DE SAN JUAN S.A.,991000001,Sucursales (red propia),19,N,2026,3,2026-03,casas
+00045,BANCO DE SAN JUAN S.A.,991000003,Terminales de autoservicio,34,N,2026,3,2026-03,casas
 00046,BANCO DO BRASIL S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00046,BANCO DO BRASIL S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00046,BANCO DO BRASIL S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -6883,6 +6930,11 @@
 00065,BANCO MUNICIPAL DE ROSARIO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,2,2026-02,casas
 00065,BANCO MUNICIPAL DE ROSARIO,991000001,Sucursales (red propia),14,N,2026,2,2026-02,casas
 00065,BANCO MUNICIPAL DE ROSARIO,991000003,Terminales de autoservicio,38,N,2026,2,2026-02,casas
+00065,BANCO MUNICIPAL DE ROSARIO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),140,N,2026,3,2026-03,casas
+00065,BANCO MUNICIPAL DE ROSARIO,991000004,Dependencias automatizadas,1,N,2026,3,2026-03,casas
+00065,BANCO MUNICIPAL DE ROSARIO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,3,2026-03,casas
+00065,BANCO MUNICIPAL DE ROSARIO,991000001,Sucursales (red propia),14,N,2026,3,2026-03,casas
+00065,BANCO MUNICIPAL DE ROSARIO,991000003,Terminales de autoservicio,39,N,2026,3,2026-03,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2228,N,2015,1,2015-01,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000004,Dependencias automatizadas,24,N,2015,1,2015-01,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),56,N,2015,1,2015-01,casas
@@ -7494,6 +7546,11 @@
 00072,BANCO SANTANDER ARGENTINA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),46,N,2026,2,2026-02,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000001,Sucursales (red propia),297,N,2026,2,2026-02,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000003,Terminales de autoservicio,1258,N,2026,2,2026-02,casas
+00072,BANCO SANTANDER ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1045,N,2026,3,2026-03,casas
+00072,BANCO SANTANDER ARGENTINA S.A.,991000004,Dependencias automatizadas,12,N,2026,3,2026-03,casas
+00072,BANCO SANTANDER ARGENTINA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),46,N,2026,3,2026-03,casas
+00072,BANCO SANTANDER ARGENTINA S.A.,991000001,Sucursales (red propia),288,N,2026,3,2026-03,casas
+00072,BANCO SANTANDER ARGENTINA S.A.,991000003,Terminales de autoservicio,1226,N,2026,3,2026-03,casas
 00083,BANCO DEL CHUBUT S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),97,N,2015,1,2015-01,casas
 00083,BANCO DEL CHUBUT S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2015,1,2015-01,casas
 00083,BANCO DEL CHUBUT S.A.,991000001,Sucursales (red propia),56,N,2015,1,2015-01,casas
@@ -7890,6 +7947,9 @@
 00083,BANCO DEL CHUBUT S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),149,N,2026,2,2026-02,casas
 00083,BANCO DEL CHUBUT S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2026,2,2026-02,casas
 00083,BANCO DEL CHUBUT S.A.,991000001,Sucursales (red propia),27,N,2026,2,2026-02,casas
+00083,BANCO DEL CHUBUT S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),149,N,2026,3,2026-03,casas
+00083,BANCO DEL CHUBUT S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2026,3,2026-03,casas
+00083,BANCO DEL CHUBUT S.A.,991000001,Sucursales (red propia),27,N,2026,3,2026-03,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),95,N,2015,1,2015-01,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2015,1,2015-01,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000001,Sucursales (red propia),16,N,2015,1,2015-01,casas
@@ -8479,6 +8539,11 @@
 00086,BANCO DE SANTA CRUZ S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000001,Sucursales (red propia),15,N,2026,2,2026-02,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000003,Terminales de autoservicio,10,N,2026,2,2026-02,casas
+00086,BANCO DE SANTA CRUZ S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),109,N,2026,3,2026-03,casas
+00086,BANCO DE SANTA CRUZ S.A.,991000004,Dependencias automatizadas,3,N,2026,3,2026-03,casas
+00086,BANCO DE SANTA CRUZ S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00086,BANCO DE SANTA CRUZ S.A.,991000001,Sucursales (red propia),15,N,2026,3,2026-03,casas
+00086,BANCO DE SANTA CRUZ S.A.,991000003,Terminales de autoservicio,10,N,2026,3,2026-03,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),102,N,2015,1,2015-01,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2015,1,2015-01,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000001,Sucursales (red propia),98,N,2015,1,2015-01,casas
@@ -8845,6 +8910,8 @@
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000001,Sucursales (red propia),67,N,2026,1,2026-01,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),252,N,2026,2,2026-02,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000001,Sucursales (red propia),67,N,2026,2,2026-02,casas
+00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),252,N,2026,3,2026-03,casas
+00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000001,Sucursales (red propia),67,N,2026,3,2026-03,casas
 00094,BANCO DE CORRIENTES S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),121,N,2015,1,2015-01,casas
 00094,BANCO DE CORRIENTES S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),17,N,2015,1,2015-01,casas
 00094,BANCO DE CORRIENTES S.A.,991000001,Sucursales (red propia),49,N,2015,1,2015-01,casas
@@ -9317,6 +9384,10 @@
 00094,BANCO DE CORRIENTES S.A.,991000004,Dependencias automatizadas,4,N,2026,2,2026-02,casas
 00094,BANCO DE CORRIENTES S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2026,2,2026-02,casas
 00094,BANCO DE CORRIENTES S.A.,991000001,Sucursales (red propia),46,N,2026,2,2026-02,casas
+00094,BANCO DE CORRIENTES S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),379,N,2026,3,2026-03,casas
+00094,BANCO DE CORRIENTES S.A.,991000004,Dependencias automatizadas,4,N,2026,3,2026-03,casas
+00094,BANCO DE CORRIENTES S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2026,3,2026-03,casas
+00094,BANCO DE CORRIENTES S.A.,991000001,Sucursales (red propia),46,N,2026,3,2026-03,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),114,N,2015,1,2015-01,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),8,N,2015,1,2015-01,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000001,Sucursales (red propia),65,N,2015,1,2015-01,casas
@@ -9785,6 +9856,10 @@
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000004,Dependencias automatizadas,1,N,2026,2,2026-02,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,2,2026-02,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000001,Sucursales (red propia),42,N,2026,2,2026-02,casas
+00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),226,N,2026,3,2026-03,casas
+00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000004,Dependencias automatizadas,1,N,2026,3,2026-03,casas
+00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),2,N,2026,3,2026-03,casas
+00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000001,Sucursales (red propia),42,N,2026,3,2026-03,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2022,6,2022-06,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2022,11,2022-11,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2022,12,2022-12,casas
@@ -9796,6 +9871,7 @@
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2019,9,2019-09,casas
 00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2019,10,2019-10,casas
 00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2019,11,2019-11,casas
@@ -9873,6 +9949,7 @@
 00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00143,BRUBANK S.A.U.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -10005,6 +10082,7 @@
 00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00147,BIBANK S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00150,Banco GGAL SA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),968,N,2015,1,2015-01,casas
 00150,Banco GGAL SA,991000004,Dependencias automatizadas,27,N,2015,1,2015-01,casas
 00150,Banco GGAL SA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,1,2015-01,casas
@@ -10782,6 +10860,7 @@
 00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1146,N,2015,1,2015-01,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,1,2015-01,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000001,Sucursales (red propia),256,N,2015,1,2015-01,casas
@@ -11284,6 +11363,10 @@
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),5,N,2026,2,2026-02,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000001,Sucursales (red propia),277,N,2026,2,2026-02,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000003,Terminales de autoservicio,562,N,2026,2,2026-02,casas
+00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),881,N,2026,3,2026-03,casas
+00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),5,N,2026,3,2026-03,casas
+00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000001,Sucursales (red propia),277,N,2026,3,2026-03,casas
+00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000003,Terminales de autoservicio,562,N,2026,3,2026-03,casas
 00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),2,N,2015,1,2015-01,casas
 00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),2,N,2015,2,2015-02,casas
 00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),2,N,2015,3,2015-03,casas
@@ -11416,6 +11499,7 @@
 00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),3,N,2025,12,2025-12,casas
 00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),3,N,2026,1,2026-01,casas
 00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),3,N,2026,2,2026-02,casas
+00198,BANCO DE VALORES S.A.,991000001,Sucursales (red propia),3,N,2026,3,2026-03,casas
 00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),5,N,2015,1,2015-01,casas
 00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),5,N,2015,2,2015-02,casas
 00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),5,N,2015,3,2015-03,casas
@@ -11548,6 +11632,7 @@
 00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),4,N,2025,12,2025-12,casas
 00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),4,N,2026,1,2026-01,casas
 00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),4,N,2026,2,2026-02,casas
+00247,BANCO ROELA S.A.,991000001,Sucursales (red propia),4,N,2026,3,2026-03,casas
 00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2015,1,2015-01,casas
 00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2015,2,2015-02,casas
 00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2015,3,2015-03,casas
@@ -11680,6 +11765,7 @@
 00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2025,12,2025-12,casas
 00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2026,1,2026-01,casas
 00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
+00254,BANCO MARIVA S.A.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
 00259,BANCO BMA S.A.U.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),256,N,2015,1,2015-01,casas
 00259,BANCO BMA S.A.U.,991000004,Dependencias automatizadas,4,N,2015,1,2015-01,casas
 00259,BANCO BMA S.A.U.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),16,N,2015,1,2015-01,casas
@@ -12405,6 +12491,7 @@
 00266,BNP PARIBAS,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00266,BNP PARIBAS,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00266,BNP PARIBAS,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00266,BNP PARIBAS,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),54,N,2015,1,2015-01,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),10,N,2015,1,2015-01,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000001,Sucursales (red propia),10,N,2015,1,2015-01,casas
@@ -12901,6 +12988,9 @@
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),48,N,2026,2,2026-02,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2026,2,2026-02,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000001,Sucursales (red propia),11,N,2026,2,2026-02,casas
+00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),45,N,2026,3,2026-03,casas
+00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2026,3,2026-03,casas
+00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000001,Sucursales (red propia),11,N,2026,3,2026-03,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,1,2015-01,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,2,2015-02,casas
@@ -13271,6 +13361,9 @@
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2,N,2026,2,2026-02,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2,N,2026,3,2026-03,casas
+00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),2,N,2015,1,2015-01,casas
 00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),2,N,2015,2,2015-02,casas
 00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),2,N,2015,3,2015-03,casas
@@ -13403,6 +13496,7 @@
 00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00277,BANCO SAENZ S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00281,BANCO MERIDIAN S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2,N,2015,1,2015-01,casas
 00281,BANCO MERIDIAN S.A.,991000001,Sucursales (red propia),2,N,2015,1,2015-01,casas
 00281,BANCO MERIDIAN S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2,N,2015,2,2015-02,casas
@@ -13667,6 +13761,8 @@
 00281,BANCO MERIDIAN S.A.,991000001,Sucursales (red propia),2,N,2026,1,2026-01,casas
 00281,BANCO MERIDIAN S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1,N,2026,2,2026-02,casas
 00281,BANCO MERIDIAN S.A.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
+00281,BANCO MERIDIAN S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1,N,2026,3,2026-03,casas
+00281,BANCO MERIDIAN S.A.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
 00285,BANCO MACRO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2012,N,2015,1,2015-01,casas
 00285,BANCO MACRO S.A.,991000004,Dependencias automatizadas,2,N,2015,1,2015-01,casas
 00285,BANCO MACRO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),27,N,2015,1,2015-01,casas
@@ -14230,6 +14326,11 @@
 00285,BANCO MACRO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),6,N,2026,2,2026-02,casas
 00285,BANCO MACRO S.A.,991000001,Sucursales (red propia),431,N,2026,2,2026-02,casas
 00285,BANCO MACRO S.A.,991000003,Terminales de autoservicio,987,N,2026,2,2026-02,casas
+00285,BANCO MACRO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1997,N,2026,3,2026-03,casas
+00285,BANCO MACRO S.A.,991000004,Dependencias automatizadas,24,N,2026,3,2026-03,casas
+00285,BANCO MACRO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),5,N,2026,3,2026-03,casas
+00285,BANCO MACRO S.A.,991000001,Sucursales (red propia),423,N,2026,3,2026-03,casas
+00285,BANCO MACRO S.A.,991000003,Terminales de autoservicio,976,N,2026,3,2026-03,casas
 00295,AMERICAN EXPRESS BANK LTD. SOCIEDAD ANONIMA,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00295,AMERICAN EXPRESS BANK LTD. SOCIEDAD ANONIMA,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00295,AMERICAN EXPRESS BANK LTD. SOCIEDAD ANONIMA,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -14606,6 +14707,9 @@
 00299,BANCO COMAFI SOCIEDAD ANONIMA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),116,N,2026,2,2026-02,casas
 00299,BANCO COMAFI SOCIEDAD ANONIMA,991000001,Sucursales (red propia),69,N,2026,2,2026-02,casas
 00299,BANCO COMAFI SOCIEDAD ANONIMA,991000003,Terminales de autoservicio,133,N,2026,2,2026-02,casas
+00299,BANCO COMAFI SOCIEDAD ANONIMA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),107,N,2026,3,2026-03,casas
+00299,BANCO COMAFI SOCIEDAD ANONIMA,991000001,Sucursales (red propia),63,N,2026,3,2026-03,casas
+00299,BANCO COMAFI SOCIEDAD ANONIMA,991000003,Terminales de autoservicio,127,N,2026,3,2026-03,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),2,N,2015,1,2015-01,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),2,N,2015,2,2015-02,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),2,N,2015,3,2015-03,casas
@@ -14738,6 +14842,7 @@
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00301,BANCO PIANO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),65,N,2015,1,2015-01,casas
 00301,BANCO PIANO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),32,N,2015,1,2015-01,casas
 00301,BANCO PIANO S.A.,991000001,Sucursales (red propia),3,N,2015,1,2015-01,casas
@@ -15134,6 +15239,9 @@
 00301,BANCO PIANO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),161,N,2026,2,2026-02,casas
 00301,BANCO PIANO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00301,BANCO PIANO S.A.,991000001,Sucursales (red propia),36,N,2026,2,2026-02,casas
+00301,BANCO PIANO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),164,N,2026,3,2026-03,casas
+00301,BANCO PIANO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00301,BANCO PIANO S.A.,991000001,Sucursales (red propia),36,N,2026,3,2026-03,casas
 00303,BANCO FINANSUR S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),13,N,2015,1,2015-01,casas
 00303,BANCO FINANSUR S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2015,1,2015-01,casas
 00303,BANCO FINANSUR S.A.,991000001,Sucursales (red propia),10,N,2015,1,2015-01,casas
@@ -15380,6 +15488,7 @@
 00305,BANCO JULIO SOCIEDAD ANONIMA,991000001,Sucursales (red propia),2,N,2025,12,2025-12,casas
 00305,BANCO JULIO SOCIEDAD ANONIMA,991000001,Sucursales (red propia),2,N,2026,1,2026-01,casas
 00305,BANCO JULIO SOCIEDAD ANONIMA,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
+00305,BANCO JULIO SOCIEDAD ANONIMA,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),40,N,2015,1,2015-01,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),8,N,2015,1,2015-01,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000001,Sucursales (red propia),7,N,2015,1,2015-01,casas
@@ -15776,6 +15885,9 @@
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),109,N,2026,2,2026-02,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),7,N,2026,2,2026-02,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000001,Sucursales (red propia),7,N,2026,2,2026-02,casas
+00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),109,N,2026,3,2026-03,casas
+00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),7,N,2026,3,2026-03,casas
+00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000001,Sucursales (red propia),7,N,2026,3,2026-03,casas
 00310,BANCO DEL SOL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1,N,2015,1,2015-01,casas
 00310,BANCO DEL SOL S.A.,991000001,Sucursales (red propia),4,N,2015,1,2015-01,casas
 00310,BANCO DEL SOL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1,N,2015,2,2015-02,casas
@@ -16040,6 +16152,8 @@
 00310,BANCO DEL SOL S.A.,991000001,Sucursales (red propia),3,N,2026,1,2026-01,casas
 00310,BANCO DEL SOL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),6,N,2026,2,2026-02,casas
 00310,BANCO DEL SOL S.A.,991000001,Sucursales (red propia),3,N,2026,2,2026-02,casas
+00310,BANCO DEL SOL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),6,N,2026,3,2026-03,casas
+00310,BANCO DEL SOL S.A.,991000001,Sucursales (red propia),3,N,2026,3,2026-03,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),144,N,2015,1,2015-01,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),57,N,2015,1,2015-01,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000001,Sucursales (red propia),26,N,2015,1,2015-01,casas
@@ -16523,6 +16637,11 @@
 00311,NUEVO BANCO DEL CHACO S. A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),36,N,2026,2,2026-02,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000001,Sucursales (red propia),28,N,2026,2,2026-02,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000003,Terminales de autoservicio,4,N,2026,2,2026-02,casas
+00311,NUEVO BANCO DEL CHACO S. A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),301,N,2026,3,2026-03,casas
+00311,NUEVO BANCO DEL CHACO S. A.,991000004,Dependencias automatizadas,13,N,2026,3,2026-03,casas
+00311,NUEVO BANCO DEL CHACO S. A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),36,N,2026,3,2026-03,casas
+00311,NUEVO BANCO DEL CHACO S. A.,991000001,Sucursales (red propia),28,N,2026,3,2026-03,casas
+00311,NUEVO BANCO DEL CHACO S. A.,991000003,Terminales de autoservicio,4,N,2026,3,2026-03,casas
 00312,BANCO VOII S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00312,BANCO VOII S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00312,BANCO VOII S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -16703,6 +16822,7 @@
 00312,BANCO VOII S.A.,991000001,Sucursales (red propia),2,N,2025,12,2025-12,casas
 00312,BANCO VOII S.A.,991000001,Sucursales (red propia),2,N,2026,1,2026-01,casas
 00312,BANCO VOII S.A.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
+00312,BANCO VOII S.A.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
 00315,BANCO DE FORMOSA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),105,N,2015,1,2015-01,casas
 00315,BANCO DE FORMOSA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),8,N,2015,1,2015-01,casas
 00315,BANCO DE FORMOSA S.A.,991000001,Sucursales (red propia),12,N,2015,1,2015-01,casas
@@ -17113,6 +17233,9 @@
 00315,BANCO DE FORMOSA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),144,N,2026,2,2026-02,casas
 00315,BANCO DE FORMOSA S.A.,991000001,Sucursales (red propia),20,N,2026,2,2026-02,casas
 00315,BANCO DE FORMOSA S.A.,991000003,Terminales de autoservicio,14,N,2026,2,2026-02,casas
+00315,BANCO DE FORMOSA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),144,N,2026,3,2026-03,casas
+00315,BANCO DE FORMOSA S.A.,991000001,Sucursales (red propia),19,N,2026,3,2026-03,casas
+00315,BANCO DE FORMOSA S.A.,991000003,Terminales de autoservicio,14,N,2026,3,2026-03,casas
 00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -17245,6 +17368,7 @@
 00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00319,BANCO CMF S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),168,N,2015,1,2015-01,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),13,N,2015,1,2015-01,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000001,Sucursales (red propia),38,N,2015,1,2015-01,casas
@@ -17641,6 +17765,9 @@
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),426,N,2026,2,2026-02,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),14,N,2026,2,2026-02,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000001,Sucursales (red propia),43,N,2026,2,2026-02,casas
+00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),426,N,2026,3,2026-03,casas
+00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),14,N,2026,3,2026-03,casas
+00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000001,Sucursales (red propia),43,N,2026,3,2026-03,casas
 00322,BANCO INDUSTRIAL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),72,N,2015,1,2015-01,casas
 00322,BANCO INDUSTRIAL S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),14,N,2015,1,2015-01,casas
 00322,BANCO INDUSTRIAL S.A.,991000001,Sucursales (red propia),18,N,2015,1,2015-01,casas
@@ -18032,6 +18159,8 @@
 00322,BANCO INDUSTRIAL S.A.,991000001,Sucursales (red propia),30,N,2026,1,2026-01,casas
 00322,BANCO INDUSTRIAL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),96,N,2026,2,2026-02,casas
 00322,BANCO INDUSTRIAL S.A.,991000001,Sucursales (red propia),30,N,2026,2,2026-02,casas
+00322,BANCO INDUSTRIAL S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),96,N,2026,3,2026-03,casas
+00322,BANCO INDUSTRIAL S.A.,991000001,Sucursales (red propia),30,N,2026,3,2026-03,casas
 00325,BANCO BC SOCIEDAD ANONIMA,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00325,BANCO BC SOCIEDAD ANONIMA,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00325,BANCO BC SOCIEDAD ANONIMA,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -18650,6 +18779,11 @@
 00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),34,N,2026,2,2026-02,casas
 00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000001,Sucursales (red propia),117,N,2026,2,2026-02,casas
 00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000003,Terminales de autoservicio,282,N,2026,2,2026-02,casas
+00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000002,Cajeros automáticos (dentro y fuera de casas operativas),624,N,2026,3,2026-03,casas
+00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000004,Dependencias automatizadas,4,N,2026,3,2026-03,casas
+00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),34,N,2026,3,2026-03,casas
+00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000001,Sucursales (red propia),117,N,2026,3,2026-03,casas
+00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000003,Terminales de autoservicio,282,N,2026,3,2026-03,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1,N,2015,1,2015-01,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),1,N,2015,2,2015-02,casas
@@ -18808,6 +18942,7 @@
 00331,BANCO CETELEM ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00331,BANCO CETELEM ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -18940,6 +19075,7 @@
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00336,BANCO BRADESCO ARGENTINA S.A.U.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00336,BANCO BRADESCO ARGENTINA S.A.U.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00336,BANCO BRADESCO ARGENTINA S.A.U.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -19310,6 +19446,7 @@
 00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000001,Sucursales (red propia),2,N,2025,12,2025-12,casas
 00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000001,Sucursales (red propia),2,N,2026,1,2026-01,casas
 00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
+00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
 00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -19442,6 +19579,7 @@
 00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00339,RCI BANQUE S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -19574,6 +19712,7 @@
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00341,BANCO MASVENTAS S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),21,N,2015,1,2015-01,casas
 00341,BANCO MASVENTAS S.A.,991000001,Sucursales (red propia),2,N,2015,1,2015-01,casas
 00341,BANCO MASVENTAS S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),21,N,2015,2,2015-02,casas
@@ -19954,6 +20093,9 @@
 00341,BANCO MASVENTAS S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),14,N,2026,2,2026-02,casas
 00341,BANCO MASVENTAS S.A.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
 00341,BANCO MASVENTAS S.A.,991000003,Terminales de autoservicio,4,N,2026,2,2026-02,casas
+00341,BANCO MASVENTAS S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),14,N,2026,3,2026-03,casas
+00341,BANCO MASVENTAS S.A.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
+00341,BANCO MASVENTAS S.A.,991000003,Terminales de autoservicio,4,N,2026,3,2026-03,casas
 00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2018,4,2018-04,casas
 00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2021,7,2021-07,casas
 00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2021,8,2021-08,casas
@@ -20011,6 +20153,7 @@
 00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00384,UALA BANK S.A.U.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),325,N,2015,1,2015-01,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),11,N,2015,1,2015-01,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000001,Sucursales (red propia),82,N,2015,1,2015-01,casas
@@ -20611,6 +20754,11 @@
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2026,2,2026-02,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000001,Sucursales (red propia),67,N,2026,2,2026-02,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000003,Terminales de autoservicio,87,N,2026,2,2026-02,casas
+00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),398,N,2026,3,2026-03,casas
+00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000004,Dependencias automatizadas,7,N,2026,3,2026-03,casas
+00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),3,N,2026,3,2026-03,casas
+00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000001,Sucursales (red propia),67,N,2026,3,2026-03,casas
+00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000003,Terminales de autoservicio,87,N,2026,3,2026-03,casas
 00389,BANCO COLUMBIA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),62,N,2015,1,2015-01,casas
 00389,BANCO COLUMBIA S.A.,991000004,Dependencias automatizadas,1,N,2015,1,2015-01,casas
 00389,BANCO COLUMBIA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),18,N,2015,1,2015-01,casas
@@ -21033,6 +21181,9 @@
 00389,BANCO COLUMBIA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),81,N,2026,2,2026-02,casas
 00389,BANCO COLUMBIA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00389,BANCO COLUMBIA S.A.,991000001,Sucursales (red propia),44,N,2026,2,2026-02,casas
+00389,BANCO COLUMBIA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),81,N,2026,3,2026-03,casas
+00389,BANCO COLUMBIA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00389,BANCO COLUMBIA S.A.,991000001,Sucursales (red propia),44,N,2026,3,2026-03,casas
 00426,BANCO BICA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),27,N,2015,1,2015-01,casas
 00426,BANCO BICA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,1,2015-01,casas
 00426,BANCO BICA S.A.,991000001,Sucursales (red propia),7,N,2015,1,2015-01,casas
@@ -21447,6 +21598,9 @@
 00426,BANCO BICA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),18,N,2026,2,2026-02,casas
 00426,BANCO BICA S.A.,991000001,Sucursales (red propia),8,N,2026,2,2026-02,casas
 00426,BANCO BICA S.A.,991000003,Terminales de autoservicio,16,N,2026,2,2026-02,casas
+00426,BANCO BICA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),18,N,2026,3,2026-03,casas
+00426,BANCO BICA S.A.,991000001,Sucursales (red propia),8,N,2026,3,2026-03,casas
+00426,BANCO BICA S.A.,991000003,Terminales de autoservicio,16,N,2026,3,2026-03,casas
 00431,BANCO COINAG S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),7,N,2015,1,2015-01,casas
 00431,BANCO COINAG S.A.,991000001,Sucursales (red propia),7,N,2015,1,2015-01,casas
 00431,BANCO COINAG S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),7,N,2015,2,2015-02,casas
@@ -21711,6 +21865,8 @@
 00431,BANCO COINAG S.A.,991000001,Sucursales (red propia),9,N,2026,1,2026-01,casas
 00431,BANCO COINAG S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),10,N,2026,2,2026-02,casas
 00431,BANCO COINAG S.A.,991000001,Sucursales (red propia),9,N,2026,2,2026-02,casas
+00431,BANCO COINAG S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),10,N,2026,3,2026-03,casas
+00431,BANCO COINAG S.A.,991000001,Sucursales (red propia),9,N,2026,3,2026-03,casas
 00432,BANCO DE COMERCIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2016,6,2016-06,casas
 00432,BANCO DE COMERCIO S.A.,991000001,Sucursales (red propia),1,N,2016,6,2016-06,casas
 00432,BANCO DE COMERCIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),4,N,2016,7,2016-07,casas
@@ -21963,6 +22119,8 @@
 00432,BANCO DE COMERCIO S.A.,991000001,Sucursales (red propia),2,N,2026,1,2026-01,casas
 00432,BANCO DE COMERCIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 00432,BANCO DE COMERCIO S.A.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
+00432,BANCO DE COMERCIO S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+00432,BANCO DE COMERCIO S.A.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000001,Sucursales (red propia),1,N,2019,10,2019-10,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000001,Sucursales (red propia),1,N,2019,11,2019-11,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000001,Sucursales (red propia),1,N,2019,12,2019-12,casas
@@ -22101,6 +22259,9 @@
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),3,N,2026,2,2026-02,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000001,Sucursales (red propia),2,N,2026,2,2026-02,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000003,Terminales de autoservicio,1,N,2026,2,2026-02,casas
+00435,BANCO SUCREDITO REGIONAL S.A.U.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),3,N,2026,3,2026-03,casas
+00435,BANCO SUCREDITO REGIONAL S.A.U.,991000001,Sucursales (red propia),2,N,2026,3,2026-03,casas
+00435,BANCO SUCREDITO REGIONAL S.A.U.,991000003,Terminales de autoservicio,1,N,2026,3,2026-03,casas
 00448,BANCO DINO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),24,N,2020,1,2020-01,casas
 00448,BANCO DINO S.A.,991000001,Sucursales (red propia),2,N,2020,1,2020-01,casas
 00448,BANCO DINO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),24,N,2020,2,2020-02,casas
@@ -22247,6 +22408,8 @@
 00448,BANCO DINO S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 00448,BANCO DINO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),39,N,2026,2,2026-02,casas
 00448,BANCO DINO S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+00448,BANCO DINO S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),39,N,2026,3,2026-03,casas
+00448,BANCO DINO S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 00515,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2021,7,2021-07,casas
 00515,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2021,8,2021-08,casas
 00515,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000001,Sucursales (red propia),1,N,2021,9,2021-09,casas
@@ -22777,6 +22940,8 @@
 44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),47,N,2026,1,2026-01,casas
 44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),38,N,2026,2,2026-02,casas
 44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),47,N,2026,2,2026-02,casas
+44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),38,N,2026,3,2026-03,casas
+44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),47,N,2026,3,2026-03,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -22909,6 +23074,7 @@
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44090,IUDU COMPAÑIAA FINANCIERA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,1,2015-01,casas
 44090,IUDU COMPAÑIAA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44090,IUDU COMPAÑIAA FINANCIERA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2015,2,2015-02,casas
@@ -23261,6 +23427,7 @@
 44092,FCA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44092,FCA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44092,FCA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44092,FCA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -23386,6 +23553,7 @@
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -23518,6 +23686,7 @@
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -23650,6 +23819,7 @@
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -23782,6 +23952,7 @@
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -23914,6 +24085,7 @@
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -24046,6 +24218,7 @@
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 44100,FINANDINO COMPAÑIA FINANCIERA S.A.BANCO DINO EX FINANDINO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),12,N,2015,1,2015-01,casas
 44100,FINANDINO COMPAÑIA FINANCIERA S.A.BANCO DINO EX FINANDINO,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 44100,FINANDINO COMPAÑIA FINANCIERA S.A.BANCO DINO EX FINANDINO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),12,N,2015,2,2015-02,casas
@@ -24228,6 +24401,7 @@
 45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),6,N,2015,1,2015-01,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),10,N,2015,1,2015-01,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),8,N,2015,1,2015-01,casas
@@ -24518,6 +24692,8 @@
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),16,N,2026,1,2026-01,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),9,N,2026,2,2026-02,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),16,N,2026,2,2026-02,casas
+45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000002,Cajeros automáticos (dentro y fuera de casas operativas),9,N,2026,3,2026-03,casas
+45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),16,N,2026,3,2026-03,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -24650,6 +24826,7 @@
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),3,N,2025,12,2025-12,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),3,N,2026,1,2026-01,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),3,N,2026,2,2026-02,casas
+45072,REBA COMPAÑIA FINANCIERA S.A.,991000001,Sucursales (red propia),3,N,2026,3,2026-03,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2015,1,2015-01,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2015,2,2015-02,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2015,3,2015-03,casas
@@ -24782,6 +24959,7 @@
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2025,12,2025-12,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,1,2026-01,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,2,2026-02,casas
+65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000001,Sucursales (red propia),1,N,2026,3,2026-03,casas
 AA000,SISTEMA FINANCIERO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),18958,N,2015,1,2015-01,casas
 AA000,SISTEMA FINANCIERO,991000004,Dependencias automatizadas,128,N,2015,1,2015-01,casas
 AA000,SISTEMA FINANCIERO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),830,N,2015,1,2015-01,casas
@@ -25416,6 +25594,11 @@ AA000,SISTEMA FINANCIERO,991000004,Dependencias automatizadas,79,N,2026,2,2026-0
 AA000,SISTEMA FINANCIERO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),315,N,2026,2,2026-02,casas
 AA000,SISTEMA FINANCIERO,991000001,Sucursales (red propia),4099,N,2026,2,2026-02,casas
 AA000,SISTEMA FINANCIERO,991000003,Terminales de autoservicio,7120,N,2026,2,2026-02,casas
+AA000,SISTEMA FINANCIERO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),18149,N,2026,3,2026-03,casas
+AA000,SISTEMA FINANCIERO,991000004,Dependencias automatizadas,81,N,2026,3,2026-03,casas
+AA000,SISTEMA FINANCIERO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),304,N,2026,3,2026-03,casas
+AA000,SISTEMA FINANCIERO,991000001,Sucursales (red propia),4068,N,2026,3,2026-03,casas
+AA000,SISTEMA FINANCIERO,991000003,Terminales de autoservicio,7053,N,2026,3,2026-03,casas
 AA110,BANCOS PUBLICOS,991000002,Cajeros automáticos (dentro y fuera de casas operativas),4598,N,2015,1,2015-01,casas
 AA110,BANCOS PUBLICOS,991000004,Dependencias automatizadas,3,N,2015,1,2015-01,casas
 AA110,BANCOS PUBLICOS,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),393,N,2015,1,2015-01,casas
@@ -26047,6 +26230,11 @@ AA110,BANCOS PUBLICOS,991000004,Dependencias automatizadas,27,N,2026,2,2026-02,c
 AA110,BANCOS PUBLICOS,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),193,N,2026,2,2026-02,casas
 AA110,BANCOS PUBLICOS,991000001,Sucursales (red propia),1471,N,2026,2,2026-02,casas
 AA110,BANCOS PUBLICOS,991000003,Terminales de autoservicio,1097,N,2026,2,2026-02,casas
+AA110,BANCOS PUBLICOS,991000002,Cajeros automáticos (dentro y fuera de casas operativas),8078,N,2026,3,2026-03,casas
+AA110,BANCOS PUBLICOS,991000004,Dependencias automatizadas,28,N,2026,3,2026-03,casas
+AA110,BANCOS PUBLICOS,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),183,N,2026,3,2026-03,casas
+AA110,BANCOS PUBLICOS,991000001,Sucursales (red propia),1471,N,2026,3,2026-03,casas
+AA110,BANCOS PUBLICOS,991000003,Terminales de autoservicio,1096,N,2026,3,2026-03,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),7179,N,2015,1,2015-01,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000004,Dependencias automatizadas,25,N,2015,1,2015-01,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),300,N,2015,1,2015-01,casas
@@ -26681,6 +26869,11 @@ AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000004,Dependencias automatizadas,39
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),72,N,2026,2,2026-02,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000001,Sucursales (red propia),1718,N,2026,2,2026-02,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000003,Terminales de autoservicio,3466,N,2026,2,2026-02,casas
+AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),6921,N,2026,3,2026-03,casas
+AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000004,Dependencias automatizadas,40,N,2026,3,2026-03,casas
+AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),71,N,2026,3,2026-03,casas
+AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000001,Sucursales (red propia),1697,N,2026,3,2026-03,casas
+AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000003,Terminales de autoservicio,3433,N,2026,3,2026-03,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),6577,N,2015,1,2015-01,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000004,Dependencias automatizadas,92,N,2015,1,2015-01,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),76,N,2015,1,2015-01,casas
@@ -27313,6 +27506,11 @@ AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000004,Dependencias automatizadas,
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),49,N,2026,2,2026-02,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),825,N,2026,2,2026-02,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000003,Terminales de autoservicio,2557,N,2026,2,2026-02,casas
+AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000002,Cajeros automáticos (dentro y fuera de casas operativas),3101,N,2026,3,2026-03,casas
+AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000004,Dependencias automatizadas,13,N,2026,3,2026-03,casas
+AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),49,N,2026,3,2026-03,casas
+AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),816,N,2026,3,2026-03,casas
+AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000003,Terminales de autoservicio,2524,N,2026,3,2026-03,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000002,Cajeros automáticos (dentro y fuera de casas operativas),566,N,2015,1,2015-01,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000004,Dependencias automatizadas,8,N,2015,1,2015-01,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),7,N,2015,1,2015-01,casas
@@ -27777,6 +27975,9 @@ AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000001,Sucursales 
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2,N,2026,2,2026-02,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,2,2026-02,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000001,Sucursales (red propia),9,N,2026,2,2026-02,casas
+AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000002,Cajeros automáticos (dentro y fuera de casas operativas),2,N,2026,3,2026-03,casas
+AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),1,N,2026,3,2026-03,casas
+AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000001,Sucursales (red propia),8,N,2026,3,2026-03,casas
 AA200,COMPAÑIAS FINANCIERAS,991000002,Cajeros automáticos (dentro y fuera de casas operativas),38,N,2015,1,2015-01,casas
 AA200,COMPAÑIAS FINANCIERAS,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),54,N,2015,1,2015-01,casas
 AA200,COMPAÑIAS FINANCIERAS,991000001,Sucursales (red propia),81,N,2015,1,2015-01,casas
@@ -28166,6 +28367,8 @@ AA200,COMPAÑIAS FINANCIERAS,991000002,Cajeros automáticos (dentro y fuera de c
 AA200,COMPAÑIAS FINANCIERAS,991000001,Sucursales (red propia),76,N,2026,1,2026-01,casas
 AA200,COMPAÑIAS FINANCIERAS,991000002,Cajeros automáticos (dentro y fuera de casas operativas),47,N,2026,2,2026-02,casas
 AA200,COMPAÑIAS FINANCIERAS,991000001,Sucursales (red propia),76,N,2026,2,2026-02,casas
+AA200,COMPAÑIAS FINANCIERAS,991000002,Cajeros automáticos (dentro y fuera de casas operativas),47,N,2026,3,2026-03,casas
+AA200,COMPAÑIAS FINANCIERAS,991000001,Sucursales (red propia),76,N,2026,3,2026-03,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),38,N,2015,1,2015-01,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000005,Sucursales con operatoria restringida (prestación de determinadas actividades),54,N,2015,1,2015-01,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000001,Sucursales (red propia),72,N,2015,1,2015-01,casas
@@ -28555,6 +28758,8 @@ AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000002,Cajeros automáticos 
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000001,Sucursales (red propia),68,N,2026,1,2026-01,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),47,N,2026,2,2026-02,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000001,Sucursales (red propia),68,N,2026,2,2026-02,casas
+AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000002,Cajeros automáticos (dentro y fuera de casas operativas),47,N,2026,3,2026-03,casas
+AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000001,Sucursales (red propia),68,N,2026,3,2026-03,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),9,N,2015,1,2015-01,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),9,N,2015,2,2015-02,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),9,N,2015,3,2015-03,casas
@@ -28687,6 +28892,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),8,N,2025,12,2025-12,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),8,N,2026,1,2026-01,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),8,N,2026,2,2026-02,casas
+AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red propia),8,N,2026,3,2026-03,casas
 00005,The Royal Bank of Scotland N.V.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00005,The Royal Bank of Scotland N.V.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00005,The Royal Bank of Scotland N.V.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -28830,6 +29036,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),320,N,2025,12,2025-12,casas
 00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),313,N,2026,1,2026-01,casas
 00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),307,N,2026,2,2026-02,casas
+00007,BANCO DE GALICIA Y BUENOS AIRES S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),301,N,2026,3,2026-03,casas
 00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),699,N,2015,1,2015-01,casas
 00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),699,N,2015,2,2015-02,casas
 00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),699,N,2015,3,2015-03,casas
@@ -28962,6 +29169,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),725,N,2025,12,2025-12,casas
 00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),724,N,2026,1,2026-01,casas
 00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),722,N,2026,2,2026-02,casas
+00011,BANCO DE LA NACION ARGENTINA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),721,N,2026,3,2026-03,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),452,N,2015,1,2015-01,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),452,N,2015,2,2015-02,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),452,N,2015,3,2015-03,casas
@@ -29094,6 +29302,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),397,N,2025,12,2025-12,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),397,N,2026,1,2026-01,casas
 00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),397,N,2026,2,2026-02,casas
+00014,BANCO DE LA PROVINCIA DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),397,N,2026,3,2026-03,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),127,N,2015,1,2015-01,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),127,N,2015,2,2015-02,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),127,N,2015,3,2015-03,casas
@@ -29226,6 +29435,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),126,N,2025,12,2025-12,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),126,N,2026,1,2026-01,casas
 00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),126,N,2026,2,2026-02,casas
+00015,INDUSTRIAL AND COMMERCIAL BANK OF CHINA (ARGENTINA) S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),126,N,2026,3,2026-03,casas
 00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),85,N,2015,1,2015-01,casas
 00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),85,N,2015,2,2015-02,casas
 00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),85,N,2015,3,2015-03,casas
@@ -29358,6 +29568,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2025,12,2025-12,casas
 00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2026,1,2026-01,casas
 00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2026,2,2026-02,casas
+00016,CITIBANK N.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,3,2026-03,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),266,N,2015,1,2015-01,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),266,N,2015,2,2015-02,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),266,N,2015,3,2015-03,casas
@@ -29490,6 +29701,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),235,N,2025,12,2025-12,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),235,N,2026,1,2026-01,casas
 00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),235,N,2026,2,2026-02,casas
+00017,BANCO BBVA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),235,N,2026,3,2026-03,casas
 00018,MUFG BANK LTD,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00018,MUFG BANK LTD,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00018,MUFG BANK LTD,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -29673,6 +29885,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),175,N,2025,12,2025-12,casas
 00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),175,N,2026,1,2026-01,casas
 00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),171,N,2026,2,2026-02,casas
+00020,BANCO DE LA PROVINCIA DE CORDOBA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),162,N,2026,3,2026-03,casas
 00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),193,N,2015,1,2015-01,casas
 00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),193,N,2015,2,2015-02,casas
 00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),193,N,2015,3,2015-03,casas
@@ -29805,6 +30018,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),131,N,2025,12,2025-12,casas
 00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),131,N,2026,1,2026-01,casas
 00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),131,N,2026,2,2026-02,casas
+00027,BANCO SUPERVIELLE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),131,N,2026,3,2026-03,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),84,N,2015,1,2015-01,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),84,N,2015,2,2015-02,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),84,N,2015,3,2015-03,casas
@@ -29937,6 +30151,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),83,N,2025,12,2025-12,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),83,N,2026,1,2026-01,casas
 00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),82,N,2026,2,2026-02,casas
+00029,BANCO DE LA CIUDAD DE BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),82,N,2026,3,2026-03,casas
 00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),175,N,2015,1,2015-01,casas
 00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),175,N,2015,2,2015-02,casas
 00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),174,N,2015,3,2015-03,casas
@@ -30069,6 +30284,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),170,N,2025,12,2025-12,casas
 00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),169,N,2026,1,2026-01,casas
 00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),169,N,2026,2,2026-02,casas
+00034,BANCO PATAGONIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),169,N,2026,3,2026-03,casas
 00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),82,N,2015,1,2015-01,casas
 00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),83,N,2015,2,2015-02,casas
 00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),83,N,2015,3,2015-03,casas
@@ -30201,6 +30417,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2025,12,2025-12,casas
 00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2026,1,2026-01,casas
 00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2026,2,2026-02,casas
+00044,BANCO HIPOTECARIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2026,3,2026-03,casas
 00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),22,N,2015,1,2015-01,casas
 00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),22,N,2015,2,2015-02,casas
 00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),22,N,2015,3,2015-03,casas
@@ -30333,6 +30550,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),21,N,2025,12,2025-12,casas
 00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),21,N,2026,1,2026-01,casas
 00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),21,N,2026,2,2026-02,casas
+00045,BANCO DE SAN JUAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),21,N,2026,3,2026-03,casas
 00046,BANCO DO BRASIL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00046,BANCO DO BRASIL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00046,BANCO DO BRASIL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -30532,6 +30750,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00065,BANCO MUNICIPAL DE ROSARIO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2025,12,2025-12,casas
 00065,BANCO MUNICIPAL DE ROSARIO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),17,N,2026,1,2026-01,casas
 00065,BANCO MUNICIPAL DE ROSARIO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),17,N,2026,2,2026-02,casas
+00065,BANCO MUNICIPAL DE ROSARIO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),17,N,2026,3,2026-03,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),439,N,2015,1,2015-01,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),440,N,2015,2,2015-02,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),448,N,2015,3,2015-03,casas
@@ -30664,6 +30883,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),355,N,2025,12,2025-12,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),355,N,2026,1,2026-01,casas
 00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),355,N,2026,2,2026-02,casas
+00072,BANCO SANTANDER ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),346,N,2026,3,2026-03,casas
 00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),60,N,2015,1,2015-01,casas
 00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),60,N,2015,2,2015-02,casas
 00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),60,N,2015,3,2015-03,casas
@@ -30796,6 +31016,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),31,N,2025,12,2025-12,casas
 00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),31,N,2026,1,2026-01,casas
 00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),31,N,2026,2,2026-02,casas
+00083,BANCO DEL CHUBUT S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),31,N,2026,3,2026-03,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2015,1,2015-01,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2015,2,2015-02,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2015,3,2015-03,casas
@@ -30928,6 +31149,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2025,12,2025-12,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2026,1,2026-01,casas
 00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),19,N,2026,2,2026-02,casas
+00086,BANCO DE SANTA CRUZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),19,N,2026,3,2026-03,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),101,N,2015,1,2015-01,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),101,N,2015,2,2015-02,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),101,N,2015,3,2015-03,casas
@@ -31060,6 +31282,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2025,12,2025-12,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2026,1,2026-01,casas
 00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2026,2,2026-02,casas
+00093,BANCO DE LA PAMPA SOCIEDAD DE ECONOM A MIXTA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2026,3,2026-03,casas
 00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),66,N,2015,1,2015-01,casas
 00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),66,N,2015,2,2015-02,casas
 00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),66,N,2015,3,2015-03,casas
@@ -31192,6 +31415,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),55,N,2025,12,2025-12,casas
 00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),54,N,2026,1,2026-01,casas
 00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),54,N,2026,2,2026-02,casas
+00094,BANCO DE CORRIENTES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),54,N,2026,3,2026-03,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),73,N,2015,1,2015-01,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),74,N,2015,2,2015-02,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),75,N,2015,3,2015-03,casas
@@ -31324,6 +31548,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2025,12,2025-12,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2026,1,2026-01,casas
 00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2026,2,2026-02,casas
+00097,BANCO PROVINCIA DEL NEUQUEN SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2026,3,2026-03,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2022,6,2022-06,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2022,11,2022-11,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2022,12,2022-12,casas
@@ -31335,6 +31560,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00131,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2019,9,2019-09,casas
 00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2019,10,2019-10,casas
 00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2019,11,2019-11,casas
@@ -31412,6 +31638,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00143,BRUBANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -31544,6 +31771,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00147,BIBANK S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00150,Banco GGAL SA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),167,N,2015,1,2015-01,casas
 00150,Banco GGAL SA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),167,N,2015,2,2015-02,casas
 00150,Banco GGAL SA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),167,N,2015,3,2015-03,casas
@@ -31836,6 +32064,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00165,JPMORGAN CHASE BANK NATIONAL ASSOCIATION (SUCURSAL BUENOS A,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),257,N,2015,1,2015-01,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),257,N,2015,2,2015-02,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),257,N,2015,3,2015-03,casas
@@ -31968,6 +32197,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),282,N,2025,12,2025-12,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),282,N,2026,1,2026-01,casas
 00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),282,N,2026,2,2026-02,casas
+00191,BANCO CREDICOOP COOPERATIVO LIMITADO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),282,N,2026,3,2026-03,casas
 00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -32100,6 +32330,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2025,12,2025-12,casas
 00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,1,2026-01,casas
 00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,2,2026-02,casas
+00198,BANCO DE VALORES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,3,2026-03,casas
 00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5,N,2015,1,2015-01,casas
 00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5,N,2015,2,2015-02,casas
 00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5,N,2015,3,2015-03,casas
@@ -32232,6 +32463,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2025,12,2025-12,casas
 00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2026,1,2026-01,casas
 00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2026,2,2026-02,casas
+00247,BANCO ROELA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2026,3,2026-03,casas
 00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -32364,6 +32596,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00254,BANCO MARIVA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00259,BANCO BMA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),96,N,2015,1,2015-01,casas
 00259,BANCO BMA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),96,N,2015,2,2015-02,casas
 00259,BANCO BMA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),96,N,2015,3,2015-03,casas
@@ -32685,6 +32918,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00266,BNP PARIBAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00266,BNP PARIBAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00266,BNP PARIBAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00266,BNP PARIBAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2015,1,2015-01,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),16,N,2015,2,2015-02,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),16,N,2015,3,2015-03,casas
@@ -32817,6 +33051,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2025,12,2025-12,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2026,1,2026-01,casas
 00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2026,2,2026-02,casas
+00268,BANCO PROVINCIA DE TIERRA DEL FUEGO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2026,3,2026-03,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -32949,6 +33184,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00269,BANCO DE LA REPUBLICA ORIENTAL DEL URUGUAY,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -33081,6 +33317,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00277,BANCO SAENZ S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -33213,6 +33450,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00281,BANCO MERIDIAN S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),434,N,2015,1,2015-01,casas
 00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),434,N,2015,2,2015-02,casas
 00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),434,N,2015,3,2015-03,casas
@@ -33345,6 +33583,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),468,N,2025,12,2025-12,casas
 00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),468,N,2026,1,2026-01,casas
 00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),460,N,2026,2,2026-02,casas
+00285,BANCO MACRO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),452,N,2026,3,2026-03,casas
 00295,AMERICAN EXPRESS BANK LTD. SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00295,AMERICAN EXPRESS BANK LTD. SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00295,AMERICAN EXPRESS BANK LTD. SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -33483,6 +33722,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00299,BANCO COMAFI SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),69,N,2025,12,2025-12,casas
 00299,BANCO COMAFI SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),69,N,2026,1,2026-01,casas
 00299,BANCO COMAFI SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),69,N,2026,2,2026-02,casas
+00299,BANCO COMAFI SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),63,N,2026,3,2026-03,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -33615,6 +33855,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00300,BANCO DE INVERSION Y COMERCIO EXTERIOR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),35,N,2015,1,2015-01,casas
 00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),35,N,2015,2,2015-02,casas
 00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),35,N,2015,3,2015-03,casas
@@ -33747,6 +33988,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),37,N,2025,12,2025-12,casas
 00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),37,N,2026,1,2026-01,casas
 00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),37,N,2026,2,2026-02,casas
+00301,BANCO PIANO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),37,N,2026,3,2026-03,casas
 00303,BANCO FINANSUR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2015,1,2015-01,casas
 00303,BANCO FINANSUR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2015,2,2015-02,casas
 00303,BANCO FINANSUR S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2015,3,2015-03,casas
@@ -33917,6 +34159,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00305,BANCO JULIO SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00305,BANCO JULIO SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00305,BANCO JULIO SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00305,BANCO JULIO SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),15,N,2015,1,2015-01,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),15,N,2015,2,2015-02,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),15,N,2015,3,2015-03,casas
@@ -34049,6 +34292,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2025,12,2025-12,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2026,1,2026-01,casas
 00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2026,2,2026-02,casas
+00309,BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),14,N,2026,3,2026-03,casas
 00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2015,1,2015-01,casas
 00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2015,2,2015-02,casas
 00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4,N,2015,3,2015-03,casas
@@ -34181,6 +34425,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2025,12,2025-12,casas
 00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,1,2026-01,casas
 00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,2,2026-02,casas
+00310,BANCO DEL SOL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,3,2026-03,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),83,N,2015,1,2015-01,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),85,N,2015,2,2015-02,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),84,N,2015,3,2015-03,casas
@@ -34313,6 +34558,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),76,N,2025,12,2025-12,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),76,N,2026,1,2026-01,casas
 00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),76,N,2026,2,2026-02,casas
+00311,NUEVO BANCO DEL CHACO S. A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),77,N,2026,3,2026-03,casas
 00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -34445,6 +34691,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00312,BANCO VOII S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2015,1,2015-01,casas
 00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2015,2,2015-02,casas
 00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2015,3,2015-03,casas
@@ -34577,6 +34824,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2025,12,2025-12,casas
 00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2026,1,2026-01,casas
 00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),20,N,2026,2,2026-02,casas
+00315,BANCO DE FORMOSA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),19,N,2026,3,2026-03,casas
 00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -34709,6 +34957,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00319,BANCO CMF S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),51,N,2015,1,2015-01,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),51,N,2015,2,2015-02,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),51,N,2015,3,2015-03,casas
@@ -34841,6 +35090,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),57,N,2025,12,2025-12,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),57,N,2026,1,2026-01,casas
 00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),57,N,2026,2,2026-02,casas
+00321,BANCO DE SANTIAGO DEL ESTERO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),57,N,2026,3,2026-03,casas
 00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),32,N,2015,1,2015-01,casas
 00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),32,N,2015,2,2015-02,casas
 00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),32,N,2015,3,2015-03,casas
@@ -34973,6 +35223,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),30,N,2025,12,2025-12,casas
 00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),30,N,2026,1,2026-01,casas
 00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),30,N,2026,2,2026-02,casas
+00322,BANCO INDUSTRIAL S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),30,N,2026,3,2026-03,casas
 00325,BANCO BC SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00325,BANCO BC SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00325,BANCO BC SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -35140,6 +35391,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),155,N,2025,12,2025-12,casas
 00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),155,N,2026,1,2026-01,casas
 00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),155,N,2026,2,2026-02,casas
+00330,NUEVO BANCO DE SANTA FE SOCIEDAD ANONIMA,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),155,N,2026,3,2026-03,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -35272,6 +35524,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00331,BANCO CETELEM ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -35404,6 +35657,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00332,BANCO DE SERVICIOS FINANCIEROS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00336,BANCO BRADESCO ARGENTINA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00336,BANCO BRADESCO ARGENTINA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00336,BANCO BRADESCO ARGENTINA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -35624,6 +35878,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00338,BANCO DE SERVICIOS Y TRANSACCIONES S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -35756,6 +36011,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00339,RCI BANQUE S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -35888,6 +36144,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00340,BACS BANCO DE CREDITO Y SECURITIZACION S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -36020,6 +36277,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00341,BANCO MASVENTAS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2018,4,2018-04,casas
 00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2021,7,2021-07,casas
 00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2021,8,2021-08,casas
@@ -36077,6 +36335,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00384,UALA BANK S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),93,N,2015,1,2015-01,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),93,N,2015,2,2015-02,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),93,N,2015,3,2015-03,casas
@@ -36209,6 +36468,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),78,N,2025,12,2025-12,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),77,N,2026,1,2026-01,casas
 00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),77,N,2026,2,2026-02,casas
+00386,NUEVO BANCO DE ENTRE RIOS S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),77,N,2026,3,2026-03,casas
 00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2015,1,2015-01,casas
 00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2015,2,2015-02,casas
 00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),67,N,2015,3,2015-03,casas
@@ -36341,6 +36601,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2025,12,2025-12,casas
 00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2026,1,2026-01,casas
 00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2026,2,2026-02,casas
+00389,BANCO COLUMBIA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),45,N,2026,3,2026-03,casas
 00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2015,1,2015-01,casas
 00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2015,2,2015-02,casas
 00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2015,3,2015-03,casas
@@ -36473,6 +36734,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2025,12,2025-12,casas
 00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2026,1,2026-01,casas
 00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2026,2,2026-02,casas
+00426,BANCO BICA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2026,3,2026-03,casas
 00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),7,N,2015,1,2015-01,casas
 00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),7,N,2015,2,2015-02,casas
 00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),7,N,2015,3,2015-03,casas
@@ -36605,6 +36867,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2025,12,2025-12,casas
 00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2026,1,2026-01,casas
 00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2026,2,2026-02,casas
+00431,BANCO COINAG S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2026,3,2026-03,casas
 00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5,N,2016,6,2016-06,casas
 00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5,N,2016,7,2016-07,casas
 00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5,N,2016,9,2016-09,casas
@@ -36719,6 +36982,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2025,12,2025-12,casas
 00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,1,2026-01,casas
 00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,2,2026-02,casas
+00432,BANCO DE COMERCIO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,3,2026-03,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2019,10,2019-10,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2019,11,2019-11,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2019,12,2019-12,casas
@@ -36795,6 +37059,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2025,12,2025-12,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,1,2026-01,casas
 00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,2,2026-02,casas
+00435,BANCO SUCREDITO REGIONAL S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2026,3,2026-03,casas
 00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2020,1,2020-01,casas
 00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2020,2,2020-02,casas
 00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2020,3,2020-03,casas
@@ -36868,6 +37133,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+00448,BANCO DINO S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 00515,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2021,7,2021-07,casas
 00515,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2021,8,2021-08,casas
 00515,BANK OF CHINA LIMITED SUCURSAL BUENOS AIRES,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2021,9,2021-09,casas
@@ -37117,6 +37383,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),48,N,2025,12,2025-12,casas
 44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),47,N,2026,1,2026-01,casas
 44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),47,N,2026,2,2026-02,casas
+44077,COMPAÑIA FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),47,N,2026,3,2026-03,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -37249,6 +37516,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44088,VOLKSWAGEN FINANCIAL SERVICES COMPA IA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44090,IUDU COMPAÑIAA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,1,2015-01,casas
 44090,IUDU COMPAÑIAA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,2,2015-02,casas
 44090,IUDU COMPAÑIAA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),2,N,2015,3,2015-03,casas
@@ -37491,6 +37759,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44092,FCA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44092,FCA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44092,FCA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44092,FCA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -37616,6 +37885,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44093,GPAT COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -37748,6 +38018,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44094,MERCEDES-BENZ COMPA  A FINANCIERA ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -37880,6 +38151,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44095,ROMBO COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -38012,6 +38284,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44096,JOHN DEERE CREDIT COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -38144,6 +38417,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44098,PSA FINANCE ARGENTINA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -38276,6 +38550,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+44099,TOYOTA COMPAÑIA FINANCIERA DE ARGENTINA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 44100,FINANDINO COMPAÑIA FINANCIERA S.A.BANCO DINO EX FINANDINO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 44100,FINANDINO COMPAÑIA FINANCIERA S.A.BANCO DINO EX FINANDINO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 44100,FINANDINO COMPAÑIA FINANCIERA S.A.BANCO DINO EX FINANDINO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -38399,6 +38674,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+45030,NARANJA DIGITAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2015,1,2015-01,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2015,2,2015-02,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),18,N,2015,3,2015-03,casas
@@ -38531,6 +38807,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),16,N,2025,12,2025-12,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),16,N,2026,1,2026-01,casas
 45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),16,N,2026,2,2026-02,casas
+45056,MONTEMAR COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),16,N,2026,3,2026-03,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -38663,6 +38940,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2025,12,2025-12,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,1,2026-01,casas
 45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,2,2026-02,casas
+45072,REBA COMPAÑIA FINANCIERA S.A.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),3,N,2026,3,2026-03,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,1,2015-01,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,2,2015-02,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2015,3,2015-03,casas
@@ -38795,6 +39073,7 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000001,Sucursales (red pr
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2025,12,2025-12,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,1,2026-01,casas
 65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,2,2026-02,casas
+65203,CREDITO REGIONAL COMPAÑIA FINANCIERA S.A.U.,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1,N,2026,3,2026-03,casas
 AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5364,N,2015,1,2015-01,casas
 AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5365,N,2015,2,2015-02,casas
 AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),5373,N,2015,3,2015-03,casas
@@ -38927,6 +39206,7 @@ AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida +
 AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4528,N,2025,12,2025-12,casas
 AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4515,N,2026,1,2026-01,casas
 AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4493,N,2026,2,2026-02,casas
+AA000,SISTEMA FINANCIERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),4453,N,2026,3,2026-03,casas
 AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1928,N,2015,1,2015-01,casas
 AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1927,N,2015,2,2015-02,casas
 AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1927,N,2015,3,2015-03,casas
@@ -39059,6 +39339,7 @@ AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + de
 AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1701,N,2025,12,2025-12,casas
 AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1698,N,2026,1,2026-01,casas
 AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1691,N,2026,2,2026-02,casas
+AA110,BANCOS PUBLICOS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1682,N,2026,3,2026-03,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1932,N,2015,1,2015-01,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1933,N,2015,2,2015-02,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1933,N,2015,3,2015-03,casas
@@ -39191,6 +39472,7 @@ AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + o
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1852,N,2025,12,2025-12,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1844,N,2026,1,2026-01,casas
 AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1829,N,2026,2,2026-02,casas
+AA121,BANCOS LOCALES DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1808,N,2026,3,2026-03,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1275,N,2015,1,2015-01,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1276,N,2015,2,2015-02,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),1283,N,2015,3,2015-03,casas
@@ -39323,6 +39605,7 @@ AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. +
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),888,N,2025,12,2025-12,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),887,N,2026,1,2026-01,casas
 AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),887,N,2026,2,2026-02,casas
+AA123,BANCOS LOCALES DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),878,N,2026,3,2026-03,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),94,N,2015,1,2015-01,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),94,N,2015,2,2015-02,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),94,N,2015,3,2015-03,casas
@@ -39455,6 +39738,7 @@ AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales 
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),10,N,2025,12,2025-12,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),10,N,2026,1,2026-01,casas
 AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),10,N,2026,2,2026-02,casas
+AA124,BANCOS SUCURSALES ENTIDADES FINANCIERAS DEL EXTERIOR,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2026,3,2026-03,casas
 AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),135,N,2015,1,2015-01,casas
 AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),135,N,2015,2,2015-02,casas
 AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),136,N,2015,3,2015-03,casas
@@ -39587,6 +39871,7 @@ AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringi
 AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),77,N,2025,12,2025-12,casas
 AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),76,N,2026,1,2026-01,casas
 AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),76,N,2026,2,2026-02,casas
+AA200,COMPAÑIAS FINANCIERAS,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),76,N,2026,3,2026-03,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),126,N,2015,1,2015-01,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),126,N,2015,2,2015-02,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),127,N,2015,3,2015-03,casas
@@ -39719,6 +40004,7 @@ AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),69,N,2025,12,2025-12,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2026,1,2026-01,casas
 AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2026,2,2026-02,casas
+AA210,COMPAÑIAS FINANCIERAS DE CAPITAL NACIONAL,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),68,N,2026,3,2026-03,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2015,1,2015-01,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2015,2,2015-02,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),9,N,2015,3,2015-03,casas
@@ -39851,3 +40137,4 @@ AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexo
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2025,12,2025-12,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2026,1,2026-01,casas
 AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2026,2,2026-02,casas
+AA220,COMPAÑIAS FINANCIERAS  DE CAPITAL EXTRANJERO,991000006,Sucursales + anexos (suc. + op. restringida + dependencias),8,N,2026,3,2026-03,casas
