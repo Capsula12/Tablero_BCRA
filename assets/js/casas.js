@@ -31,11 +31,11 @@
   };
   // Colores de marcadores en mapa y barras / líneas en charts.
   const CATEGORY_COLOR = {
-    sucursal: "#2563eb",                 // azul
-    cajero: "#16a34a",                   // verde
-    terminal_autoservicio: "#d97706",    // naranja
-    dependencia_automatizada: "#7c3aed", // violeta
-    operatoria_restringida: "#dc2626",   // rojo
+    sucursal: "#1890d8",                 // azul de marca
+    cajero: "#0e9e74",                   // verde-teal de marca
+    terminal_autoservicio: "#e8a23d",    // ámbar
+    dependencia_automatizada: "#6d5bd0", // violeta
+    operatoria_restringida: "#c62f38",   // rojo
   };
 
   const cache = {

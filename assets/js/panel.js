@@ -250,8 +250,8 @@
             x: xs, y: ys,
             mode: "lines+markers",
             type: "scatter",
-            line: { color: "#2563eb", width: 2.4, shape: "linear" },
-            marker: { size: 5, color: "#2563eb" },
+            line: { color: "#1890d8", width: 2.4, shape: "linear" },
+            marker: { size: 5, color: "#1890d8" },
             hovertemplate: "<b>%{x}</b><br>" + (String(formato).toUpperCase() === "P" ? "%{y:.2f}%" : "%{y:,.2f}") + "<extra></extra>",
           };
           const layout = JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT));

@@ -23,7 +23,7 @@
     return `
       <div class="topbar">
         <a href="index.html" class="brand">
-          <span class="brand-mark">B</span>
+          <span class="brand-logo"><img src="assets/img/logo.png" alt="La Bancaria" loading="eager"></span>
           <span>Tablero BCRA</span>
         </a>
         <nav class="nav">${navHtml}</nav>
@@ -73,7 +73,10 @@
     if (!el) return;
     el.innerHTML = `
       <div class="footer">
-        <div>Datos: BCRA + INDEC. Reglas: outliers % &gt; 99000 ignorados; valores 0 reemplazados por el mes previo.</div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid var(--border);border-radius:7px;padding:4px 7px;box-shadow:0 1px 2px rgba(16,40,60,.12)"><img src="assets/img/logo.png" alt="La Bancaria" style="height:18px;display:block"></span>
+          <span>Datos: BCRA + INDEC. Reglas: outliers % &gt; 99000 ignorados; valores 0 reemplazados por el mes previo.</span>
+        </div>
         <div>
           <a href="https://github.com/Capsula12/Tablero_BCRA" target="_blank" rel="noopener">Capsula12/Tablero_BCRA</a>
         </div>
@@ -425,32 +428,32 @@
   const PLOTLY_LAYOUT = {
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor: "rgba(0,0,0,0)",
-    font: { color: "#0f172a", family: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif", size: 12 },
+    font: { color: "#0e2233", family: "IBM Plex Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif", size: 12 },
     margin: { l: 50, r: 18, t: 30, b: 40 },
     xaxis: {
-      gridcolor: "#e2e8f0",
-      zerolinecolor: "#cbd5e1",
-      linecolor: "#cbd5e1",
-      tickfont: { color: "#475569", size: 11 },
-      title: { font: { color: "#64748b", size: 11 } },
+      gridcolor: "#e6ecf1",
+      zerolinecolor: "#c2ccd6",
+      linecolor: "#c2ccd6",
+      tickfont: { color: "#46586a", size: 11 },
+      title: { font: { color: "#6b7c8c", size: 11 } },
     },
     yaxis: {
-      gridcolor: "#e2e8f0",
-      zerolinecolor: "#cbd5e1",
-      linecolor: "#cbd5e1",
-      tickfont: { color: "#475569", size: 11 },
-      title: { font: { color: "#64748b", size: 11 } },
+      gridcolor: "#e6ecf1",
+      zerolinecolor: "#c2ccd6",
+      linecolor: "#c2ccd6",
+      tickfont: { color: "#46586a", size: 11 },
+      title: { font: { color: "#6b7c8c", size: 11 } },
     },
     legend: {
       bgcolor: "rgba(255,255,255,0)",
-      font: { color: "#334155", size: 11 },
+      font: { color: "#46586a", size: 11 },
       orientation: "h",
       y: -0.18,
     },
     hoverlabel: {
       bgcolor: "#ffffff",
-      bordercolor: "#cbd5e1",
-      font: { color: "#0f172a", size: 12 },
+      bordercolor: "#c2ccd6",
+      font: { color: "#0e2233", size: 12 },
     },
   };
 
@@ -461,12 +464,14 @@
     modeBarButtonsToRemove: ["lasso2d", "select2d", "autoScale2d"],
   };
 
-  // Color palette for series — saturated enough to read on white background,
-  // ColorBrewer-inspired and roughly color-blind friendly.
+  // Color palette for series — anclada en la identidad La Bancaria (los 6
+  // primeros son la paleta categórica del sistema de diseño) y extendida con
+  // tonos distinguibles, legibles sobre fondo claro y razonablemente
+  // color-blind friendly.
   const COLORS = [
-    "#2563eb", "#7c3aed", "#16a34a", "#d97706", "#dc2626",
-    "#0891b2", "#db2777", "#65a30d", "#9333ea", "#ea580c",
-    "#0284c7", "#be185d", "#15803d", "#a16207", "#475569",
+    "#0e9e74", "#1890d8", "#123c6b", "#e8a23d", "#6d5bd0",
+    "#2ba8e0", "#c62f38", "#0a6e52", "#1268a8", "#b5179e",
+    "#5c8001", "#9a6212", "#45c0e8", "#7a5195", "#475569",
   ];
   function colorFor(idx) { return COLORS[idx % COLORS.length]; }
 

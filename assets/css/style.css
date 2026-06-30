@@ -5,53 +5,62 @@
    ============================================================================= */
 
 :root {
+  /* ===========================================================================
+     Identidad "La Bancaria" — Asociación Bancaria.
+     Token names preserved from the previous palette so every component keeps
+     working; only the values change. Paleta y tipografía del sistema de diseño.
+     =========================================================================== */
+
   /* --- Surfaces / neutrals -------------------------------------------------- */
-  --bg: #f5f7fb;          /* page background — soft slate */
-  --bg-2: #eef2f7;        /* secondary surface (code, formula) */
+  --bg: #eef2f6;          /* page background — slate La Bancaria */
+  --bg-2: #e8eef3;        /* secondary surface (code, formula) */
   --surface: #ffffff;     /* cards */
-  --surface-2: #f8fafc;   /* hover / inputs */
-  --surface-3: #eef2f7;   /* chips, active rows */
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
+  --surface-2: #f5f8fb;   /* hover / inputs */
+  --surface-3: #e8eef3;   /* chips, active rows */
+  --border: #dae1e8;
+  --border-strong: #c2ccd6;
 
   /* --- Brand --------------------------------------------------------------- */
-  --primary: #2563eb;          /* blue-600 */
-  --primary-soft: #1d4ed8;     /* blue-700 — for hover / accents */
-  --primary-tint: #eff6ff;     /* blue-50 — soft background tints */
-  --primary-glow: rgba(37, 99, 235, 0.16);
-  --accent: #7c3aed;           /* violet-600 — secondary accent */
-  --accent-tint: #f5f3ff;
+  --primary: #1268a8;          /* azul acción (pasa AA con texto blanco) */
+  --primary-soft: #0f5a92;     /* azul acción hover — para hover / acentos */
+  --primary-tint: #e7f1fa;     /* azul muy suave — fondos de chips/tints */
+  --primary-glow: rgba(18, 104, 168, 0.16);
+  --accent: #0e9e74;           /* verde-teal de marca — acento secundario */
+  --accent-tint: #e3f4ed;
+  --navy: #123c6b;             /* azul profundo — encabezados / topbar */
 
   /* --- Semantic ------------------------------------------------------------ */
-  --success: #15803d;
-  --success-tint: #f0fdf4;
-  --danger: #dc2626;
-  --danger-tint: #fef2f2;
-  --warning: #b45309;
-  --warning-tint: #fffbeb;
-  --info: #1d4ed8;
-  --info-tint: #eff6ff;
+  --success: #0a6e52;
+  --success-tint: #e3f4ed;
+  --danger: #c62f38;
+  --danger-tint: #fce9ea;
+  --warning: #9a6212;
+  --warning-tint: #fbf1df;
+  --info: #1268a8;
+  --info-tint: #e7f1fa;
 
   /* --- Text ---------------------------------------------------------------- */
-  --text: #0f172a;        /* slate-900 */
-  --text-soft: #334155;   /* slate-700 */
-  --text-muted: #64748b;  /* slate-500 */
-  --text-dim: #94a3b8;    /* slate-400 */
+  --text: #0e2233;        /* ink */
+  --text-soft: #46586a;   /* ink-2 */
+  --text-muted: #6b7c8c;  /* ink-3 */
+  --text-dim: #9daab5;    /* ink-4 */
 
   /* --- Effects ------------------------------------------------------------- */
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.12), 0 6px 12px rgba(15, 23, 42, 0.06);
+  --shadow-xs: 0 1px 2px rgba(16, 40, 60, 0.05);
+  --shadow-sm: 0 1px 3px rgba(16, 40, 60, 0.07), 0 1px 2px rgba(16, 40, 60, 0.05);
+  --shadow-md: 0 6px 16px rgba(16, 40, 60, 0.09), 0 2px 4px rgba(16, 40, 60, 0.05);
+  --shadow-lg: 0 18px 40px rgba(16, 40, 60, 0.13), 0 6px 12px rgba(16, 40, 60, 0.07);
 
   --radius-sm: 6px;
   --radius: 10px;
   --radius-lg: 14px;
 
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-               "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+               "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-display: "Archivo", var(--font-sans);
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "JetBrains Mono",
+               Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -74,8 +83,8 @@ body {
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(1200px 600px at 0% -10%, rgba(37, 99, 235, 0.06), transparent 60%),
-    radial-gradient(900px 500px at 100% 0%, rgba(124, 58, 237, 0.05), transparent 55%),
+    radial-gradient(1200px 600px at 0% -10%, rgba(18, 104, 168, 0.06), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(14, 158, 116, 0.05), transparent 55%),
     var(--bg);
 }
 
@@ -113,23 +122,23 @@ button { font-family: inherit; }
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: 15px;
   letter-spacing: -0.1px;
   color: var(--text);
 }
-.topbar .brand-mark {
+/* Logo La Bancaria: siempre sobre chip blanco para leer en cualquier fondo. */
+.topbar .brand-logo {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 30px; height: 30px;
+  background: #fff;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
-  font-weight: 800;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+  padding: 4px 7px;
+  box-shadow: 0 1px 3px rgba(16, 40, 60, 0.16);
 }
+.topbar .brand-logo img { height: 20px; display: block; }
 
 .nav {
   display: flex;
@@ -151,7 +160,7 @@ button { font-family: inherit; }
 .nav a.active {
   background: var(--primary-tint);
   color: var(--primary-soft);
-  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(18, 104, 168, 0.18);
 }
 
 .topbar .spacer { flex: 1; }
@@ -193,8 +202,9 @@ button { font-family: inherit; }
   margin-bottom: 20px;
 }
 .page-title {
+  font-family: var(--font-display);
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 4px 0;
   letter-spacing: -0.4px;
   color: var(--text);
@@ -315,7 +325,7 @@ label.field-label {
   background: linear-gradient(180deg, var(--primary), var(--primary-soft));
   border-color: var(--primary-soft);
   color: #fff;
-  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.18), 0 4px 12px rgba(37, 99, 235, 0.22);
+  box-shadow: 0 1px 2px rgba(18, 104, 168, 0.18), 0 4px 12px rgba(18, 104, 168, 0.22);
 }
 .btn.primary:hover {
   filter: brightness(1.05);
@@ -405,7 +415,7 @@ label.field-label {
   font-size: 12px;
   font-weight: 500;
   border-radius: 6px;
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(18, 104, 168, 0.2);
   max-width: 100%;
 }
 .multiselect .chip .x {
@@ -896,7 +906,7 @@ code.mono {
   font-weight: 600;
   font-size: 12.5px;
   background: var(--primary-tint);
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(18, 104, 168, 0.2);
   color: var(--primary-soft);
   border-radius: 8px;
   padding: 4px 10px;
@@ -936,7 +946,7 @@ code.mono {
   background: linear-gradient(90deg, var(--primary), var(--accent));
   border-radius: 999px;
   pointer-events: none;
-  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 0 0 1px rgba(18, 104, 168, 0.18);
 }
 .range-slider .rs-thumb {
   position: absolute;
@@ -981,7 +991,7 @@ body.rs-dragging * { cursor: grabbing !important; user-select: none; }
 .range-slider .rs-shortcut:hover {
   background: var(--primary-tint);
   color: var(--primary-soft);
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(18, 104, 168, 0.3);
 }
 
 /* =============================================================================
@@ -1109,8 +1119,9 @@ body.rs-dragging * { cursor: grabbing !important; user-select: none; }
   .hero { grid-template-columns: 1.4fr 1fr; align-items: center; }
 }
 .hero h1 {
+  font-family: var(--font-display);
   font-size: 42px;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.08;
   margin: 0 0 16px;
   letter-spacing: -1.2px;
@@ -1165,7 +1176,7 @@ body.rs-dragging * { cursor: grabbing !important; user-select: none; }
   box-shadow: var(--shadow-xs);
 }
 .feature-card:hover {
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(18, 104, 168, 0.3);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -1176,9 +1187,9 @@ body.rs-dragging * { cursor: grabbing !important; user-select: none; }
   background: linear-gradient(135deg, var(--primary-tint), var(--accent-tint));
   color: var(--primary);
   font-size: 20px;
-  border: 1px solid rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(18, 104, 168, 0.18);
 }
-.feature-card h3 { margin: 0; font-size: 16px; color: var(--text); letter-spacing: -0.2px; }
+.feature-card h3 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--text); letter-spacing: -0.2px; }
 .feature-card p { margin: 0; font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
 .feature-card .arrow {
   margin-top: auto;

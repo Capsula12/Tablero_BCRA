@@ -75,29 +75,32 @@ Tablero_BCRA/
 
 ## Diseño / sistema visual
 
-El tablero usa un **tema claro** (light), con paleta y tipografía pensadas para dashboards analíticos (referencias: Stripe, Linear, Vercel, Tableau). Todos los tokens viven como custom properties en `:root` dentro de `assets/css/style.css` — para retocar la paleta cambiá los tokens, **no toques los componentes**.
+El tablero usa el **sistema de diseño de La Bancaria** (Asociación Bancaria) en **tema claro**: paleta de marca (verde-teal, azul, navy, cyan) y tipografía Archivo + IBM Plex aplicadas a un dashboard analítico. Todos los tokens viven como custom properties en `:root` dentro de `assets/css/style.css` — para retocar la paleta cambiá los tokens, **no toques los componentes** (los nombres de token se conservaron del esquema anterior, así que sólo cambian los valores).
 
 ### Tokens principales (`assets/css/style.css :root`)
 
 | Categoría | Token | Valor | Uso |
 |---|---|---|---|
-| Fondo | `--bg` | `#f5f7fb` | fondo de página |
-| Fondo | `--bg-2` | `#eef2f7` | code, formula display, help-body |
+| Fondo | `--bg` | `#eef2f6` | fondo de página |
+| Fondo | `--bg-2` | `#e8eef3` | code, formula display, help-body |
 | Superficie | `--surface` | `#ffffff` | cards, inputs, dropdowns |
-| Superficie | `--surface-2` | `#f8fafc` | hover, table headers, combo-search |
-| Superficie | `--surface-3` | `#eef2f7` | seg-control track, hover en options |
-| Borde | `--border` / `--border-strong` | `#e2e8f0` / `#cbd5e1` | bordes default / hover |
-| Brand | `--primary` / `--primary-soft` | `#2563eb` / `#1d4ed8` (blue-600/700) | acento principal |
-| Brand | `--primary-tint` | `#eff6ff` | fondos suaves (chips, hover de nav, ranking de columna activa) |
-| Brand | `--accent` / `--accent-tint` | `#7c3aed` / `#f5f3ff` | acento secundario (gradientes, group-tag, formula op) |
-| Semántico | `--success` / `--danger` / `--warning` | `#15803d` / `#dc2626` / `#b45309` | deltas, notices |
-| Texto | `--text` / `--text-soft` / `--text-muted` / `--text-dim` | `#0f172a` / `#334155` / `#64748b` / `#94a3b8` | jerarquía slate-900 → slate-400 |
+| Superficie | `--surface-2` | `#f5f8fb` | hover, table headers, combo-search |
+| Superficie | `--surface-3` | `#e8eef3` | seg-control track, hover en options |
+| Borde | `--border` / `--border-strong` | `#dae1e8` / `#c2ccd6` | bordes default / hover |
+| Brand | `--primary` / `--primary-soft` | `#1268a8` / `#0f5a92` (azul acción) | acento principal (pasa AA con texto blanco) |
+| Brand | `--primary-tint` | `#e7f1fa` | fondos suaves (chips, hover de nav, ranking de columna activa) |
+| Brand | `--accent` / `--accent-tint` | `#0e9e74` / `#e3f4ed` (verde-teal) | acento secundario (gradientes, group-tag, formula op) |
+| Brand | `--navy` | `#123c6b` | encabezados / texto fuerte |
+| Semántico | `--success` / `--danger` / `--warning` | `#0a6e52` / `#c62f38` / `#9a6212` | deltas, notices |
+| Texto | `--text` / `--text-soft` / `--text-muted` / `--text-dim` | `#0e2233` / `#46586a` / `#6b7c8c` / `#9daab5` | jerarquía ink → ink-4 |
 
 ### Tipografía
 
-- Stack: `Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ...` (system-first; si `Inter` está instalado o cacheado se usa, si no cae al sans serif del SO).
+- **Display** (`--font-display`): `Archivo` (700–900) para titulares — `.brand`, `.page-title`, `.hero h1`, `.feature-card h3`.
+- **Texto y datos** (`--font-sans`): `IBM Plex Sans, system-ui, -apple-system, ...` (con `Inter`-style fallback al sans del SO si no hay red). Mono (`--font-mono`): `IBM Plex Mono`.
+- Las fuentes se cargan por Google Fonts (`<link>` en cada HTML) con **fallback a `system-ui`**: si no hay red, el tablero sigue funcionando con la tipografía del sistema.
 - Base: `14.5px / 1.55`. KPIs `26px`. `h1` page title `26px`, hero `42px` con `letter-spacing: -1.2px`.
-- Números siempre con `font-variant-numeric: tabular-nums` y/o `var(--font-mono)` para que las columnas alineen en tablas y deltas.
+- Números siempre con `font-variant-numeric: tabular-nums` y/o `var(--font-mono)` para que las columnas alineen en tablas y deltas (los números quedan en IBM Plex Sans, no en Archivo, para conservar el tabular-nums).
 
 ### Componentes (clases preservadas — no renombrar)
 
@@ -105,7 +108,7 @@ El tablero usa un **tema claro** (light), con paleta y tipografía pensadas para
 
 ### Plotly (charts)
 
-Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo transparente, grids `#e2e8f0`, ticks `#475569`, hoverlabel blanco con borde `#cbd5e1`. La paleta de series es `UI.COLORS` (15 colores saturados, color-blind-friendly-ish, todos con buen contraste sobre blanco). Las páginas (`panel.js`, `series.js`, `calc.js`) clonan el layout default y sólo overridean lo específico (títulos de ejes, márgenes). **Si agregás un chart nuevo, partí siempre de `JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT))` — no hardcodees colores ni la fuente.**
+Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo transparente, grids `#e6ecf1`, ticks `#46586a`, hoverlabel blanco con borde `#c2ccd6`, fuente IBM Plex Sans. La paleta de series es `UI.COLORS` (15 colores anclados en la paleta categórica de marca — teal, azul, navy, ámbar, violeta, cyan — y extendida con tonos distinguibles, color-blind-friendly-ish, todos con buen contraste sobre blanco). Las páginas (`panel.js`, `series.js`, `calc.js`) clonan el layout default y sólo overridean lo específico (títulos de ejes, márgenes). **Si agregás un chart nuevo, partí siempre de `JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT))` — no hardcodees colores ni la fuente.**
 
 ### Reglas para mantener consistencia
 
@@ -113,7 +116,7 @@ Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo trans
 2. Los chips, tags y "tints" usan el patrón `tint background + border al 20-25% del color base + texto en la versión `-soft`/`-700`` para legibilidad sobre claro.
 3. Sombras siempre vía las cuatro escalas (`--shadow-xs/sm/md/lg`). Los cards default usan `--shadow-xs`; el hover sube a `--shadow-sm` o `--shadow-md`; los dropdowns usan `--shadow-lg`.
 4. Para porcentajes / variaciones: `delta-pos` (verde) / `delta-neg` (rojo) / `delta-zero|na` (gris) — definidos en `style.css` y usados en Panel y Ranking.
-5. **No agregar dependencias de fuentes externas** (Google Fonts, etc.) — el sistema tipográfico funciona 100% sin red. `Inter` está sólo como first-choice del stack.
+5. **Fuentes de marca por Google Fonts con fallback**: Archivo + IBM Plex se cargan por `<link>` en cada HTML, pero el stack cae a `system-ui` si no hay red, así que el tablero nunca depende de la conexión para ser usable. Los logos viven en `assets/img/` (`logo.png` full color para el chip blanco de la topbar/footer; `logo-navy.png` / `logo-white.png` para marca de agua).
 
 ---
 
