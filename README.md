@@ -17,7 +17,7 @@ Tablero web 100% estático para explorar variables del sistema financiero argent
 | [Series](series.html) | Compará un mismo indicador en varias entidades a lo largo del tiempo. |
 | [Calculadora](calc.html) | Construí fórmulas combinando indicadores con operadores y paréntesis. |
 | [Ranking](ranking.html) | Top N de entidades por valor del mes, variación interanual y variación mensual. |
-| [Sucursales](sucursales.html) | Red de atención física: sucursales, cajeros, terminales de autoservicio, dependencias y operatoria restringida. Mapa choropleth + mapa interactivo (Leaflet), resumen con KPIs y evolución mensual. |
+| [Sucursales](sucursales.html) | Red de atención física: sucursales, cajeros, terminales de autoservicio, dependencias y operatoria restringida. Mapa coroplético por provincia (D3, escala raíz + inset CABA) + mapa interactivo de puntos (Leaflet), resumen con KPIs y evolución mensual. |
 
 Toggle global **Moneda homogénea (IPC INDEC)** en la topbar — deflacta los nominales en pesos a precios del último mes con IPC.
 
@@ -64,7 +64,8 @@ Tablero_BCRA/
 │  ├─ casas_indicadores.csv               # casas como indicadores (origen=casas), incl. 991000006 combinado
 │  ├─ casas_serie_mensual.csv             # conteos por entidad × mes × categoría × provincia (+ partido PBA)
 │  ├─ casas_ubicaciones_latest.csv        # snapshot del último mes con lat/lon (mapa interactivo)
-│  ├─ argentina_provincias.geo.json       # GeoJSON de provincias para el choropleth
+│  ├─ provincias_d3.geo.json              # GeoJSON de provincias (d3-compatible) para el coroplético D3
+│  ├─ argentina_provincias.geo.json       # GeoJSON viejo (Leaflet); conservado por si se revierte
 │  └─ _manifest.json                      # lista de años disponibles para la carga lazy
 │
 └─ .github/workflows/
