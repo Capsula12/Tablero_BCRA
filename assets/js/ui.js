@@ -74,7 +74,7 @@
     el.innerHTML = `
       <div class="footer">
         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid var(--border);border-radius:7px;padding:4px 7px;box-shadow:0 1px 2px rgba(16,40,60,.12)"><img src="assets/img/logo.png" alt="La Bancaria" style="height:18px;display:block"></span>
+          <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid var(--border);border-radius:7px;padding:5px 8px;box-shadow:0 1px 2px rgba(16,40,60,.12)"><img src="assets/img/logo.png" alt="La Bancaria" style="height:22px;display:block"></span>
           <span>Datos: BCRA + INDEC. Reglas: outliers % &gt; 99000 ignorados; valores 0 reemplazados por el mes previo.</span>
         </div>
         <div>

@@ -138,7 +138,8 @@ button { font-family: inherit; }
   padding: 4px 7px;
   box-shadow: 0 1px 3px rgba(16, 40, 60, 0.16);
 }
-.topbar .brand-logo img { height: 20px; display: block; }
+/* Estándar del sistema: logo de 26 px (celular) a 32 px (desktop), fluido. */
+.topbar .brand-logo img { height: clamp(26px, 6vw, 32px); display: block; }
 
 .nav {
   display: flex;
@@ -1231,12 +1232,32 @@ body.rs-dragging * { cursor: grabbing !important; user-select: none; }
    Mobile
    ============================================================================= */
 @media (max-width: 720px) {
-  .topbar { padding: 10px 14px; gap: 8px; flex-wrap: wrap; }
-  .nav { margin-left: 0; }
+  .topbar { padding: 10px 14px; gap: 10px 12px; flex-wrap: wrap; }
+  .topbar .brand { font-size: 14px; }
+  /* La nav baja a una segunda fila y scrollea en horizontal en vez de
+     amontonarse: queda una sola línea prolija que se desliza con el dedo. */
+  .nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { flex: 0 0 auto; }
+  .topbar .actions { margin-left: auto; }
   .container { padding: 16px 14px 60px; }
   .hero { padding-top: 16px; }
   .hero h1 { font-size: 30px; letter-spacing: -0.7px; }
   .hero p.lead { font-size: 15px; }
   .calc-row { grid-template-columns: 60px 60px 1fr 32px; }
   .page-title { font-size: 22px; }
+}
+/* En pantallas muy chicas el enlace a GitHub se oculta del topbar (sigue en
+   el footer) para dar aire a la marca y al toggle de moneda homogénea. */
+@media (max-width: 560px) {
+  .gh-link { display: none; }
 }
