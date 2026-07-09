@@ -138,8 +138,10 @@ button { font-family: inherit; }
   padding: 4px 7px;
   box-shadow: 0 1px 3px rgba(16, 40, 60, 0.16);
 }
-/* Estándar del sistema: logo de 26 px (celular) a 32 px (desktop), fluido. */
-.topbar .brand-logo img { height: clamp(26px, 6vw, 32px); display: block; }
+/* Logo de 32 px (celular) a 44 px (desktop), fluido. El PNG es de alta
+   resolución (~1570 px de ancho, rasterizado del PDF vectorial del design
+   system — ver assets/LEEME.txt de ese repo), se banca cualquier tamaño. */
+.topbar .brand-logo img { height: clamp(32px, 7vw, 44px); display: block; }
 
 .nav {
   display: flex;
