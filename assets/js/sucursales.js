@@ -642,7 +642,8 @@
     if (v == null || !Number.isFinite(v)) return { text: "—", cls: "delta-na" };
     const sign = v > 0 ? "+" : "";
     const cls = v > 0 ? "delta-pos" : v < 0 ? "delta-neg" : "delta-zero";
-    return { text: `${sign}${v.toFixed(1)}%`, cls };
+    // Coma decimal (es-AR), consistente con BCRA.fmtDelta del resto del sitio.
+    return { text: `${sign}${v.toFixed(1).replace(".", ",")}%`, cls };
   }
 
   // ===========================================================================

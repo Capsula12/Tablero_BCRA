@@ -423,9 +423,48 @@
   }
 
   // -------------------------------------------------------------------------
+  // Plotly — locale es-AR
+  // PLOTLY_CONFIG declara locale "es-AR", pero Plotly necesita el diccionario
+  // registrado para usarlo (si no, cae silenciosamente al inglés: "Apr 2025",
+  // decimales con punto). Se registra inline para no sumar otro <script> CDN.
+  // Cubre: nombres de meses/días en ejes de fecha, separadores (coma decimal,
+  // punto de miles — reforzado con layout.separators) y textos del modebar.
+  // -------------------------------------------------------------------------
+  if (typeof Plotly !== "undefined" && Plotly.register) {
+    Plotly.register({
+      moduleType: "locale",
+      name: "es-AR",
+      dictionary: {
+        "Zoom": "Zoom",
+        "Pan": "Desplazar",
+        "Zoom in": "Acercar",
+        "Zoom out": "Alejar",
+        "Reset axes": "Restablecer ejes",
+        "Download plot as a png": "Descargar como png",
+        "Toggle Spike Lines": "Alternar líneas guía",
+        "Show closest data on hover": "Mostrar el dato más cercano",
+        "Compare data on hover": "Comparar datos al pasar el cursor",
+      },
+      format: {
+        days: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+        shortDays: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+        months: ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+                 "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+        shortMonths: ["ene", "feb", "mar", "abr", "may", "jun",
+                      "jul", "ago", "sep", "oct", "nov", "dic"],
+        date: "%d/%m/%Y",
+        decimal: ",",
+        thousands: ".",
+      },
+    });
+  }
+
+  // -------------------------------------------------------------------------
   // Plotly default layout (dark theme)
   // -------------------------------------------------------------------------
   const PLOTLY_LAYOUT = {
+    // Separadores es-AR: coma decimal, punto de miles (aplica a ticks y hover).
+    separators: ",.",
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor: "rgba(0,0,0,0)",
     font: { color: "#0e2233", family: "IBM Plex Sans, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif", size: 12 },

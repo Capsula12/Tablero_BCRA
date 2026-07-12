@@ -109,7 +109,9 @@ El tablero usa el **sistema de diseño de La Bancaria** (Asociación Bancaria) e
 
 ### Plotly (charts)
 
-Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo transparente, grids `#e6ecf1`, ticks `#46586a`, hoverlabel blanco con borde `#c2ccd6`, fuente IBM Plex Sans. La paleta de series es `UI.COLORS` (15 colores anclados en la paleta categórica de marca — teal, azul, navy, ámbar, violeta, cyan — y extendida con tonos distinguibles, color-blind-friendly-ish, todos con buen contraste sobre blanco). Las páginas (`panel.js`, `series.js`, `calc.js`) clonan el layout default y sólo overridean lo específico (títulos de ejes, márgenes). **Si agregás un chart nuevo, partí siempre de `JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT))` — no hardcodees colores ni la fuente.**
+Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo transparente, grids `#e6ecf1`, ticks `#46586a`, hoverlabel blanco con borde `#c2ccd6`, fuente IBM Plex Sans.
+
+**Locale es-AR**: `PLOTLY_CONFIG` declara `locale: "es-AR"`, pero Plotly ignora silenciosamente un locale sin diccionario registrado (los ejes de fecha quedaban "Apr 2025" y los decimales con punto). Por eso `ui.js` registra el locale inline (`Plotly.register({moduleType:'locale', name:'es-AR', ...})` con meses/días en español y `decimal:','`/`thousands:'.'`) **antes** de definir `PLOTLY_LAYOUT`, y el layout default trae `separators: ",."` para que ticks numéricos y hover usen coma decimal y punto de miles. No hace falta tocar nada por página: cualquier chart que parta de `UI.PLOTLY_LAYOUT` + `UI.PLOTLY_CONFIG` sale localizado. Si se actualiza la versión de Plotly, verificar que el registro siga funcionando (un chart de fechas debe mostrar "abr 2025", no "Apr 2025"). La paleta de series es `UI.COLORS` (15 colores anclados en la paleta categórica de marca — teal, azul, navy, ámbar, violeta, cyan — y extendida con tonos distinguibles, color-blind-friendly-ish, todos con buen contraste sobre blanco). Las páginas (`panel.js`, `series.js`, `calc.js`) clonan el layout default y sólo overridean lo específico (títulos de ejes, márgenes). **Si agregás un chart nuevo, partí siempre de `JSON.parse(JSON.stringify(UI.PLOTLY_LAYOUT))` — no hardcodees colores ni la fuente.**
 
 ### Reglas para mantener consistencia
 
@@ -118,6 +120,8 @@ Defaults centralizados en `UI.PLOTLY_LAYOUT` (`assets/js/ui.js`) — fondo trans
 3. Sombras siempre vía las cuatro escalas (`--shadow-xs/sm/md/lg`). Los cards default usan `--shadow-xs`; el hover sube a `--shadow-sm` o `--shadow-md`; los dropdowns usan `--shadow-lg`.
 4. Para porcentajes / variaciones: `delta-pos` (verde) / `delta-neg` (rojo) / `delta-zero|na` (gris) — definidos en `style.css` y usados en Panel y Ranking.
 5. **Fuentes de marca por Google Fonts con fallback**: Archivo + IBM Plex se cargan por `<link>` en cada HTML, pero el stack cae a `system-ui` si no hay red, así que el tablero nunca depende de la conexión para ser usable. Los logos viven en `assets/img/` (`logo.png` full color para el chip blanco de la topbar/footer; `logo-navy.png` / `logo-white.png` para marca de agua).
+6. **Favicon de marca**: SVG inline (data URI, idéntico en los 6 HTML) — caja redondeada con el gradiente `#0E9E74 → #123C6B` y una "B" blanca. Es el estándar del design system (ver `Adaptación de identidad para tableros/LEEME.txt`): cada tablero usa su inicial sobre el mismo gradiente (TABLERO_DEUDAS usa "D"). Si se cambia, cambiarlo en las 6 páginas a la vez.
+7. **Números y fechas en es-AR en todas partes**: los valores formateados en JS usan `Intl.NumberFormat("es-AR")` (`BCRA.fmtValue`/`fmtDelta`) o `toFixed().replace(".", ",")` (deltas de Sucursales); los charts quedan cubiertos por el locale de Plotly (regla de la sección Plotly). Si un número visible muestra punto decimal, es un bug.
 
 ---
 
